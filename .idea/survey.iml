@@ -40,6 +40,14 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/phpspec/phpspec/features/bootstrap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/fallback" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/fallback" isTestSource="false" packagePrefix="Apc" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/alpha" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/Apc/beta" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/alpha" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader/Symfony/Component/ClassLoader/Tests/Fixtures/beta" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
