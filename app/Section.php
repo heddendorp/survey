@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Section
  *
- * @property-read \Survey\Questionnaire $questionnaire 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Questiongroup[] $questiongroup 
+ * @property-read \Survey\Questionnaire $questionnaire
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Questiongroup[] $questiongroup
  */
 class Section extends Model {
 
