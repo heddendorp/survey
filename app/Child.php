@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Child
  *
- * @property-read \Survey\Group $group 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Token[] $tokens 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Answer[] $answers 
+ * @property-read \Survey\Group $group
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Token[] $tokens
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Answer[] $answers
  */
 class Child extends Model {
 
