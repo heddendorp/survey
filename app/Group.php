@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Group
  *
- * @property-read \Survey\Facility $facility 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children 
+ * @property-read \Survey\Facility $facility
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children
  */
 class Group extends Model {
 
