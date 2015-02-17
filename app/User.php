@@ -9,8 +9,8 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 /**
  * Survey\User
  *
- * @property-read \Survey\Customer $customer 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Group[] $groups 
+ * @property-read \Survey\Customer $customer
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Group[] $groups
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
