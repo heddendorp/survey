@@ -1,23 +1,23 @@
-<?php namespace survey;
+<?php namespace Survey;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * survey\Iteration
+ * Survey\Iteration
  *
  * @property-read \App/Customer $customer
- * @property-read \Illuminate\Database\Eloquent\Collection|\App/Facility[] $facilities 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App/Facility[] $facilities
  */
 class Iteration extends Model {
 
 	public function customer ()
     {
-        return $this->belongsTo('App/Customer');
+        return $this->belongsTo('Survey\Customer');
     }
 
     public function facilities ()
     {
-        return $this->hasMany('App/Facility');
+        return $this->hasMany('Survey\Facility');
     }
 
 }

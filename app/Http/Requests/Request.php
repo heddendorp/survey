@@ -1,4 +1,4 @@
-<?php namespace survey\Http\Requests;
+<?php namespace Survey\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

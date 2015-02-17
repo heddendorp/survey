@@ -139,11 +139,11 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'survey\Providers\AppServiceProvider',
-		'survey\Providers\BusServiceProvider',
-		'survey\Providers\ConfigServiceProvider',
-		'survey\Providers\EventServiceProvider',
-		'survey\Providers\RouteServiceProvider',
+		'Survey\Providers\AppServiceProvider',
+		'Survey\Providers\BusServiceProvider',
+		'Survey\Providers\ConfigServiceProvider',
+		'Survey\Providers\EventServiceProvider',
+		'Survey\Providers\RouteServiceProvider',
 
         /*
          * Vendor Providers...

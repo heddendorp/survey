@@ -1,4 +1,4 @@
-<?php namespace survey\Http;
+<?php namespace Survey\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -15,7 +15,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'survey\Http\Middleware\VerifyCsrfToken',
+		'Survey\Http\Middleware\VerifyCsrfToken',
 	];
 
 	/**
@@ -24,9 +24,9 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth' => 'survey\Http\Middleware\Authenticate',
+		'auth' => 'Survey\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-		'guest' => 'survey\Http\Middleware\RedirectIfAuthenticated',
+		'guest' => 'Survey\Http\Middleware\RedirectIfAuthenticated',
 	];
 
 }

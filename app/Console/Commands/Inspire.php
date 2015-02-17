@@ -1,4 +1,4 @@
-<?php namespace survey\Console\Commands;
+<?php namespace Survey\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

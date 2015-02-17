@@ -1,6 +1,6 @@
-<?php namespace survey\Http\Controllers\Auth;
+<?php namespace Survey\Http\Controllers\Auth;
 
-use survey\Http\Controllers\Controller;
+use Survey\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;

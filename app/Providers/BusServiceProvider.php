@@ -1,4 +1,4 @@
-<?php namespace survey\Providers;
+<?php namespace Survey\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class BusServiceProvider extends ServiceProvider {
 		$dispatcher->mapUsing(function($command)
 		{
 			return Dispatcher::simpleMapping(
-				$command, 'survey\Commands', 'survey\Handlers\Commands'
+				$command, 'Survey\Commands', 'Survey\Handlers\Commands'
 			);
 		});
 	}

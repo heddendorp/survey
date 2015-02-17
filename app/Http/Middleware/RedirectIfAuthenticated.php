@@ -1,4 +1,4 @@
-<?php namespace survey\Http\Middleware;
+<?php namespace Survey\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

@@ -1,4 +1,4 @@
-<?php namespace survey\Providers;
+<?php namespace Survey\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
 	'Illuminate\Contracts\Http\Kernel',
-	'survey\Http\Kernel'
+	'Survey\Http\Kernel'
 );
 
 $app->singleton(
 	'Illuminate\Contracts\Console\Kernel',
-	'survey\Console\Kernel'
+	'Survey\Console\Kernel'
 );
 
 $app->singleton(
 	'Illuminate\Contracts\Debug\ExceptionHandler',
-	'survey\Exceptions\Handler'
+	'Survey\Exceptions\Handler'
 );
 
 /*

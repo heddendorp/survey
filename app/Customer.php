@@ -1,9 +1,9 @@
-<?php namespace survey;
+<?php namespace Survey;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * survey\Customer
+ * Survey\Customer
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App/Iteration[] $iterations
  * @property-read \Illuminate\Database\Eloquent\Collection|\App/User[] $users
@@ -13,17 +13,17 @@ class Customer extends Model {
 
 	public function iterations ()
     {
-        return $this->hasMany('App/Iteration');
+        return $this->hasMany('Survey\Iteration');
     }
 
     public function users ()
     {
-        return $this->hasMany('App/User');
+        return $this->hasMany('Survey\User');
     }
 
     public function questionnaires ()
     {
-        return $this->hasMany('App/Questionnaire');
+        return $this->hasMany('Survey\Questionnaire');
     }
 
 }

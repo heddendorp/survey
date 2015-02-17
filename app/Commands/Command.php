@@ -1,4 +1,4 @@
-<?php namespace survey\Commands;
+<?php namespace Survey\Commands;
 
 abstract class Command {
 

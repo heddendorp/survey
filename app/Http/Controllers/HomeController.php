@@ -1,4 +1,4 @@
-<?php namespace survey\Http\Controllers;
+<?php namespace Survey\Http\Controllers;
 
 class HomeController extends Controller {
 

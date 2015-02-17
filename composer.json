@@ -18,7 +18,7 @@
 			"database"
 		],
 		"psr-4": {
-			"survey\\": "app/"
+			"Survey\\": "app/"
 		}
 	},
 	"autoload-dev": {

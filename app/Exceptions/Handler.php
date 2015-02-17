@@ -1,4 +1,4 @@
-<?php namespace survey\Exceptions;
+<?php namespace Survey\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

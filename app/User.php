@@ -1,4 +1,4 @@
-<?php namespace survey;
+<?php namespace Survey;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
- * survey\User
+ * Survey\User
  *
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
@@ -34,5 +34,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+    public function customer ()
+    {
+        return $this->belongsTo('Survey\Customer');
+    }
+
+    public function groups ()
+    {
+        return $this->belongsToMany('Survey\Group');
+    }
 
 }
