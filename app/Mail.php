@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Mail
  *
- * @property-read \Survey\Token $token 
+ * @property-read \Survey\Token $token
  */
 class Mail extends Model {
 
