@@ -18,6 +18,7 @@ class CreateMailsTable extends Migration {
             $table->boolean('sent');
             $table->boolean('received');
             $table->boolean('error');
+            $table->integer('token_id');
             $table->integer('reason');
             $table->text('message');
 			$table->timestamps();

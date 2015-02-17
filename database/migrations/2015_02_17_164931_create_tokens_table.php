@@ -16,7 +16,6 @@ class CreateTokensTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('child_id');
-            $table->integer('mail_id');
             $table->integer('questionnaire_id');
             $table->string('token');
 			$table->timestamps();
