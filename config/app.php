@@ -145,6 +145,11 @@ return [
 		'survey\Providers\EventServiceProvider',
 		'survey\Providers\RouteServiceProvider',
 
+        /*
+         * Vendor Providers...
+         */
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+
 	],
 
 	/*

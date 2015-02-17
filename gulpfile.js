@@ -12,5 +12,14 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.copy("bower_components/uikit/scss","resources/assets/sass/uikit");
+    mix.copy("bower_components/uikit/js","resources/js");
+    mix.copy("bower_components/jquery/dist/jquery.js","resources/js/jquery.js");
+    mix.copy("bower_components/uikit/fonts","public/fonts");
+    mix.scripts([
+        "jquery.js",
+        "uikit.js"
+    ]);
+    mix.sass('app.sass');
+    mix.version(["css/app.css","js/all.js"]);
 });
