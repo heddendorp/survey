@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Facility
  *
- * @property-read \Survey\Iteration $iteration 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Group[] $groups 
+ * @property-read \Survey\Iteration $iteration
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Group[] $groups
  */
 class Facility extends Model {
 
