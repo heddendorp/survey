@@ -16,7 +16,7 @@ class CreateIterationsTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('customer_id');
-            $table->text('description');
+            $table->string('description');
 			$table->timestamps();
 		});
 	}
