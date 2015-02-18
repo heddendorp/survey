@@ -13,25 +13,31 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::resource('customer','CustomerController');
+Route::get('login', 'WelcomeController@login');
 
-Route::resource('customer.user','CustomerUserController');
+Route::post('login', 'WelcomeController@authenticate');
 
-Route::resource('customer.questionnaire','CustomerQuestionnaireController');
+Route::get('logout', 'WelcomeController@logout');
 
-Route::resource('customer.questionnaire.section','CustomerQuestionnaireSectionController');
+Route::resource('customer', 'CustomerController');
 
-Route::resource('customer.questionnaire.section.questiongroup','CustomerQuestionnaireSectionQuestiongroupController');
+Route::resource('customer.user', 'CustomerUserController');
 
-Route::resource('customer.questionnaire.section.questiongroup.question','CustomerQuestionnaireSectionQuestiongroupQuestionController');
+Route::resource('customer.questionnaire', 'CustomerQuestionnaireController');
 
-Route::resource('customer.iteration','CustomerIterationController');
+Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController');
 
-Route::resource('customer.iteration.facility','CustomerIterationFacilityController');
+Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestionnaireSectionQuestiongroupController');
 
-Route::resource('customer.iteration.facility.group','CustomerIterationFacilityGroupController');
+Route::resource('customer.questionnaire.section.questiongroup.question', 'CustomerQuestionnaireSectionQuestiongroupQuestionController');
 
-Route::resource('customer.iteration.facility.group.child','CustomerIterationFacilityGroupChildController');
+Route::resource('customer.iteration', 'CustomerIterationController');
 
-Route::resource('mail','MailController');
+Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController');
+
+Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController');
+
+Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController');
+
+Route::resource('mail', 'MailController');
 
