@@ -17,4 +17,18 @@ class WelcomeControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
+    public function testLoginPage ()
+    {
+        $this->call('GET', 'login');
+
+        $this->assertResponseOk();
+    }
+
+    public function testLogoutMechanic ()
+    {
+        $this->call('GET', 'logout');
+
+        $this->assertRedirectedTo('/');
+    }
+
 }
