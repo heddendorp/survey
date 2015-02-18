@@ -1,7 +1,14 @@
 {
+  "name":"survey",
+  "version":"0.0.0",
+  "author":"Lukas Heddendorp <lu.heddendorp@gmail.com>",
+
   "devDependencies": {
     "gulp": "^3.8.8",
     "laravel-elixir": "*",
     "bower": "*"
-  }
+  },
+
+  "private":true,
+  "license":"GPL"
 }
