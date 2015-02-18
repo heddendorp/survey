@@ -13,8 +13,6 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
-
 Route::resource('customer','CustomerController');
 
 Route::resource('customer.questionnaire','CustomerQuestionnaireController');
@@ -35,8 +33,3 @@ Route::resource('customer.iteration.facility.group.child','CustomerIterationFaci
 
 Route::resource('mail','MailController');
 
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);

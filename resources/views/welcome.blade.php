@@ -7,5 +7,6 @@
 </head>
 <body>
 <div class="uk-cover-background" style="background-image: url({{asset('img/landing-mockup.jpg')}}); height: 370px;"></div>
+<a class="uk-button uk-width-1-1">Login</a>
 </body>
 </html>
