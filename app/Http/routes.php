@@ -15,6 +15,27 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::resource('customer','CustomerController');
+
+Route::resource('customer.questionnaire','CustomerQuestionnaireController');
+
+Route::resource('customer.questionnaire.section','CustomerQuestionnaireSectionController');
+
+Route::resource('customer.questionnaire.section.questiongroup','CustomerQuestionnaireSectionQuestiongroupController');
+
+Route::resource('customer.questionnaire.section.questiongroup.question','CustomerQuestionnaireSectionQuestiongroupQuestionController');
+
+Route::resource('customer.iteration','CustomerIterationController');
+
+Route::resource('customer.iteration.facility','CustomerIterationFacilityController');
+
+Route::resource('customer.iteration.facility.group','CustomerIterationFacilityGroupController');
+
+Route::resource('customer.iteration.facility.group.child','CustomerIterationFacilityGroupChildController');
+
+Route::resource('mail','MailController');
+
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
