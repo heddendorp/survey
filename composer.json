@@ -31,7 +31,8 @@
             "php -r \"shell_exec('cp -r config-sample config');\"",
 			"php artisan clear-compiled",
 			"php artisan optimize",
-            "bower install uikit",
+            "npm install",
+            "bower install",
             "gulp"
 		],
 		"post-update-cmd": [
