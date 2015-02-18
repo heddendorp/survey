@@ -15,6 +15,8 @@ Route::get('/', 'WelcomeController@index');
 
 Route::resource('customer','CustomerController');
 
+Route::resource('customer.user','CustomerUserController');
+
 Route::resource('customer.questionnaire','CustomerQuestionnaireController');
 
 Route::resource('customer.questionnaire.section','CustomerQuestionnaireSectionController');

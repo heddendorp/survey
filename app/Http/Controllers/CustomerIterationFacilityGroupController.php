@@ -5,7 +5,7 @@ use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class CustomerIterationFacility extends Controller {
+class CustomerIterationFacilityGroupController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
