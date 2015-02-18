@@ -3,6 +3,8 @@
 /.idea
 /bower_components
 /config
+/resources/assets
+/resources/js
 composer.lock
 _ide_helper.php
 .env
