@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Survey\Token
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Mail[] $mails 
- * @property-read \Survey\Questionnaire $questionnaire 
- * @property-read \Survey\Child $child 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Mail[] $mails
+ * @property-read \Survey\Questionnaire $questionnaire
+ * @property-read \Survey\Child $child
  */
 class Token extends Model {
 
