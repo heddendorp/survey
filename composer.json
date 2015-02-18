@@ -28,7 +28,7 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-            "php -r \"rename('config-sample/', 'config/');\"",
+            "php -r \"shell_exec('cp -r config-sample config');\"",
 			"php artisan clear-compiled",
 			"php artisan optimize",
             "bower install uikit",
