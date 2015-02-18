@@ -28,6 +28,7 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
+            "php -r \"copy('config-sample', 'config');\"",
 			"php artisan clear-compiled",
 			"php artisan optimize",
             "bower install uikit",
