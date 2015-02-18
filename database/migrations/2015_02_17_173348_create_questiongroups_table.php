@@ -17,6 +17,7 @@ class CreateQuestiongroupsTable extends Migration {
 			$table->increments('id');
             $table->integer('section_id');
             $table->integer('type');
+            $table->integer('condition')->nullable();
             $table->string('heading');
 			$table->timestamps();
 		});
