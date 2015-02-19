@@ -18,9 +18,9 @@ class CreateQuestionnairesTable extends Migration {
             $table->integer('customer_id');
             $table->string('title');
             $table->string('intern');
-            $table->text('welcome_mail');
-            $table->text('remember_mail');
-            $table->text('finish_mail');
+            $table->text('welcome_mail')->nullable();
+            $table->text('remember_mail')->nullable();
+            $table->text('finish_mail')->nullable();
 			$table->timestamps();
 		});
 	}

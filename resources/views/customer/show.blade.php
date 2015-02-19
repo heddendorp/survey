@@ -5,6 +5,9 @@
 @section('header')
     @include('partials.nav')
 @stop
+@section('sidenav')
+    <li><a href="{{route('customer.edit', $customer)}}">Enstellungen ändern</a></li>
+@stop
 @section('content')
     <div class="uk-container uk-container-center">
         <div class="uk-panel uk-panel-box">
