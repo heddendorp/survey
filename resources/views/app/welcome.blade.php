@@ -14,7 +14,7 @@
                     <h1 align="center">Survey-X</h1>
                     <div class="uk-grid">
                         <div class="uk-width-1-2">
-                            <a class="uk-button uk-button-large uk-button-success uk-width-1-1" style="background-color: #4CAF50;">Anmelden</a>
+                            <a href="{{action('WelcomeController@login')}}" class="uk-button uk-button-large uk-button-success uk-width-1-1" style="background-color: #4CAF50;">Anmelden</a>
                         </div>
                         <div class="uk-width-1-2">
                             <a class="uk-button uk-button-large uk-button-primary uk-width-1-1" style="background-color: #FF5722;">Registrieren</a>
@@ -72,7 +72,7 @@
     <div class="uk-container uk-container-center">
         <div class="uk-grid">
             <div class="uk-width-1-3">
-                <h2 style="color: white;" align="center">Ständige Entwicklung</h2>
+                <h2 style="color: white;" align="center">Ständige Entwicklung <img src="https://travis-ci.org/Isigiel/survey.svg" alt=""/></h2>
             </div>
             <div class="uk-width-1-3">
                 <h2 style="color: white;" align="center">Sicherheit</h2>

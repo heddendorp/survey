@@ -1,5 +1,7 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Http\Requests\LoginFormRequest;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -13,15 +15,6 @@ class WelcomeController extends Controller {
 	|
 	*/
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
 
 	/**
 	 * Show the application welcome screen to the user.
@@ -30,7 +23,18 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return view('app.welcome');
 	}
+
+
+    public function login()
+    {
+        return view('app.login');
+    }
+
+    public function authenticate(LoginFormRequest $request)
+    {
+
+    }
 
 }
