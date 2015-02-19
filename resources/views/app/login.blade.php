@@ -20,7 +20,7 @@
                 <p class="uk-form-help-block uk-text-danger">{{$errors->first('username')}}</p>
             </div>
             <div class="uk-form-row">
-                <input class="uk-width-1-1 uk-form-large" type="text" name="password" placeholder="Passwort">
+                <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="Passwort">
                 <p class="uk-form-help-block uk-text-danger">{{$errors->first('password')}}</p>
             </div>
             <div class="uk-form-row">

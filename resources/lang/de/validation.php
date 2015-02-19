@@ -34,7 +34,7 @@ return [
 	"different"            => "The :attribute and :other must be different.",
 	"digits"               => "The :attribute must be :digits digits.",
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
-	"email"                => "The :attribute must be a valid email address.",
+	"email"                => "Es muss eine gültige Email-Adresse eigegeben werden.",
 	"filled"               => "The :attribute field is required.",
 	"exists"               => "The selected :attribute is invalid.",
 	"image"                => "The :attribute must be an image.",
@@ -91,9 +91,21 @@ return [
 		],
         'username' => [
             'required' => 'Der Benutzername wird benötigt.',
+            'min' => 'Der Benutzername muss mindestens :min Zeichen lang sein.'
+        ],
+        'email' => [
+            'required' => 'Die Email wird benötigt.'
+        ],
+        'info_email' => [
+            'required' => 'Die Info-Adresse wird benötigt.'
+        ],
+        'name' => [
+            'required' => 'Der Name wird benötigt.'
         ],
         'password' => [
             'required' => 'Das Passwort wird benötigt.',
+            'min' => 'Das Passwort muss mindestens :min Zeichen lang sein.',
+            'confirmed' => 'Das Passwort und die Wiederholung stimmen nicht überein.'
         ],
 	],
 

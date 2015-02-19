@@ -9,7 +9,7 @@
 <div class="uk-cover-background" style="background-image: url({{asset('img/landing-mockup.jpg')}}); height: 370px;">
     <div class="uk-container uk-container-center">
         <div class="uk-grid">
-            <div class="uk-width-1-4 uk-container-center" style="margin-top: 200px;">
+            <div class="uk-width-1-4 uk-container-center" style="margin-top: 150px;">
                 <div>
                     <h1 align="center">Survey-X</h1>
                     <div class="uk-grid">
@@ -17,7 +17,7 @@
                             <a href="{{action('WelcomeController@login')}}" class="uk-button uk-button-large uk-button-success uk-width-1-1" style="background-color: #4CAF50;">Anmelden</a>
                         </div>
                         <div class="uk-width-1-2">
-                            <a class="uk-button uk-button-large uk-button-primary uk-width-1-1" style="background-color: #FF5722;">Registrieren</a>
+                            <a href="{{action('CustomerController@create')}}" class="uk-button uk-button-large uk-button-primary uk-width-1-1" style="background-color: #FF5722;">Registrieren</a>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,11 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\User;
 
 class CustomerController extends Controller {
 
@@ -24,28 +26,44 @@ class CustomerController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('customer.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     *
+     * @param Requests\CustomerStoreRequest $request
+     * @return Response
+     */
+	public function store(Requests\CustomerStoreRequest $request)
 	{
-		//
+		$input = $request->all();
+        $customer = new Customer;
+        $customer->name = $input['name'];
+        $customer->info_email = $input['info_email'];
+        $customer->save();
+
+        $user = new User;
+        $user->username = $input['username'];
+        $user->email = $input['email'];
+        $user->password = bcrypt($input['password']);
+        $user->customer_id = $customer->id;
+        $user->save();
+
+        return redirect('customer/'.$customer->id);
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function show(Customer $customer)
 	{
-		//
+        //dd($customer);
+		return view('customer.show')->withCustomer($customer);
 	}
 
 	/**
