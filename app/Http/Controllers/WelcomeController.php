@@ -46,7 +46,7 @@ class WelcomeController extends Controller {
         if(\Auth::attempt($request->except(['_token','remember'],$request->only(['remember']))))
         {
             $customer = \Auth::user()->customer;
-            return redirect()->intended('customer/'.$customer->id);
+            return redirect()->route('customer.show',$customer);
         }
         return redirect('login')->withErrors(['login'=>'Benutzername oder Passwort sind falsch.']);
     }

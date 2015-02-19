@@ -2,7 +2,7 @@
 
 use Survey\Http\Requests\Request;
 
-class CustomerStoreRequest extends Request {
+class CustomerStoreRequest extends UserStoreRequest {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -21,13 +21,10 @@ class CustomerStoreRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-			'username'=>'required|min:3',
-            'email'=>'required|email',
-            'password'=>'required|min:8|confirmed',
+		return array_merge(parent::rules(),[
             'name'=>'required',
             'info_email'=>'required|email'
-		];
+		]);
 	}
 
 }

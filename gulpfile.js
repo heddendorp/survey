@@ -18,7 +18,9 @@ elixir(function(mix) {
     mix.copy("bower_components/uikit/fonts","public/fonts");
     mix.scripts([
         "jquery.js",
-        "uikit.js"
+        "uikit.js",
+        "jquery.restfulizer.js",
+        "app.js"
     ]);
     mix.sass('app.sass');
     mix.version(["css/app.css","js/all.js"]);

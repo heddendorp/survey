@@ -15,8 +15,8 @@ class CustomerController extends Controller {
      */
     public function __construct()
     {
-        $this->middleware('auth',['except'=>'create']);
-        $this->middleware('customer',['except'=>'create']);
+        $this->middleware('auth',['except'=>['create','store']]);
+        $this->middleware('customer',['except'=>['create','store']]);
     }
 
 	/**

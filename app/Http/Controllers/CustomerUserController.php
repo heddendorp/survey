@@ -5,6 +5,7 @@ use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\User;
 
 class CustomerUserController extends Controller {
 
@@ -25,27 +26,39 @@ class CustomerUserController extends Controller {
      */
 	public function index(Customer $customer)
 	{
-		return view('user.index')->withCustomer($customer);
+        $users = $customer->users;
+		return view('user.index')->withCustomer($customer)->withUsers($users);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param Customer $cutomer
+     * @return Response
+     */
+	public function create(Customer $cutomer)
 	{
-		//
+		return view('user.create')->withCustomer($cutomer);
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Customer $customer
+     * @param Requests\UserStoreRequest $request
+     * @return Response
+     */
+	public function store(Customer $customer, Requests\UserStoreRequest $request)
 	{
-		//
+        $input = $request->all();
+        $user = new User;
+        $user->username = $input['username'];
+        $user->password = bcrypt($input['password']);
+        $user->email = $input['email'];
+        $user->customer_id = $customer->id;
+        $user->save();
+
+        return redirect()->route('customer.user.index', $customer);
 	}
 
 	/**
@@ -81,15 +94,18 @@ class CustomerUserController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Customer $customer
+     * @param User $user
+     * @return Response
+     * @throws \Exception
+     */
+	public function destroy(Customer $customer, User $user)
 	{
-		//
+        $user->delete();
+        return redirect()->route('customer.user.index', $customer);
 	}
 
 }

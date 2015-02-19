@@ -21,7 +21,7 @@ Route::get('logout', 'WelcomeController@logout');
 
 Route::resource('customer', 'CustomerController');
 
-Route::resource('customer.user', 'CustomerUserController');
+Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
 
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController');
 
