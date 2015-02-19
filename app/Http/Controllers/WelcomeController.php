@@ -16,6 +16,15 @@ class WelcomeController extends Controller {
 	*/
 
 
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('guest',['except'=>['authenticate','logout']]);
+    }
+
+
 	/**
 	 * Show the application welcome screen to the user.
 	 *

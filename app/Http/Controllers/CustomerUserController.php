@@ -1,5 +1,6 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
@@ -7,14 +8,24 @@ use Illuminate\Http\Request;
 
 class CustomerUserController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function index(Customer $customer)
 	{
-		//
+		return view('user.index')->withCustomer($customer);
 	}
 
 	/**

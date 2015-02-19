@@ -9,6 +9,16 @@ use Survey\User;
 
 class CustomerController extends Controller {
 
+
+    /**
+     * Instantiate a new UserController instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>'create']);
+        $this->middleware('customer',['except'=>'create']);
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *

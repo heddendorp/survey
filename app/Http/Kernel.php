@@ -27,6 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'Survey\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'Survey\Http\Middleware\RedirectIfAuthenticated',
+        'customer' => 'Survey\Http\Middleware\CustomerCheck',
 	];
 
 }
