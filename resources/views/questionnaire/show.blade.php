@@ -8,6 +8,7 @@
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
     <li><a href="{{route('customer.questionnaire.edit', [$customer, $questionnaire])}}">Enstellungen ändern</a></li>
+    <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Sektionen</a></li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

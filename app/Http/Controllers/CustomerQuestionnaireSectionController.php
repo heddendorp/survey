@@ -1,40 +1,62 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Questionnaire;
+use Survey\Section;
 
 class CustomerQuestionnaireSectionController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('customer');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @return Response
+     */
+	public function index(Customer $customer, Questionnaire $questionnaire)
 	{
-		//
+		$sections = $questionnaire->sections;
+        return view('section.index')->withCustomer($customer)->withQuestionnaire($questionnaire)->withSections($sections);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @return Response
+     */
+	public function create(Customer $customer, Questionnaire $questionnaire)
 	{
-		//
+		return view('section.create')->withCustomer($customer)->withQuestionnaire($questionnaire);
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @param Requests\QuestionnaireRequest $request
+     * @return Response
+     */
+	public function store(Customer $customer, Questionnaire $questionnaire, Requests\QuestionnaireRequest $request)
 	{
-		//
+		$section = new Section;
+        $section->title = $request->get('title');
+        $section->intern = $request->get('intern');
+        $section->questionnaire_id = $questionnaire->id;
+        $section->save();
+        return redirect()->route('customer.questionnaire.section.index', [$customer, $questionnaire]);
 	}
 
 	/**
@@ -70,15 +92,19 @@ class CustomerQuestionnaireSectionController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @param Section $section
+     * @return Response
+     * @internal param int $id
+     */
+	public function destroy(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		//
+		$section->delete();
+        return redirect()->route('customer.questionnaire.section.index',[$customer,$questionnaire,$section]);
 	}
 
 }

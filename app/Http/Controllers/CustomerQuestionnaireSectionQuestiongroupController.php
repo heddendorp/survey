@@ -1,20 +1,33 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Questionnaire;
+use Survey\Section;
 
 class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('customer');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @param Section $section
+     * @return Response
+     */
+	public function index(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		//
+		$questiongroups = $section->questiongroups;
+        return view('questiongroup.index',[$customer,$questionnaire,$section])->withCustomer($customer)->withQuestionnaire($questionnaire)->withSection($section)->withQuesziongroups($questiongroups);
 	}
 
 	/**
