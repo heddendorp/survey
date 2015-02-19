@@ -24,6 +24,12 @@ class WelcomeControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
+    /*public function testLoginValidation()
+    {
+        $this->call('POST','WelcomeController@authenticate');
+        $this->assertSessionHasErrors();
+    }*/
+
     public function testLogoutMechanic ()
     {
         $this->call('GET', 'logout');
