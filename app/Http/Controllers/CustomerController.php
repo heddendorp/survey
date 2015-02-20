@@ -76,26 +76,32 @@ class CustomerController extends Controller {
 		return view('customer.show')->withCustomer($customer);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function edit(Customer $customer)
 	{
-		//
+		return view('customer.edit')->withCustomer($customer);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Requests\CustomerUpdateRequest $request
+     * @param Customer $customer
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Requests\CustomerUpdateRequest $request, Customer $customer)
 	{
-		//
+		$customer->name = $request->get('name');
+        $customer->info_email = $request->get('info_email');
+        $customer->logo = $request->get('logo');
+        $customer->save();
+        return redirect()->route('customer.show', $customer);
 	}
 
 	/**
