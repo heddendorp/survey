@@ -11,7 +11,7 @@ class CustomerControllerTest extends TestCase{
     public function testIndexRedirect()
     {
         $this->call('GET','customer');
-        $this->assertRedirectedTo('/');
+        $this->assertRedirectedTo('login');
     }
 
 }
