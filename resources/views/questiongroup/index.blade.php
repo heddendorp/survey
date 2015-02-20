@@ -8,7 +8,7 @@
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Alle Sektionen</a></li>
-    <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $questionnaire, $section])}}">Frage Hinzufügen</a></li>
+    <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $section, $questionnaire])}}">Neue Frage</a></li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
@@ -21,17 +21,36 @@
             <hr class="uk-grid-divider"/>
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul data-uk-sortable>
-                        @foreach($questiongroups as $questiongroup)
-                            <li>
-                                <div class="uk-panel uk-panel-box">
-                                    <div class="uk-badge uk-badge-notification uk-panel-badge">0</div>
-                                    <input type="hidden" name="questiongroup[{{$questiongroup->id}}]" value="0" />
-                                    <strong>{{$questiongroup->heading}}</strong>
+                    <form action="{{route('customer.questionnaire.section.questiongroup.order', [$customer, $questionnaire, $section])}}" method="POST">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                        <div class="uk-sortable" data-uk-sortable>
+                            @foreach($questiongroups as $questiongroup)
+                                <div>
+                                    <div class="uk-panel uk-panel-box">
+                                        <div class="uk-badge uk-badge-notification uk-panel-badge">0</div>
+                                        <input type="hidden" id="sort" name="questiongroup[{{$questiongroup->id}}]" value="0" />
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                <strong>{{$questiongroup->heading}}</strong>
+                                                @foreach($questiongroup->questions as $question)
+                                                    <br/><span class="uk-margin-left">{{$question->content}}</span>
+                                                @endforeach
+                                            </div>
+                                            <div class="uk-width-1-3">
+                                                <span>{{$questiongroup->stringType()}}</span>
+                                                <span>{{$questiongroup->stringCondition()}}</span>
+                                            </div>
+                                            <div class="uk-width-1-3">
+                                                <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.section.questiongroup.edit', [$customer, $questionnaire, $section, $questiongroup])}}">Bearbeiten</a>
+                                                <a href="{{route('customer.questionnaire.section.questiongroup.destroy', [$customer,$questionnaire, $section, $questiongroup]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                        @endforeach
-                    </ul>
+                            @endforeach
+                        </div>
+                        <button type="submit" class="uk-button uk-button-large uk-button-primary uk-width-1-1">Reihenfolge Speichern</button>
+                    </form>
                 </div>
             </div>
         </div>

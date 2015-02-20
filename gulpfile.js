@@ -19,6 +19,7 @@ elixir(function(mix) {
     mix.scripts([
         "jquery.js",
         "uikit.js",
+        "components/sortable.js",
         "jquery.restfulizer.js",
         "app.js"
     ]);

@@ -7,7 +7,6 @@
 @stop
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
-    <li><a href="{{route('customer.questionnaire.show', [$customer, $questionnaire])}}">Zurück zu {{$questionnaire->title}}</a></li>
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Sektionen</a></li>
 @stop
 @section('content')

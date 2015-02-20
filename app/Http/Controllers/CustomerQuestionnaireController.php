@@ -96,7 +96,7 @@ class CustomerQuestionnaireController extends Controller {
         $questionnaire->finish_mail = $request->get('finish_mail');
         $questionnaire->save();
 
-        return redirect()->route('customer.questionnaire.show', [$customer, $questionnaire]);
+        return redirect()->route('customer.questionnaire.index', [$customer]);
 	}
 
     /**

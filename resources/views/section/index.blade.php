@@ -14,7 +14,7 @@
         <div class="uk-panel uk-panel-box">
             <div class="uk-grid">
                 <div class="width-1-2">
-                    <h1>Sektionen für {{$questionnaire->title}}</h1>
+                    <h1>Sektionen für <em>{{$questionnaire->title}}</em></h1>
                 </div>
             </div>
             <hr class="uk-grid-divider"/>
