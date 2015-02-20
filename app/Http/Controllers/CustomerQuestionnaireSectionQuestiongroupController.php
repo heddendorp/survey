@@ -28,7 +28,7 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
      */
 	public function index(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		$data['questiongroups'] = $section->questiongroups->sortBy('order');
+		$data['questiongroups'] = $section->questiongroups->sortBy('id')->sortBy('order');
         $data['customer'] = $customer;
         $data['questionnaire'] = $questionnaire;
         $data['section'] = $section;
@@ -65,7 +65,7 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
         $questiongroup->type = $request->get('type');
         $questiongroup->condition = $request->get('condition');
         $questiongroup->section_id = $section->id;
-        $questiongroup->order = 0;
+        $questiongroup->order = 200;
         $questiongroup->save();
 
         if($questiongroup->type == 1 || $questiongroup->type == 4)

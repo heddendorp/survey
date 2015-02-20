@@ -8,7 +8,7 @@
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Alle Sektionen</a></li>
-    <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $section, $questionnaire])}}">Neue Frage</a></li>
+    <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $questionnaire, $section])}}">Neue Frage</a></li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
@@ -30,17 +30,19 @@
                                         <div class="uk-badge uk-badge-notification uk-panel-badge">0</div>
                                         <input type="hidden" id="sort" name="questiongroup[{{$questiongroup->id}}]" value="0" />
                                         <div class="uk-grid">
-                                            <div class="uk-width-1-3">
+                                            <div class="uk-width-2-4">
                                                 <strong>{{$questiongroup->heading}}</strong>
-                                                @foreach($questiongroup->questions as $question)
-                                                    <br/><span class="uk-margin-left">{{$question->content}}</span>
-                                                @endforeach
+                                                @if($questiongroup->type == 2 || $questiongroup->type == 3)
+                                                    @foreach($questiongroup->questions as $question)
+                                                        <br/><span class="uk-margin-left">{{$question->content}}</span>
+                                                    @endforeach
+                                                @endif
                                             </div>
-                                            <div class="uk-width-1-3">
+                                            <div class="uk-width-1-4">
                                                 <span>{{$questiongroup->stringType()}}</span>
                                                 <span>{{$questiongroup->stringCondition()}}</span>
                                             </div>
-                                            <div class="uk-width-1-3">
+                                            <div class="uk-width-1-4">
                                                 <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.section.questiongroup.edit', [$customer, $questionnaire, $section, $questiongroup])}}">Bearbeiten</a>
                                                 <a href="{{route('customer.questionnaire.section.questiongroup.destroy', [$customer,$questionnaire, $section, $questiongroup]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
                                             </div>

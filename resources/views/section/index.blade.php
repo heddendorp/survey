@@ -6,8 +6,15 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
     <li><a href="{{route('customer.questionnaire.section.create', [$customer, $questionnaire])}}">Sektion Hinzufügen</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>Hier sehen sie eine Auflistung aller Sektionen für <q>{{$questionnaire->title}}</q>. Sie stellen sich dem Teilnehmer der Umfrage als Seiten dar die er der Reihe nach beatwortet. Um die Fragen zu sehen die mit einer Sektion verknüpft sind, klicken Sie bitte auf den jeweiligen Namen. Um den Namen der Sektion zu bearbeiten, klicken Sie bitte auf <code>bearbeiten</code>. Ein klick auf <code>Löschen</code> löscht die Sektion und alle ihre Fragen unwierderruflich.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

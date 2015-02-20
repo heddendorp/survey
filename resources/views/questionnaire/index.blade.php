@@ -6,7 +6,14 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
     <li><a href="{{route('customer.questionnaire.create', $customer)}}">Fragebogen Hinzufügen</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>Hier werden alle Fragebögen aufgelistet die im Moment im Account ihrer Firma gespeichert sind. um die Sektionenn eines Fragebogens einzusehen klicken Sie diesen an. <code>Bearbeiten</code> ermöglicht es ihnen den Name des Fragebogens zu verändern und <code>Löschen</code> entfernt ihn und alle Fragen unwiederruflich.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

@@ -6,8 +6,15 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Sektionen</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>Hier können Sie den internen sowie externen Namen des Fragebogens ändern. Nur der externe Name ist für die Teilnehmer einsehbar. Des weiteren könenn sie die Texte für die Mails festlegen, welche an die Teilnehmer in unterschieldichen Phasen der Umfrage geschickt werden können.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

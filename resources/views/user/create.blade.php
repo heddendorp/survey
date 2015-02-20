@@ -6,7 +6,14 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
     <li><a href="{{route('customer.user.index', $customer)}}">Benutzerübersicht</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>Hier können Sie einen neuen Zugang zum System für einen Mitarbeiter ihrer Firma anlegen. Dieser kann sich dann mit seinen Daten anmelden.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

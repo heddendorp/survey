@@ -6,7 +6,14 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
     <li><a href="{{route('customer.user.create', $customer)}}">Benutzer Hinzufügen</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>Hier werden alle Benutzer aufgelistet die im Moment Zugang zu Fragebögen und/oder Auswertungen ihrer Firma haben.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

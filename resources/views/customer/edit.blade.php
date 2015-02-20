@@ -6,7 +6,13 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
+    <li class="uk-parent">
+        <a href="#">Hilfe zu diesem Fenster</a>
+        <ul class="uk-nav-sub">
+            <li><p>In diesem Fanster können Sie die Daten über ihre Firma verändern. Diese sind für Teilnhemer des Frageboghens einsehbar.</p></li>
+        </ul>
+    </li>
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
