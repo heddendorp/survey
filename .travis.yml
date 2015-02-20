@@ -10,3 +10,5 @@ sudo: false
 install: travis_retry composer install --no-interaction
 
 script: vendor/bin/phpunit --verbose --colors
+
+after_success: curl

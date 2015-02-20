@@ -1,5 +1,6 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
@@ -7,24 +8,27 @@ use Illuminate\Http\Request;
 
 class CustomerIterationController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function index(Customer $customer)
 	{
-		//
+        $iterations = $customer->iterations;
+        return view('iteration.index')->withCustomer($customer)->withIterations($iterations);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function create(Customer $customer)
 	{
-		//
+		return view('iteration.create')->withCustomer($customer);
 	}
 
 	/**

@@ -3,6 +3,7 @@
     <ul class="uk-navbar-nav">
         <li><a href="{{route('customer.user.index',$customer)}}">Benutzer</a></li>
         <li><a href="{{route('customer.questionnaire.index',$customer)}}">Fragebogen</a></li>
+        <li><a href="{{route('customer.iteration.index',$customer)}}">Teilnehmer</a></li>
     </ul>
     <div class="uk-navbar-content uk-navbar-flip"><a href="{{action('WelcomeController@logout')}}">Abmelden</a></div>
     <div class="uk-navbar-content uk-navbar-center">
