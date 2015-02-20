@@ -15,7 +15,7 @@ class Section extends Model {
         return $this->belongsTo('Survey\Questionnaire');
     }
 
-    public function questiongroup ()
+    public function questiongroups ()
     {
         return $this->hasMany('Survey\Questiongroup');
     }

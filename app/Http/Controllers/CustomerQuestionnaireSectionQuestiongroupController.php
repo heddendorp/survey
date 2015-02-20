@@ -26,8 +26,12 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
      */
 	public function index(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		$questiongroups = $section->questiongroups;
-        return view('questiongroup.index',[$customer,$questionnaire,$section])->withCustomer($customer)->withQuestionnaire($questionnaire)->withSection($section)->withQuesziongroups($questiongroups);
+		$data['questiongroups'] = $section->questiongroups;
+        $data['customer'] = $customer;
+        $data['questionnaire'] = $questionnaire;
+        $data['section'] = $section;
+        /** @var TYPE_NAME $customer */
+        return view('questiongroup.index',[$customer,$questionnaire,$section])->with($data);
 	}
 
 	/**
@@ -35,9 +39,12 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		//
+        $data['customer'] = $customer;
+        $data['questionnaire'] = $questionnaire;
+        $data['section'] = $section;
+		return view('questiongroup.create')->with($data);
 	}
 
 	/**

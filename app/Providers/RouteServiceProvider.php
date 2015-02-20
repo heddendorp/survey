@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('user', 'Survey\User');
         $router->model('questionnaire', 'Survey\Questionnaire');
         $router->model('section', 'Survey\Section');
+        $router->model('questiongroup', 'Survey\Questiongroup');
 	}
 
 	/**

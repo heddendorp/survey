@@ -58,13 +58,11 @@ class CustomerQuestionnaireController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param Customer $customer
-     * @param Questionnaire $questionnaire
      * @return Response
      */
-	public function show(Customer $customer, Questionnaire $questionnaire)
+	public function show()
 	{
-		return view('questionnaire.show')->withCustomer($customer)->withQuestionnaire($questionnaire);
+		// not used
 	}
 
     /**

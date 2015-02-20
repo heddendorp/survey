@@ -13,7 +13,7 @@
         <div class="uk-panel uk-panel-box">
             <div class="uk-grid">
                 <div class="width-1-2">
-                    <h1>Fragebögen-Übersicht</h1>
+                    <h1>Alle Fragebögen</h1>
                 </div>
             </div>
             <hr class="uk-grid-divider"/>
@@ -33,9 +33,10 @@
                         <tbody>
                         @foreach($questionnaires as $questionnaire)
                             <tr>
-                                <td><a href="{{route('customer.questionnaire.show', [$customer, $questionnaire])}}">{{$questionnaire->title}}</a></td>
+                                <td><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">{{$questionnaire->title}}</a></td>
                                 <td>{{$questionnaire->intern}}</td>
                                 <td>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.edit',[$customer, $questionnaire])}}">Bearbeiten</a>
                                     <a href="{{route('customer.questionnaire.destroy', [$customer,$questionnaire]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
                                 </td>
                             </tr>

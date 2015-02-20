@@ -23,9 +23,9 @@ Route::resource('customer', 'CustomerController');
 
 Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
 
-Route::resource('customer.questionnaire', 'CustomerQuestionnaireController');
+Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
 
-Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController');
+Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController', ['except'=>'show']);
 
 Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestionnaireSectionQuestiongroupController');
 

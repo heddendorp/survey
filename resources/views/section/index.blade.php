@@ -7,7 +7,6 @@
 @stop
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
-    <li><a href="{{route('customer.questionnaire.show', [$customer, $questionnaire])}}">{{$questionnaire->title}} anzeigen</a></li>
     <li><a href="{{route('customer.questionnaire.section.create', [$customer, $questionnaire])}}">Sektion Hinzufügen</a></li>
 @stop
 @section('content')
@@ -38,6 +37,7 @@
                                 <td><a href="{{route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section])}}">{{$section->title}}</a></td>
                                 <td>{{$section->intern}}</td>
                                 <td>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.section.edit',[$customer, $questionnaire, $section])}}">Bearbeiten</a>
                                     <a href="{{route('customer.questionnaire.section.destroy', [$customer,$questionnaire, $section]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
                                 </td>
                             </tr>

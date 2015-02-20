@@ -7,7 +7,6 @@
 @stop
 @section('sidenav')
     <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
-    <li><a href="{{route('customer.questionnaire.show', [$customer, $questionnaire])}}">{{$questionnaire->title}} anzeigen</a></li>
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Alle Sektionen</a></li>
     <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $questionnaire, $section])}}">Frage Hinzufügen</a></li>
 @stop
@@ -16,7 +15,7 @@
         <div class="uk-panel uk-panel-box">
             <div class="uk-grid">
                 <div class="width-1-2">
-                    <h1>Fragen für {{$section->title}}</h1>
+                    <h1>Fragen für <em>{{$section->title}}</em></h1>
                 </div>
             </div>
             <hr class="uk-grid-divider"/>

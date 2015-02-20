@@ -67,29 +67,37 @@ class CustomerQuestionnaireSectionController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//not used
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @param Section $section
+     * @return Response
+     */
+	public function edit(Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		//
+        return view('section.edit')->withCustomer($customer)->withQuestionnaire($questionnaire)->withSection($section);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Requests\QuestionnaireRequest $request
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @param Section $section
+     * @return Response
+     */
+	public function update(Requests\QuestionnaireRequest $request, Customer $customer, Questionnaire $questionnaire, Section $section)
 	{
-		//
+		$section->title = $request->get('title');
+        $section->intern = $request->get('intern');
+        $section->save();
+        return redirect()->route('customer.questionnaire.section.index', [$customer, $questionnaire]);
 	}
 
     /**

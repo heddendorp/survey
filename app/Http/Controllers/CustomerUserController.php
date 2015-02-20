@@ -67,7 +67,7 @@ class CustomerUserController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//not used
 	}
 
 	/**
