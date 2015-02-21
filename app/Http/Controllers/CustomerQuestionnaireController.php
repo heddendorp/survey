@@ -55,7 +55,7 @@ class CustomerQuestionnaireController extends Controller {
         $questionnaire->title = $request->get('title');
         $questionnaire->intern = $request->get('intern');
         $questionnaire->save();
-        return redirect()->route('customer.questionnaire.show', [$customer, $questionnaire]);
+        return redirect()->route('customer.questionnaire.index', [$customer]);
 	}
 
     /**
