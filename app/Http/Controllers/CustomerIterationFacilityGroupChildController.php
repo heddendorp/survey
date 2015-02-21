@@ -94,7 +94,7 @@ class CustomerIterationFacilityGroupChildController extends Controller {
         //dd($file->getClientOriginalExtension());
         if($file->getClientOriginalExtension() !== 'csv')
             return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet'=>'Tabelle muss im .csv Format gespeichert werden.']);
-        dd(file_get_contents($file));
+        return nl2br(file_get_contents($file));
 	}
 
 	/**
