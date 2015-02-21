@@ -5,6 +5,7 @@ use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Iteration;
 
 class CustomerIterationController extends Controller {
 
@@ -31,14 +32,20 @@ class CustomerIterationController extends Controller {
 		return view('iteration.create')->withCustomer($customer);
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Customer $customer
+     * @param Requests\IterationRequest $request
+     * @return Response
+     */
+	public function store(Customer $customer, Requests\IterationRequest $request)
 	{
-		//
+		$iteration = new Iteration;
+        $iteration->customer_id = $customer->id;
+        $iteration->description = $request->get('description');
+        $iteration->save();
+        return redirect()->route('customer.iteration.index', $customer);
 	}
 
 	/**
@@ -74,15 +81,18 @@ class CustomerIterationController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @return Response
+     * @internal param int $id
+     */
+	public function destroy(Customer $customer, Iteration $iteration)
 	{
-		//
+		$iteration->delete();
+        return redirect()->route('customer.iteration.index', $customer);
 	}
 
 }
