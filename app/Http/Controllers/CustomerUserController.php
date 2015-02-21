@@ -9,11 +9,13 @@ use Survey\User;
 
 class CustomerUserController extends Controller {
 
-
+    /**
+     * Instantiate a new Controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('customer');
+        $this->middleware('customerplus');
     }
 
     /**

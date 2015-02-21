@@ -2,7 +2,7 @@
 
 use Closure;
 
-class CustomerCheck {
+class CustomerPlusCheck {
 
 	/**
 	 * Handle an incoming request.
@@ -15,8 +15,8 @@ class CustomerCheck {
 	{
         $customer_id = $request->user()->customer->id;
         //dd('/customer/'.$customer_id.'*');
-        if($request->is('customer/'.$customer_id))
-		    return $next($request);
+        if($request->is('customer/'.$customer_id.'/*'))
+            return $next($request);
         return redirect('customer/'.$customer_id, 401);
 	}
 

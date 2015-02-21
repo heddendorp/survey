@@ -9,9 +9,8 @@ use Survey\User;
 
 class CustomerController extends Controller {
 
-
     /**
-     * Instantiate a new UserController instance.
+     * Instantiate a new Controller instance.
      */
     public function __construct()
     {

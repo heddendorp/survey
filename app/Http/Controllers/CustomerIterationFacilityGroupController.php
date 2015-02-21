@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class CustomerIterationFacilityGroupController extends Controller {
 
+    /**
+     * Instantiate a new Controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('customerplus');
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *

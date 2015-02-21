@@ -10,6 +10,15 @@ use Survey\Iteration;
 class CustomerIterationController extends Controller {
 
     /**
+     * Instantiate a new Controller instance.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('customerplus');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param Customer $customer
