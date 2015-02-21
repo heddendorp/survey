@@ -16,17 +16,18 @@ class SurveyController extends Controller {
      */
 	public function index(Customer $customer)
 	{
-		//
+		return view('survey.index');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function create(Customer $customer)
 	{
-		//
+		return view('survey.edit')->withCustomer($customer);
 	}
 
 	/**

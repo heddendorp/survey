@@ -15,6 +15,7 @@ class CreateSurveysTable extends Migration {
 		Schema::create('surveys', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('customer_id');
             $table->text('questions_json');
             $table->text('members_json');
             $table->text('facilities_json');

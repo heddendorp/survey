@@ -19,4 +19,9 @@ class Survey extends Model {
         return $this->hasMany('Survey\Result');
     }
 
+    public function customer()
+    {
+        return $this->belongsTo('Survey\Customer');
+    }
+
 }
