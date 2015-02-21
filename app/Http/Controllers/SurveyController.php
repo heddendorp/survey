@@ -1,5 +1,6 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
@@ -7,12 +8,13 @@ use Illuminate\Http\Request;
 
 class SurveyController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @return Response
+     */
+	public function index(Customer $customer)
 	{
 		//
 	}
