@@ -56,29 +56,36 @@ class CustomerIterationController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//not used
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Customer $customer, Iteration $iteration)
 	{
-		//
+		return view('iteration.edit')->withCustomer($customer)->withIteration($iteration);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Requests\IterationRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Customer $customer, Iteration $iteration, Requests\IterationRequest $request)
 	{
-		//
+		$iteration->description = $request->get('description');
+        $iteration->save();
+        return redirect()->route('customer.iteration.index', $customer);
 	}
 
     /**
