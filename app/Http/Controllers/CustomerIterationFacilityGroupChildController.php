@@ -94,7 +94,21 @@ class CustomerIterationFacilityGroupChildController extends Controller {
         //dd($file->getClientOriginalExtension());
         if($file->getClientOriginalExtension() !== 'csv')
             return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet'=>'Tabelle muss im .csv Format gespeichert werden.']);
-        return nl2br(file_get_contents($file));
+        $lines = str_getcsv(file_get_contents($file),"\n");
+        if($lines[0] !== "Name;Email")
+            return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet'=>'Tabelle muss im vorgegebenen Format gespeichert sein.']);
+        unset($lines[0]);
+        foreach($lines as $line)
+        {
+            $data = str_getcsv($line,";");
+            $child = new Child;
+            $child->group_id = $group->id;
+            $child->email = $data[1];
+            $child->name = $data[0];
+            $child->save();
+        }
+        return redirect()->route('customer.iteration.facility.group.child.index', [$customer, $iteration, $facility, $group]);
+
 	}
 
 	/**

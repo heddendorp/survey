@@ -20,7 +20,7 @@
     <li class="uk-parent">
         <a href="#">Hilfe zum Upload</a>
         <ul class="uk-nav-sub">
-            <li><p></p></li>
+            <li><p>Bitte laden sie <a href="{{asset('files/demo.csv')}}">diese Tabelle</a> herunter und füllen sie mit den Name und Email-Adressen der Kinder. Specihern Sie die Tabelle ab und bestätigen Sie die eventuelle Rückfrage über den Verlust von Daten mit <code>Ja</code> Dann wählen Sie die Tabelle aus und importieren sie.</p></li>
         </ul>
     </li>
 @stop

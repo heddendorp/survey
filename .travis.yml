@@ -11,4 +11,4 @@ install: travis_retry composer install --no-interaction
 
 script: vendor/bin/phpunit --verbose --colors
 
-after_success: curl https://forge.laravel.com/servers/24550/sites/47968/deploy/http?token=HaRi8GZWr9vHlcbv1kIThQvskxWnGYkRgg4I0OdG
+after_success: curl https://forge.laravel.com/servers/24606/sites/48005/deploy/http?token=bV1NsgvPMubFzdM2wNkXJDVMOXvuZqx3pYHo0ZvS
