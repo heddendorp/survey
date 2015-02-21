@@ -7,7 +7,7 @@
 @stop
 @section('sidenav')
     <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.questionnaire.create', $customer)}}">Neue Umfrage beginnen</a></li>
+    <li><a href="{{route('customer.survey.create', $customer)}}">Neue Umfrage beginnen</a></li>
     <li class="uk-parent">
         <a href="#">Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">

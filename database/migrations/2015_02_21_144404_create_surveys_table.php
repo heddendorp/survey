@@ -20,6 +20,9 @@ class CreateSurveysTable extends Migration {
             $table->text('members_json');
             $table->text('facilities_json');
             $table->text('groups_json');
+            $table->text('welcome_mail')->nullable();
+            $table->text('remember_mail')->nullable();
+            $table->text('finish_mail')->nullable();
             $table->string('questionnaire');
             $table->string('name');
             $table->date('start_date');

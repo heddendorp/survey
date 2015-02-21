@@ -23,6 +23,8 @@ Route::resource('customer', 'CustomerController');
 
 Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
 
+Route::resource('customer.survey', 'CustomerSurveyController');
+
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
 
 Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate',['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);
@@ -47,6 +49,3 @@ Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/
 Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany',['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
 
 Route::resource('mail', 'MailController');
-
-Route::resource('survey', 'SurveyController');
-

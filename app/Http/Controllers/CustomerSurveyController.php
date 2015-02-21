@@ -6,7 +6,7 @@ use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class SurveyController extends Controller {
+class CustomerSurveyController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class SurveyController extends Controller {
      */
 	public function index(Customer $customer)
 	{
-		return view('survey.index');
+		$surveys = $customer->surveys;
+        return view('survey.index')->withCustomer($customer)->withSurveys($surveys);
 	}
 
     /**
@@ -27,7 +28,7 @@ class SurveyController extends Controller {
      */
 	public function create(Customer $customer)
 	{
-		return view('survey.edit')->withCustomer($customer);
+		return view('survey.create')->withCustomer($customer);
 	}
 
 	/**

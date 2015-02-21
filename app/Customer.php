@@ -26,7 +26,7 @@ class Customer extends Model {
         return $this->hasMany('Survey\Questionnaire');
     }
 
-    public function surveys()#
+    public function surveys()
     {
         return $this->hasMany('Survey\Survey');
     }
