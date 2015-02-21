@@ -21,6 +21,8 @@ elixir(function(mix) {
         "uikit.js",
         "components/sortable.js",
         "components/upload.js",
+        "components/form-select.js",
+        "components/datepicker.js",
         "jquery.restfulizer.js",
         "app.js"
     ]);

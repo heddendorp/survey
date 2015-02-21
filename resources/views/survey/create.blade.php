@@ -23,16 +23,59 @@
                 <legend>Neue Umfrage</legend>
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
-                        <p class="uk-form-help-block">Hier können Sie eine neue Umfrage beginnen. Bitte beachten Sie, das nach dem Erstellen der Ufrage keine Fragen und Teilnehmer mehr verändert werden können. Für die Umfrage wirdd eine Kopie des aktuellen Fragebogens und der ausgewählten Teilnhemer erstellt.</p>
+                        <p class="uk-form-help-block uk-margin-bottom">Hier können Sie eine neue Umfrage beginnen. Bitte beachten Sie, das nach dem Erstellen der Ufrage keine Fragen und Teilnehmer mehr verändert werden können. Für die Umfrage wird eine Kopie des aktuellen Fragebogens und der ausgewählten Teilnhemer erstellt.</p>
                     </div>
                     <div class="uk-width-1-2">
-                        <input class="uk-width-1-1 uk-form-large" type="text" name="title" placeholder="Titel">
-                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('title')}}</p>
+                        <input class="uk-width-1-1 uk-form-large" type="text" name="name" placeholder="Bezeichnung der Umfrage">
+                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('name')}}</p>
                     </div>
                     <div class="uk-width-1-2">
-                        <input class="uk-width-1-1 uk-form-large" type="text" name="intern" placeholder="Interner Titel">
-                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('intern')}}</p>
+                        <select class="uk-width-1-1 uk-form-large" name="questionnaire">
+                            @foreach($customer->questionnaires as $questionnaire)
+                                <option value="{{$questionnaire->id}}">{{$questionnaire->title}}/{{$questionnaire->intern}}</option>
+                            @endforeach
+                        </select>
+                        <p class="uk-form-help-block">Bitte wählen Sie einen Fragebogen für diese Umfrage aus.</p>
                     </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-width-1-1 uk-form-large" type="text" name="start_date" placeholder="Startdatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                    </div>
+                    <div class="uk-width-1-2">
+                        <input class="uk-width-1-1 uk-form-large" type="text" name="end_date" placeholder="Enddatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                    </div>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Teilnehmer</legend>
+                <div class="uk-grid">
+                    <div class="uk-width-1-1">
+                        <p class="uk-form-help-block uk-margin-bottom">Bitte wählen Sie nachfolgend die Gruppen aus die an der Umfrage teilnehmen sollen. Wenn sie Eine Einrichtung wählen sind alle ihr zugeordneten Gruppen automatisch ausgewählt.</p>
+                    </div>
+                    @foreach($customer->iterations as $iteration)
+                        <div class="uk-width-1-3">
+                            <label>
+                                <input type="checkbox" name="iteration[{{$iteration->id}}]"/>
+                                {{$iteration->description}}
+                            </label>
+                            <div class="uk-margin-left">
+                                @foreach($iteration->facilities as $facility)
+                                    <label>
+                                        <input type="checkbox" name="facility[{{$facility->id}}]"/>
+                                        {{$facility->name}}
+                                    </label>
+                                @endforeach
+                                    <div class="uk-margin-left">
+                                        @foreach($facility->groups as $group)
+                                            <label>
+                                                <input type="checkbox" name="group[{{$group->id}}]"/>
+                                                {{$group->name}}/<small>{{$group->stringType()}}</small>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </fieldset>
             <div class="uk-form-row uk-margin-top">
