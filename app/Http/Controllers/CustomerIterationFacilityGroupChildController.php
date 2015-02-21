@@ -1,9 +1,13 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
+use Survey\Facility;
+use Survey\Group;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Iteration;
 
 class CustomerIterationFacilityGroupChildController extends Controller {
 
@@ -21,9 +25,10 @@ class CustomerIterationFacilityGroupChildController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Customer $customer, Iteration $iteration, Facility $facility, Group $group)
 	{
-		//
+		$children = $group->children;
+        return view('child.index')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroup($group)->withChildren($children);
 	}
 
 	/**
@@ -42,6 +47,26 @@ class CustomerIterationFacilityGroupChildController extends Controller {
 	 * @return Response
 	 */
 	public function store()
+	{
+		//
+	}
+
+    /**
+	 * Show the form for creating many new resources.
+	 *
+	 * @return Response
+	 */
+	public function multi()
+	{
+		//
+	}
+
+	/**
+	 * Store many newly created resources in storage.
+	 *
+	 * @return Response
+	 */
+	public function storemany()
 	{
 		//
 	}

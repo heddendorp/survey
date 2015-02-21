@@ -42,9 +42,9 @@ class Questiongroup extends Model {
             case 1:
                 return 'für alle Teilnehmer';
             case 2:
-                return 'für Teilnehmer mit Kind in der Krippe';
+                return 'für Krippenteilnehmer';
             case 3:
-                return 'Für Teilnehmer mit Kind im Kindergarten';
+                return 'für Kindergartenteilnehmer';
         }
     }
 
