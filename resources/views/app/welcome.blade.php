@@ -39,7 +39,7 @@
                 <h2 style="color: white;" align="center">Schnell</h2>
             </div>
             <div class="uk-width-1-3">
-                <h2 style="color: white;" align="center">Günstig</h2>
+                <h2 style="color: white;" align="center">Für Kindergärten und -krippen</h2>
             </div>
         </div>
         <br/>
@@ -57,7 +57,7 @@
             </div>
             <div class="uk-width-1-3">
                 <p style="color: white;">
-                    Die Kosten werden ausschließlich durch die Benutzung bestimmt. Sollten sie das System eine längere Zeit nicht benutzen fallen keine laufenden Kosten an.
+                    Das gesamte System wurde im Hinblick auf Kindergärten und -krippen entwickelt und bietet so eine perfekte Umgebung für ihre Umfragen.
                 </p>
             </div>
         </div>
