@@ -35,11 +35,11 @@ Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}
 
 Route::resource('customer.iteration', 'CustomerIterationController', ['except'=>'show']);
 
-Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController');
+Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except'=>'show']);
 
-Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController');
+Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController', ['except'=>'show']);
 
-Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController');
+Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController', ['except'=>'show']);
 
 Route::resource('mail', 'MailController');
 
