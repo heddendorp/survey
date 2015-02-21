@@ -20,4 +20,15 @@ class Group extends Model {
         return $this->hasMany('Survey\Child');
     }
 
+    public function stringType ()
+    {
+        switch ($this->type)
+        {
+            case 1:
+                return 'Kindergarten';
+            case 2:
+                return 'Kinderkrippe';
+        }
+    }
+
 }

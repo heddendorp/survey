@@ -1,9 +1,12 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
+use Survey\Facility;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Iteration;
 
 class CustomerIterationFacilityGroupController extends Controller {
 
@@ -21,9 +24,10 @@ class CustomerIterationFacilityGroupController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Customer $customer, Iteration $iteration, Facility $facility)
 	{
-		//
+		$groups = $facility->groups;
+        return view('group.index')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroups($groups);
 	}
 
 	/**
