@@ -15,7 +15,7 @@
             <p class="uk-form-help-block uk-text-danger">{{$errors->first('login')}}</p>
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <div class="uk-form-row">
-                <input class="uk-width-1-1 uk-form-large" type="text" name="email" placeholder="Email">
+                <input class="uk-width-1-1 uk-form-large" type="email" name="email" placeholder="Email">
                 <p class="uk-form-help-block uk-text-danger">{{$errors->first('email')}}</p>
             </div>
             <div class="uk-form-row">
