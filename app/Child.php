@@ -16,14 +16,4 @@ class Child extends Model {
         return $this->belongsTo('Survey\Group');
     }
 
-    public function tokens ()
-    {
-        return $this->hasMany('Survey\Token');
-    }
-
-    public function answers ()
-    {
-        return $this->hasMany('Survey\Answer');
-    }
-
 }

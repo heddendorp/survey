@@ -17,16 +17,6 @@ class Questionnaire extends Model {
         return $this->belongsTo('Survey\Customer');
     }
 
-	public function tokens ()
-    {
-        return $this->hasMany('Survey\Token');
-    }
-
-    public function results ()
-    {
-        return $this->hasMany('Survey\Result');
-    }
-
     public function sections ()
     {
         return $this->hasMany('Survey\Section');

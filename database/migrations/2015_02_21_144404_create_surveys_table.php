@@ -17,6 +17,8 @@ class CreateSurveysTable extends Migration {
 			$table->increments('id');
             $table->text('questions_json');
             $table->text('members_json');
+            $table->text('facilities_json');
+            $table->text('groups_json');
             $table->string('questionnaire');
             $table->string('name');
             $table->date('start_date');

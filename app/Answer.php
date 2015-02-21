@@ -10,14 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Answer extends Model {
 
-	public function question ()
+    public function survey ()
     {
-        return $this->belongsTo('Survey\Question');
-    }
-
-    public function child ()
-    {
-        return $this->belongsTo('Survey\Child');
+        return $this->belongsTo('Survey\Survey');
     }
 
 }

@@ -16,7 +16,8 @@ class CreateResultsTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('survey_id');
-            $table->string('group');
+            $table->integer('facility');
+            $table->integer('group');
             $table->text('data_json');
 			$table->timestamps();
 		});

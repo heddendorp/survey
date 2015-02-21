@@ -10,14 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Result extends Model {
 
-	public function group ()
+    public function survey ()
     {
-        return $this->belongsTo('Survey\Group');
-    }
-
-    public function questionnaire ()
-    {
-        return $this->belongsTo('Survey\Questionnaire');
+        return $this->belongsTo('Survey\Survey');
     }
 
 }

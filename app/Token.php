@@ -16,14 +16,9 @@ class Token extends Model {
         return $this->hasMany('Survey\Mail');
     }
 
-    public function questionnaire ()
+    public function survey ()
     {
-        return $this->belongsTo('Survey\Questionnaire');
-    }
-
-    public function child ()
-    {
-        return $this->belongsTo('Survey\Child');
+        return $this->belongsTo('Survey\Survey');
     }
 
 }
