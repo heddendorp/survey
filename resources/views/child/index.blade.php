@@ -48,7 +48,7 @@
                                 <td>{{$child->email}}</td>
                                 <td>
                                     <a class="uk-button uk-button-primary" href="{{route('customer.iteration.facility.group.child.edit',[$customer, $iteration, $facility, $group, $child])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.iteration.facility.group.child.destroy', [$customer,$iteration, $facility, $group]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a href="{{route('customer.iteration.facility.group.child.destroy', [$customer,$iteration, $facility, $group, $child]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
                                 </td>
                             </tr>
                         @endforeach

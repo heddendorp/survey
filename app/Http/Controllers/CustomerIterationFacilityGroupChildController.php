@@ -95,40 +95,61 @@ class CustomerIterationFacilityGroupChildController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//not used
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @param Child $child
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Child $child)
 	{
-		//
+        return view('child.edit')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroup($group)->withChild($child);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @param Child $child
+     * @param Requests\ChildRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Child $child, Requests\ChildRequest $request)
 	{
-		//
+		$child->name = $request->get('name');
+        $child->email = $request->get('email');
+        $child->save();
+
+        return redirect()->route('customer.iteration.facility.group.child.index', [$customer, $iteration, $facility, $group]);
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @param Child $child
+     * @return Response
+     * @internal param int $id
+     */
+	public function destroy(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Child $child)
 	{
-		//
+        $child->delete();
+        return redirect()->route('customer.iteration.facility.group.child.index', [$customer, $iteration, $facility, $group]);
 	}
 
 }
