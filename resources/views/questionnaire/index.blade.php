@@ -43,6 +43,7 @@
                                 <td><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">{{$questionnaire->title}}</a></td>
                                 <td>{{$questionnaire->intern}}</td>
                                 <td>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.duplicate',[$customer, $questionnaire])}}">Duplizieren</a>
                                     <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.edit',[$customer, $questionnaire])}}">Bearbeiten</a>
                                     <a href="{{route('customer.questionnaire.destroy', [$customer,$questionnaire]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
                                 </td>

@@ -169,6 +169,10 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
      */
 	public function destroy(Customer $customer, Questionnaire $questionnaire, Section $section, Questiongroup $questiongroup)
 	{
+        foreach($questiongroup->questions as $question)
+        {
+            $question->delete();
+        }
 		$questiongroup->delete();
         return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
 	}

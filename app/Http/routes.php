@@ -25,6 +25,8 @@ Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
 
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
 
+Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate',['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);
+
 Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController', ['except'=>'show']);
 
 Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestionnaireSectionQuestiongroupController', ['except'=>'show']);

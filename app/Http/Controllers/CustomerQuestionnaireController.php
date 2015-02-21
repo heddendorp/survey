@@ -5,7 +5,10 @@ use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Question;
+use Survey\Questiongroup;
 use Survey\Questionnaire;
+use Survey\Section;
 
 class CustomerQuestionnaireController extends Controller {
 
@@ -112,8 +115,72 @@ class CustomerQuestionnaireController extends Controller {
      */
 	public function destroy(Customer $customer, Questionnaire $questionnaire)
 	{
-		$questionnaire->delete();
+        foreach($questionnaire->sections as $section)
+        {
+            foreach($section->questiongroups as $questiongroup)
+            {
+                foreach($questiongroup->questions as $question)
+                {
+                    $question->delete();
+                }
+                $questiongroup->delete();
+            }
+            $section->delete();
+        }
+        $questionnaire->delete();
         return redirect()->route('customer.questionnaire.index', $customer);
 	}
+
+    /**
+     * Duplicate a Questionnaire.
+     *
+     * @param Customer $customer
+     * @param Questionnaire $questionnaire
+     * @return Response
+     * @internal param int $id
+     */
+    public function duplicate(Customer $customer, Questionnaire $questionnaire)
+    {
+        $newQuestionnaire = new Questionnaire;
+
+        $newQuestionnaire->title = $questionnaire->title;
+        $newQuestionnaire->intern = $questionnaire->intern."-Kopie";
+        $newQuestionnaire->customer_id = $customer->id;
+        $newQuestionnaire->welcome_mail = $questionnaire->welcome_mail;
+        $newQuestionnaire->remember_mail = $questionnaire->remember_mail;
+        $newQuestionnaire->finish_mail = $questionnaire->finish_mail;
+        $newQuestionnaire->save();
+
+        foreach($questionnaire->sections as $section)
+        {
+            $newsection = new Section;
+            $newsection->questionnaire_id = $newQuestionnaire->id;
+            $newsection->title = $section->title;
+            $newsection->intern = $section->intern;
+            $newsection->save();
+
+
+            foreach($section->questiongroups as $questiongroup)
+            {
+                $newquestiongroup = new Questiongroup;
+                $newquestiongroup->section_id = $newsection->id;
+                $newquestiongroup->type = $questiongroup->type;
+                $newquestiongroup->order = $questiongroup->order;
+                $newquestiongroup->condition = $questiongroup->condition;
+                $newquestiongroup->heading = $questiongroup->heading;
+                $newquestiongroup->save();
+
+                foreach($questiongroup->questions as $question)
+                {
+                    $newquestion = new Question;
+                    $newquestion->questiongroup_id = $newquestiongroup->id;
+                    $newquestion->content = $question->content;
+                    $newquestion->save();
+                }
+            }
+        }
+
+        return redirect()->route('customer.questionnaire.index', [$customer]);
+    }
 
 }

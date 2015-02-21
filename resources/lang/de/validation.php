@@ -107,6 +107,10 @@ return [
             'min' => 'Das Passwort muss mindestens :min Zeichen lang sein.',
             'confirmed' => 'Das Passwort und die Wiederholung stimmen nicht überein.'
         ],
+        'sheet' => [
+            'required' => 'Es muss eine Tabelle ausgewählt werden.',
+            'mimes' => 'Die ausgewählte Tabelle muss im .csv Format gespeichert sein.'
+        ],
 	],
 
 	/*

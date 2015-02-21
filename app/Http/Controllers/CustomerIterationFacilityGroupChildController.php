@@ -68,13 +68,17 @@ class CustomerIterationFacilityGroupChildController extends Controller {
 	}
 
     /**
-	 * Show the form for creating many new resources.
-	 *
-	 * @return Response
-	 */
-	public function multi()
+     * Show the form for creating many new resources.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @return Response
+     */
+	public function multi(Customer $customer, Iteration $iteration, Facility $facility, Group $group)
 	{
-		//
+        return view('child.multi')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroup($group);
 	}
 
 	/**
@@ -82,9 +86,15 @@ class CustomerIterationFacilityGroupChildController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function storemany()
+	public function storemany(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Request $request)
 	{
-		//
+        if(!$request->hasFile('sheet'))
+            return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet'=>'Es muss eine Tabelle ausgewählt werden.']);
+		$file = $request->file('sheet');
+        //dd($file->getClientOriginalExtension());
+        if($file->getClientOriginalExtension() !== 'csv')
+            return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet'=>'Tabelle muss im .csv Format gespeichert werden.']);
+        dd(file_get_contents($file));
 	}
 
 	/**

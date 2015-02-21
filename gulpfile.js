@@ -20,6 +20,7 @@ elixir(function(mix) {
         "jquery.js",
         "uikit.js",
         "components/sortable.js",
+        "components/upload.js",
         "jquery.restfulizer.js",
         "app.js"
     ]);
