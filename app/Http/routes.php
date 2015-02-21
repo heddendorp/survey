@@ -48,3 +48,5 @@ Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group
 
 Route::resource('mail', 'MailController');
 
+Route::resource('survey', 'SurveyController');
+
