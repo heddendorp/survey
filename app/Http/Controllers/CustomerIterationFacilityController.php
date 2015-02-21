@@ -1,9 +1,11 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Customer;
 use Survey\Http\Requests;
 use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Survey\Iteration;
 
 class CustomerIterationFacilityController extends Controller {
 
@@ -16,14 +18,17 @@ class CustomerIterationFacilityController extends Controller {
         $this->middleware('customerplus');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @return Response
+     */
+	public function index(Customer $customer, Iteration $iteration)
 	{
-		//
+        $facilities = $iteration->facilities;
+		return view('facility.index')->withCustomer($customer)->withIteration($iteration)->withFacilities($facilities);
 	}
 
 	/**
