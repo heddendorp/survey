@@ -7,6 +7,7 @@ use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Survey\Iteration;
+use Symfony\Component\Finder\Tests\FakeAdapter\FailingAdapter;
 
 class CustomerIterationFacilityController extends Controller {
 
@@ -70,29 +71,38 @@ class CustomerIterationFacilityController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//not used
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Customer $customer, Iteration $iteration, Facility $facility)
 	{
-		//
+        return view('facility.edit')->withCustomer($customer)->withIteration($iteration)->withFacility($facility);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Requests\FacilityRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Customer $customer, Iteration $iteration, Facility $facility, Requests\FacilityRequest $request)
 	{
-		//
+		$facility->name = $request->get('name');
+        $facility->save();
+        return redirect()->route('customer.iteration.facility.index', [$customer, $iteration]);
 	}
 
 	/**
@@ -101,9 +111,10 @@ class CustomerIterationFacilityController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Customer $customer, Iteration $iteration, Facility $facility)
 	{
-		//
+		$facility->delete();
+        return redirect()->route('customer.iteration.facility.index', [$customer, $iteration]);
 	}
 
 }
