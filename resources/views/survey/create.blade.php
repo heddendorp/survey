@@ -23,7 +23,7 @@
                 <legend>Neue Umfrage</legend>
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
-                        <p class="uk-form-help-block uk-margin-bottom">Hier können Sie eine neue Umfrage beginnen. Bitte beachten Sie, das nach dem Erstellen der Ufrage keine Fragen und Teilnehmer mehr verändert werden können. Für die Umfrage wird eine Kopie des aktuellen Fragebogens und der ausgewählten Teilnhemer erstellt.</p>
+                        <p class="uk-form-help-block uk-margin-bottom">Hier können Sie eine neue Umfrage beginnen. Bitte beachten Sie, dass nach dem Erstellen der Umfrage keine Fragen und Teilnehmer mehr verändert werden können. Für die Umfrage wird eine Kopie des aktuellen Fragebogens und der ausgewählten Teilnhemer erstellt.</p>
                     </div>
                     <div class="uk-width-1-2">
                         <input class="uk-width-1-1 uk-form-large" type="text" name="name" placeholder="Bezeichnung der Umfrage">
