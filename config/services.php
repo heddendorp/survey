@@ -19,9 +19,9 @@ return [
 		'secret' => '',
 	],
 
-	'mandrill' => [
-		'secret' => '',
-	],
+    'mandrill' => [
+        'secret' => env('MANDRILL_KEY'),
+    ],
 
 	'ses' => [
 		'key' => '',

@@ -28,12 +28,14 @@
                 @foreach($surveys as $survey)
                     <div class="uk-width-1-2">
                         <div class="uk-panel uk-panel-box">
+                            <a href="{{route('customer.survey.show',[$customer, $survey])}}">
                             @if($survey->open)
                                 <div class="uk-panel-badge uk-badge uk-badge-success">Offen</div>
                             @else
                                 <div class="uk-panel-badge uk-badge uk-badge-danger">Geschlossen</div>
                             @endif
-                            <h2 class="uk-panel-title"> {{--<a href="{{route('customer.survey.show',[$customer, $survey])}}">--}}{{$survey->name}}</{{--a>--}}</h2>
+                            </a>
+                            <h2 class="uk-panel-title"> {{--<a href="{{route('customer.survey.show',[$customer, $survey])}}">--}}{{$survey->name}}{{--</a>--}}</h2>
                             <div class="uk-grid">
                                 <div class="uk-width-2-3">
                                     <dl class="uk-description-list-horizontal">
@@ -42,7 +44,7 @@
                                         <dt>Fragebogen</dt>
                                         <dd>{{$survey->questionnaire}}</dd>
                                         <dt>Teilnehmer</dt>
-                                        <dd>{{count($survey->members)}}</dd>
+                                        <dd>{{$survey->tokens->count()}}</dd>
                                     </dl>
                                 </div>
                                 <div class="uk-width-1-3">

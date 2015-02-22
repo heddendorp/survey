@@ -15,7 +15,7 @@ return [
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'mandrill',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'host' => 'smtp.mailgun.org',
+	'host' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => 'noreply@awsonium.com', 'name' => 'NoReply'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => null,
+	'username' => 'l1uka4s@live.de',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => null,
+	'password' => 'QnnqpqZlZLqac0-YKPODDg',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -122,3 +122,16 @@ return [
 	'pretend' => false,
 
 ];
+//return array(
+//    "driver" => "smtp",
+//    "host" => "mailtrap.io",
+//    "port" => 2525,
+//    "from" => array(
+//        "address" => "from@exampe.com",
+//        "name" => "Example"
+//    ),
+//    "username" => "3023319e88a855045",
+//    "password" => "56617deb5defa0",
+//    "sendmail" => "/usr/sbin/sendmail -bs",
+//    "pretend" => false
+//);

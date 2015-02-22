@@ -29,6 +29,8 @@ Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
 
 Route::resource('customer.survey', 'CustomerSurveyController');
 
+Route::get('customer/{customer}/survey/{survey}/send-welcome',['as' => 'customer.survey.sendWelcome', 'uses' => 'CustomerSurveyController@sendWelcome']);
+
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
 
 Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate',['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);
@@ -54,3 +56,5 @@ Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/
 Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany',['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
 
 Route::resource('mail', 'MailController');
+
+Route::get('token/{key}',['as' => 'token.key', 'uses' => 'TokenController@key']);

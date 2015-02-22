@@ -8,6 +8,7 @@ use Survey\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Survey\Questionnaire;
 use Survey\Survey;
+use Survey\Token;
 
 class CustomerSurveyController extends Controller {
 
@@ -57,10 +58,6 @@ class CustomerSurveyController extends Controller {
             $group = Group::find($id);
             $groups[$group->id] = $group->toArray();
             $facilities[$group->facility->id] = $group->facility->toArray();
-            foreach ($group->children as $child) {
-                $members[$child->id] = $child->toArray();
-            }
-
         }
         $questionnaire = Questionnaire::find($request->get('questionnaire'));
         foreach($questionnaire->sections as $section)
@@ -77,7 +74,6 @@ class CustomerSurveyController extends Controller {
             }
         }
         $survey = new Survey;
-        $survey->members = $members;
         $survey->groups = $groups;
         $survey->questions = $questions;
         $survey->facilities = $facilities;
@@ -90,18 +86,35 @@ class CustomerSurveyController extends Controller {
         $survey->name = $request->get('name');
         $survey->save();
 
+        foreach($request->get('group') as $id=>$on)
+        {
+            $group = Group::find($id);
+            foreach ($group->children as $child) {
+                $token = new Token;
+                $token->facility = $child->group->facility_id;
+                $token->group = $child->group_id;
+                $token->name = $child->name;
+                $token->email = $child->email;
+                $token->token = md5($child->name.$child->email.$child->id.time());
+                $token->survey_id = $survey->id;
+                $token->save();
+            }
+        }
+
         return redirect()->route('customer.survey.index', $customer);
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @return Response
+     * @internal param int $id
+     */
+	public function show(Customer $customer, Survey $survey)
 	{
-		//
+		return view('survey.show')->withCustomer($customer)->withSurvey($survey);
 	}
 
     /**
@@ -152,5 +165,33 @@ class CustomerSurveyController extends Controller {
 		$survey->delete();
         return redirect()->route('customer.survey.index', $customer);
 	}
+
+    /**
+     * Send begin Mails for selected Survey.
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @return Response
+     * @internal param int $id
+     */
+    public function sendWelcome(Customer $customer, Survey $survey)
+    {
+        $text = $survey->welcome_mail;
+        foreach($survey->tokens as $token)
+        {
+            $text = str_replace(':name', $token->name, $text);
+            $key = $token->token;
+            $link = route('token.key', $key);
+            $link = '<a href="'.$link.'">Fragebogen</a>';
+            $text = str_replace(':link',$link, $text);
+            $text = nl2br($text);
+            \Mail::queue('emails.welcome', ['text'=>$text], function($message) use ($customer, $token, $survey)
+            {
+                $message->from($customer->info_email, $customer->name);
+                $message->to($token->email)->subject($survey->name);
+            });
+        }
+        return redirect()->route('customer.survey.index', $customer);
+    }
 
 }
