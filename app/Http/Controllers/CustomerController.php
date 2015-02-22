@@ -16,6 +16,7 @@ class CustomerController extends Controller {
     {
         $this->middleware('auth',['except'=>['create','store']]);
         $this->middleware('customer',['except'=>['create','store']]);
+        $this->middleware('customerplus',['only'=>['edit','update']]);
     }
 
 	/**
@@ -60,7 +61,7 @@ class CustomerController extends Controller {
         $user->customer_id = $customer->id;
         $user->save();
 
-        return redirect('customer/'.$customer->id);
+        return redirect()->route('customer.show',$customer);
 	}
 
     /**
