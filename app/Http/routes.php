@@ -27,6 +27,10 @@ Route::get('data', function(){
     return response()->download(storage_path().'/database.sqlite');
 });
 
+Route::get('env', function(){
+    return app()->environment();
+});
+
 Route::get('login', 'WelcomeController@login');
 
 Route::post('login', 'WelcomeController@authenticate');
