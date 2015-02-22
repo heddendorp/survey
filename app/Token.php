@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Token extends Model {
 
+    protected $casts = [
+        'child' => 'array',
+    ];
+
 	public function mails ()
     {
         return $this->hasMany('Survey\Mail');

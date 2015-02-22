@@ -30,7 +30,7 @@ return [
 	"boolean"              => "The :attribute field must be true or false.",
 	"confirmed"            => "The :attribute confirmation does not match.",
 	"date"                 => "The :attribute is not a valid date.",
-	"date_format"          => "The :attribute does not match the format :format.",
+	"date_format"          => "Falsches Datumsformat, bitte verwenden Sie den Wähler.",
 	"different"            => "The :attribute and :other must be different.",
 	"digits"               => "The :attribute must be :digits digits.",
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
@@ -101,6 +101,9 @@ return [
         ],
         'name' => [
             'required' => 'Der Name wird benötigt.'
+        ],
+        'group' => [
+            'required' => 'Es muss mindestens eine Gruppe ausgewählt werden.'
         ],
         'password' => [
             'required' => 'Das Passwort wird benötigt.',

@@ -4,6 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Survey extends Model {
 
+    protected $casts = [
+        'members' => 'array',
+        'groups' => 'array',
+        'questions' => 'array',
+    ];
+
 	public function answers()
     {
         return $this->hasMany('Survey\Answer');

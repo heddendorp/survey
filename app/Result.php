@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Result extends Model {
 
+    protected $casts = [
+        'data' => 'array',
+    ];
+
     public function survey ()
     {
         return $this->belongsTo('Survey\Survey');

@@ -38,10 +38,12 @@
                         <p class="uk-form-help-block">Bitte wählen Sie einen Fragebogen für diese Umfrage aus.</p>
                     </div>
                     <div class="uk-width-1-2">
-                        <input class="uk-width-1-1 uk-form-large" type="text" name="start_date" placeholder="Startdatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                        <input class="uk-width-1-1 uk-form-large" type="" name="start_date" placeholder="Startdatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('start_date')}}</p>
                     </div>
                     <div class="uk-width-1-2">
-                        <input class="uk-width-1-1 uk-form-large" type="text" name="end_date" placeholder="Enddatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                        <input class="uk-width-1-1 uk-form-large" type="" name="end_date" placeholder="Enddatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('end_date')}}</p>
                     </div>
 
                 </div>
@@ -50,27 +52,26 @@
                 <legend>Teilnehmer</legend>
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
-                        <p class="uk-form-help-block uk-margin-bottom">Bitte wählen Sie nachfolgend die Gruppen aus die an der Umfrage teilnehmen sollen. Wenn sie Eine Einrichtung wählen sind alle ihr zugeordneten Gruppen automatisch ausgewählt.</p>
+                        <p class="uk-form-help-block uk-margin-bottom">Bitte wählen Sie nachfolgend die Gruppen aus die an der Umfrage teilnehmen sollen.</p>
+                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('group')}}</p>
                     </div>
                     @foreach($customer->iterations as $iteration)
                         <div class="uk-width-1-3">
                             <label>
-                                <input type="checkbox" name="iteration[{{$iteration->id}}]"/>
                                 {{$iteration->description}}
-                            </label>
+                            </label><br/>
                             <div class="uk-margin-left">
                                 @foreach($iteration->facilities as $facility)
                                     <label>
-                                        <input type="checkbox" name="facility[{{$facility->id}}]"/>
                                         {{$facility->name}}
-                                    </label>
+                                    </label><br/>
                                 @endforeach
                                     <div class="uk-margin-left">
                                         @foreach($facility->groups as $group)
                                             <label>
                                                 <input type="checkbox" name="group[{{$group->id}}]"/>
                                                 {{$group->name}}/<small>{{$group->stringType()}}</small>
-                                            </label>
+                                            </label><br/>
                                         @endforeach
                                     </div>
                             </div>
