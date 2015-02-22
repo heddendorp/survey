@@ -162,6 +162,8 @@ class CustomerSurveyController extends Controller {
      */
 	public function destroy(Customer $customer, Survey $survey)
 	{
+        foreach($survey->tokens as $token)
+            $token->delete();
 		$survey->delete();
         return redirect()->route('customer.survey.index', $customer);
 	}
