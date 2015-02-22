@@ -7,6 +7,7 @@ use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Survey\Questionnaire;
+use Survey\Survey;
 
 class CustomerSurveyController extends Controller {
 
@@ -55,7 +56,11 @@ class CustomerSurveyController extends Controller {
         {
             $group = Group::find($id);
             $groups[$group->id] = $group->toArray();
-            $members[$group->id] = $group->children->toArray();
+            $facilities[$group->facility->id] = $group->facility->toArray();
+            foreach ($group->children as $child) {
+                $members[$child->id] = $child->toArray();
+            }
+
         }
         $questionnaire = Questionnaire::find($request->get('questionnaire'));
         foreach($questionnaire->sections as $section)
@@ -71,7 +76,20 @@ class CustomerSurveyController extends Controller {
                 }
             }
         }
-        $
+        $survey = new Survey;
+        $survey->members = $members;
+        $survey->groups = $groups;
+        $survey->questions = $questions;
+        $survey->facilities = $facilities;
+        $survey->welcome_mail = $questionnaire->welcome_mail;
+        $survey->remember_mail = $questionnaire->remember_mail;
+        $survey->finish_mail = $questionnaire->finish_mail;
+        $survey->end_date = \DateTime::createFromFormat('d.m.Y',$request->get('end_date'));
+        $survey->questionnaire = $questionnaire->title;
+        $survey->customer_id = $customer->id;
+        $survey->name = $request->get('name');
+
+        dd($survey->facilities);
 	}
 
 	/**

@@ -23,7 +23,6 @@ class SurveyRequest extends Request {
 	{
 		return [
 			'name'=>'required',
-            'start_date'=>'required|date_format:j.m.Y',
             'end_date'=>'required|date_format:j.m.Y',
             'group'=>'required'
 		];

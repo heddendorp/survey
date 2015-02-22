@@ -38,10 +38,6 @@
                         <p class="uk-form-help-block">Bitte wählen Sie einen Fragebogen für diese Umfrage aus.</p>
                     </div>
                     <div class="uk-width-1-2">
-                        <input class="uk-width-1-1 uk-form-large" type="" name="start_date" placeholder="Startdatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
-                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('start_date')}}</p>
-                    </div>
-                    <div class="uk-width-1-2">
                         <input class="uk-width-1-1 uk-form-large" type="" name="end_date" placeholder="Enddatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
                         <p class="uk-form-help-block uk-text-danger">{{$errors->first('end_date')}}</p>
                     </div>
@@ -65,7 +61,6 @@
                                     <label>
                                         {{$facility->name}}
                                     </label><br/>
-                                @endforeach
                                     <div class="uk-margin-left">
                                         @foreach($facility->groups as $group)
                                             <label>
@@ -74,6 +69,7 @@
                                             </label><br/>
                                         @endforeach
                                     </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach

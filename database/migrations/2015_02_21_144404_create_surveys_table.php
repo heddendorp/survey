@@ -15,17 +15,17 @@ class CreateSurveysTable extends Migration {
 		Schema::create('surveys', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->boolean('open')->default(true);
             $table->integer('customer_id');
             $table->json('questions');
             $table->json('members');
             $table->json('facilities');
-            $table->text('groups_json');
+            $table->text('groups');
             $table->text('welcome_mail')->nullable();
             $table->text('remember_mail')->nullable();
             $table->text('finish_mail')->nullable();
             $table->string('questionnaire');
             $table->string('name');
-            $table->date('start_date');
             $table->date('end_date');
 			$table->timestamps();
 		});

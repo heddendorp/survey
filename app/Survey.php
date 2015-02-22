@@ -8,6 +8,7 @@ class Survey extends Model {
         'members' => 'array',
         'groups' => 'array',
         'questions' => 'array',
+        'facilities' => 'array',
     ];
 
 	public function answers()
