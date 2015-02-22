@@ -33,6 +33,7 @@ class RouteServiceProvider extends ServiceProvider {
         $router->model('facility', 'Survey\Facility');
         $router->model('group', 'Survey\Group');
         $router->model('child', 'Survey\Child');
+        $router->model('survey', 'Survey\Survey');
 	}
 
 	/**

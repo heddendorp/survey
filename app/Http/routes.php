@@ -13,6 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::get('data', function(){
+    return response()->download(storage_path().'database.sqlite');
+});
+
 Route::get('login', 'WelcomeController@login');
 
 Route::post('login', 'WelcomeController@authenticate');

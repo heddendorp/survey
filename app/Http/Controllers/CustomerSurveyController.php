@@ -104,15 +104,17 @@ class CustomerSurveyController extends Controller {
 		//
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Customer $customer, Survey $survey)
 	{
-		//
+        return view('survey.edit')->withCustomer($customer)->withSurvey($survey);
 	}
 
 	/**
