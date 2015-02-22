@@ -133,13 +133,12 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
         $questiongroup->condition = $request->get('condition');
         $questiongroup->heading = $request->get('heading');
         $questiongroup->save();
-
         foreach($questiongroup->questions as $question)
         {
-            if(!$request->has('options') || !array_key_exists($question->id, $request->get('questions')))
-                $question->delete();
-            else
+            if($request->has('questions') && array_key_exists($question->id, $request->get('questions')))
                 $question->content = $request->get('questions')[$question->id];
+            else
+                $question->delete();
         }
         if($request->has('options'))
         {

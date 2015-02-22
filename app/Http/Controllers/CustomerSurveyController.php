@@ -88,8 +88,9 @@ class CustomerSurveyController extends Controller {
         $survey->questionnaire = $questionnaire->title;
         $survey->customer_id = $customer->id;
         $survey->name = $request->get('name');
+        $survey->save();
 
-        dd($survey->facilities);
+        return redirect()->route('customer.survey.index', $customer);
 	}
 
 	/**
