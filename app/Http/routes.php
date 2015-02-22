@@ -14,7 +14,7 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::get('data', function(){
-    return response()->download(storage_path().'database.sqlite');
+    return response()->download(storage_path().'/database.sqlite');
 });
 
 Route::get('login', 'WelcomeController@login');
@@ -50,6 +50,7 @@ Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityG
 Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController', ['except'=>'show']);
 
 Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/multi',['as' => 'customer.iteration.facility.group.child.multi', 'uses' => 'CustomerIterationFacilityGroupChildController@multi']);
+
 Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany',['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
 
 Route::resource('mail', 'MailController');
