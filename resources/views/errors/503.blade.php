@@ -1,5 +1,7 @@
 <html>
 	<head>
+        <title>Survey-X | Update</title>
+        <meta http-equiv="refresh" content="5" >
 		<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 		<style>
