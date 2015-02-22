@@ -27,6 +27,10 @@
                         <input class="uk-width-1-1 uk-form-large" type="text" name="name" placeholder="Name" value="{{$survey->name}}">
                         <p class="uk-form-help-block uk-text-danger">{{$errors->first('name')}}</p>
                     </div>
+                    <div class="uk-width-1-2">
+                        <input value="{{$survey->stringDate()}}" class="uk-width-1-1 uk-form-large" type="" name="end_date" placeholder="Enddatum" data-uk-datepicker="{format:'DD.MM.YYYY', i18n:{months:['Jannuar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'], weekdays:['So','Mo','Di','Mi','Do','Fr','Sa']}}">
+                        <p class="uk-form-help-block uk-text-danger">{{$errors->first('end_date')}}</p>
+                    </div>
                     <div class="uk-width-1-1">
                         <textarea name="welcome_mail" style="width: 100%" rows="10">{{$survey->welcome_mail}}</textarea>
                         <p class="uk-form-help-block">Bitte geben sie hier den Text der Mail an, die die Teilnehmer zu beginn der Umfrage erhalten. Verwenden sie <code>:name</code> als Platzhalter für den Namen des Kindes und <code>:link</code> als Platzhalter für den Link zum Fragebogen.</p>

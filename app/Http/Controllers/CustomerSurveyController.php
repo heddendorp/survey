@@ -117,26 +117,40 @@ class CustomerSurveyController extends Controller {
         return view('survey.edit')->withCustomer($customer)->withSurvey($survey);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @param Requests\SurveyUpdateRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Customer $customer, Survey $survey, Requests\SurveyUpdateRequest $request)
 	{
-		//
+		$survey->welcome_mail = $request->get('welcome_mail');
+        $survey->remember_mail = $request->get('remember_mail');
+        $survey->finish_mail = $request->get('finish_mail');
+        $survey->name = $request->get('name');
+        $survey->end_date =  \DateTime::createFromFormat('d.m.Y',$request->get('end_date'));
+        $survey->save();
+
+        return redirect()->route('customer.survey.index', $customer);
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @return Response
+     * @throws \Exception
+     * @internal param int $id
+     */
+	public function destroy(Customer $customer, Survey $survey)
 	{
-		//
+		$survey->delete();
+        return redirect()->route('customer.survey.index', $customer);
 	}
 
 }

@@ -31,4 +31,9 @@ class Survey extends Model {
         return $this->belongsTo('Survey\Customer');
     }
 
+    public function stringDate()
+    {
+        return date('d.m.Y',strtotime($this->end_date));
+    }
+
 }
