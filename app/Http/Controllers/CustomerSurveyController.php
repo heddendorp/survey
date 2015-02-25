@@ -60,18 +60,24 @@ class CustomerSurveyController extends Controller {
             $facilities[$group->facility->id] = $group->facility->toArray();
         }
         $questionnaire = Questionnaire::find($request->get('questionnaire'));
+        $i=0;
         foreach($questionnaire->sections as $section)
         {
-            $questions[$section->id] = $section->toArray();
+            $questions[$i] = $section->toArray();
             $questiongroups = $section->questiongroups->sortBy('order');
+            $qg=0;
             foreach ($questiongroups as $questiongroup)
             {
-                $questions[$section->id]['questiongroups'][$questiongroup->id] = $questiongroup->toArray();
+                $questions[$i]['questiongroups'][$qg] = $questiongroup->toArray();
+                $q=0;
                 foreach ($questiongroup->questions as $question)
                 {
-                    $questions[$section->id]['questiongroups'][$questiongroup->id]['questions'][$question->id] = $question->toArray();
+                    $questions[$i]['questiongroups'][$qg]['questions'][$q] = $question->toArray();
+                    $q++;
                 }
+                $qg++;
             }
+            $i++;
         }
         $survey = new Survey;
         $survey->groups = $groups;
@@ -97,6 +103,7 @@ class CustomerSurveyController extends Controller {
                 $token->email = $child->email;
                 $token->token = md5($child->name.$child->email.$child->id.time());
                 $token->survey_id = $survey->id;
+                $token->progress = 0;
                 $token->save();
             }
         }
@@ -183,7 +190,7 @@ class CustomerSurveyController extends Controller {
         {
             $text = str_replace(':name', $token->name, $text);
             $key = $token->token;
-            $link = route('token.key', $key);
+            $link = route('survey.token.key', [$survey,$key]);
             $link = '<a href="'.$link.'">Fragebogen</a>';
             $text = str_replace(':link',$link, $text);
             $text = nl2br($text);
@@ -193,7 +200,9 @@ class CustomerSurveyController extends Controller {
                 $message->to($token->email)->subject($survey->name);
             });
         }
-        return redirect()->route('customer.survey.index', $customer);
+        $survey->welcomed = true;
+        $survey->save();
+        return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
 
 }

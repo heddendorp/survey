@@ -12,10 +12,18 @@ class ModifyAnswersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('answers', function(Blueprint $table)
-		{
-			$table->renameColumn('child', 'token_id');
-		});
+        Schema::dropIfExists('answers');
+        Schema::create('answers', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('survey_id');
+            $table->integer('token_id');
+            $table->integer('question');
+            $table->integer('answer');
+            $table->integer('type');
+            $table->text('text')->nullable();
+            $table->timestamps();
+        });
 	}
 
 	/**
@@ -27,7 +35,7 @@ class ModifyAnswersTable extends Migration {
 	{
 		Schema::table('answers', function(Blueprint $table)
 		{
-			$table->renameColumn('token_id', 'child');
+            Schema::dropIfExists('answers');
 		});
 	}
 

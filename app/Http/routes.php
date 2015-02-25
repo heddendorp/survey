@@ -71,4 +71,6 @@ Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group
 
 Route::resource('mail', 'MailController');
 
-Route::get('token/{key}',['as' => 'token.key', 'uses' => 'TokenController@key']);
+Route::get('/survey/{survey}/token/{key}',['as' => 'survey.token.key', 'uses' => 'TokenController@key']);
+
+Route::post('/survey/{survey}/token/{token}',['as' => 'survey.token.answer', 'uses' => 'TokenController@answer']);

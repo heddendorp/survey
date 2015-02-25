@@ -32,7 +32,7 @@
             <hr class="uk-grid-divider"/>
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <a class="uk-button uk-button-primary uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey])}}">Mails senden</a>
+                    <a class="uk-button @if($survey->welcomed) uk-button-danger @else uk-button-primary @endif uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey])}}">Mails senden @if($survey->welcomed) <strong>Achtung! Die Mails wurden bereits versandt.</strong> @endif </a>
                 </div>
             </div>
         </div>
