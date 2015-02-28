@@ -2,7 +2,7 @@
 <html style="background: url({{asset('img/giftly.png')}});">
 <head>
     <title>{{$survey->name}}</title>
-    <link rel="stylesheet" href="{{ elixir("css/app.css") }}" />
+    <link rel="stylesheet" href="{{ elixir("css/all.css") }}" />
     <script src="{{ elixir("js/all.js") }}"></script>
     @yield('head')
 </head>

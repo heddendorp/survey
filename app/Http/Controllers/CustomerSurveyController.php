@@ -1,5 +1,6 @@
 <?php namespace Survey\Http\Controllers;
 
+use Survey\Commands\ColltectResults;
 use Survey\Customer;
 use Survey\Group;
 use Survey\Http\Requests;
@@ -7,6 +8,7 @@ use Survey\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Survey\Questionnaire;
+use Survey\Result;
 use Survey\Survey;
 use Survey\Token;
 
@@ -95,6 +97,13 @@ class CustomerSurveyController extends Controller {
         foreach($request->get('group') as $id=>$on)
         {
             $group = Group::find($id);
+            $result = new Result;
+            $result->survey_id = $survey->id;
+            $result->facility = $group->facility->id;
+            $result->group = $group->id;
+            $result->facility_name = $group->facility->name;
+            $result->group_name = $group->name;
+            $result->save();
             foreach ($group->children as $child) {
                 $token = new Token;
                 $token->facility = $child->group->facility_id;
@@ -103,6 +112,7 @@ class CustomerSurveyController extends Controller {
                 $token->email = $child->email;
                 $token->token = md5($child->name.$child->email.$child->id.time());
                 $token->survey_id = $survey->id;
+                $token->result_id = $result->id;
                 $token->progress = 0;
                 $token->save();
             }
@@ -121,7 +131,10 @@ class CustomerSurveyController extends Controller {
      */
 	public function show(Customer $customer, Survey $survey)
 	{
-		return view('survey.show')->withCustomer($customer)->withSurvey($survey);
+        dd($survey->questions);
+        $results = $survey->results->groupBy('facility');
+        //dd($results);
+		return view('survey.show')->withCustomer($customer)->withSurvey($survey)->withResults($results);
 	}
 
     /**
@@ -186,22 +199,36 @@ class CustomerSurveyController extends Controller {
     public function sendWelcome(Customer $customer, Survey $survey)
     {
         $text = $survey->welcome_mail;
-        foreach($survey->tokens as $token)
-        {
+        foreach ($survey->tokens as $token) {
             $text = str_replace(':name', $token->name, $text);
             $key = $token->token;
-            $link = route('survey.token.key', [$survey,$key]);
-            $link = '<a href="'.$link.'">Fragebogen</a>';
-            $text = str_replace(':link',$link, $text);
+            $link = route('survey.token.key', [$survey, $key]);
+            $link = '<a href="' . $link . '">Fragebogen</a>';
+            $text = str_replace(':link', $link, $text);
             $text = nl2br($text);
-            \Mail::queue('emails.welcome', ['text'=>$text], function($message) use ($customer, $token, $survey)
-            {
+            \Mail::queue('emails.welcome', ['text' => $text], function ($message) use ($customer, $token, $survey) {
                 $message->from($customer->info_email, $customer->name);
                 $message->to($token->email)->subject($survey->name);
             });
         }
         $survey->welcomed = true;
         $survey->save();
+        return redirect()->route('customer.survey.show', [$customer, $survey]);
+    }
+
+    /**
+     * Triggers the result building process
+     *
+     * @param Customer $customer
+     * @param Survey $survey
+     * @param Result $result
+     */
+    public function analyze (Customer $customer, Survey $survey, Result $result)
+    {
+        $this->dispatch(
+            new ColltectResults($result)
+        );
+
         return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
 

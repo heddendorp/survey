@@ -42,6 +42,7 @@ class TokenController extends Controller {
                 $result->text = $answer['answer'];
                 $result->token_id = $token->id;
                 $result->survey_id = $survey->id;
+                $result->result_id = $token->result_id;
                 $result->save();
             }
             elseif(!$answer['answer'] == "")
@@ -55,6 +56,7 @@ class TokenController extends Controller {
                     $result->answer = $answer['answer'];
                 else
                     $result->answer = 0;
+                $result->result_id = $token->result_id;
                 $result->save();
             }
         }

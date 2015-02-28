@@ -45,6 +45,8 @@ Route::resource('customer.survey', 'CustomerSurveyController');
 
 Route::get('customer/{customer}/survey/{survey}/send-welcome',['as' => 'customer.survey.sendWelcome', 'uses' => 'CustomerSurveyController@sendWelcome']);
 
+Route::get('customer/{customer}/survey/{survey}/analyze/{result}',['as' => 'customer.survey.analyze', 'uses' => 'CustomerSurveyController@analyze']);
+
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
 
 Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate',['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);

@@ -18,6 +18,7 @@ class ModifyAnswersTable extends Migration {
             $table->increments('id');
             $table->integer('survey_id');
             $table->integer('token_id');
+            $table->integer('result_id');
             $table->integer('question');
             $table->integer('answer');
             $table->integer('type');

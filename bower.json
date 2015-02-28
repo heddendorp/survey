@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "uikit": "2.*"
+    "uikit": "2.*",
+    "semantic-ui-card": "*"
   }
 }

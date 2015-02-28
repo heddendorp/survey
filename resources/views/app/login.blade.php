@@ -2,7 +2,7 @@
 <html class="uk-height-1-1 uk-notouch" style="background: url({{asset('img/pattern.png')}});">
 <head>
     <title>Survey-X</title>
-    <link rel="stylesheet" href="{{ elixir("css/app.css") }}" />
+    <link rel="stylesheet" href="{{ elixir("css/all.css") }}" />
     <script src="{{ elixir("js/all.js") }}"></script>
 </head>
 <body class="uk-height-1-1">

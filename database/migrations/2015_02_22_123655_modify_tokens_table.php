@@ -19,6 +19,7 @@ class ModifyTokensTable extends Migration {
 			$table->integer('facility');
             $table->integer('group');
             $table->integer('survey_id');
+            $table->integer('result_id');
             $table->integer('progress');
             $table->string('name');
             $table->string('email');

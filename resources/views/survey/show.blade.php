@@ -35,6 +35,45 @@
                     <a class="uk-button @if($survey->welcomed) uk-button-danger @else uk-button-primary @endif uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey])}}">Mails senden @if($survey->welcomed) <strong>Achtung! Die Mails wurden bereits versandt.</strong> @endif </a>
                 </div>
             </div>
+                <hr class="uk-grid-divider"/>
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <h2>Auswertungen</h2>
+                    <div class="uk-grid">
+                        @foreach($results as $id=>$group)
+                            <div class="uk-width-1-2">
+                                <h3>{{$survey->facilities[$id]['name']}}</h3>
+                                <div class="uk-grid">
+                                    <div class="uk-width-1-1">
+                                        @foreach($group as $result)
+                                            <div class="ui card">
+                                                <div class="content">
+                                                    <div class="header">{{$survey->groups[$result->group]['name']}}</div>
+                                                    <div class="meta">
+                                                        @if($result->data != "")
+                                                            <span>{{$result->pretty_date()}} zuletst aktualisiert</span>
+                                                        @else
+                                                            <span>Noch nicht analysiert</span>
+                                                        @endif
+                                                    </div>
+                                                    <div class="description">
+                                                        @if($result->data != "")
+                                                            <a class="uk-button uk-button-primary" href="">Ansehen</a>
+                                                        @endif
+                                                            <a class="uk-button uk-button-success" href="">Erstellen</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </div>
 @stop

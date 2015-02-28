@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Survey-X</title>
-    <link rel="stylesheet" href="{{ elixir("css/app.css") }}" />
+    <link rel="stylesheet" href="{{ elixir("css/all.css") }}" />
     <script src="{{ elixir("js/all.js") }}"></script>
 </head>
 <body>

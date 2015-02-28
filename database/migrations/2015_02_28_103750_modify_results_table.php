@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResultsTable extends Migration {
+class ModifyResultsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,17 @@ class CreateResultsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('results', function(Blueprint $table)
-		{
-			$table->increments('id');
+        Schema::dropIfExists('results');
+        Schema::create('results', function(Blueprint $table)
+        {
+            $table->increments('id');
             $table->integer('survey_id');
             $table->integer('facility');
             $table->integer('group');
-            $table->json('data');
-			$table->timestamps();
+            $table->string('facility_name');
+            $table->string('group_name');
+            $table->json('data')->nullable();
+            $table->timestamps();
 		});
 	}
 
