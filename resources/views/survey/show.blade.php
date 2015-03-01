@@ -57,10 +57,22 @@
                                                         @endif
                                                     </div>
                                                     <div class="description">
-                                                        @if($result->data != "")
-                                                            <a class="uk-button uk-button-primary" href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Ansehen</a>
-                                                        @endif
-                                                            <a class="uk-button uk-button-success" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                        <div class="uk-grid">
+                                                            @if($result->data != "")
+                                                                <div class="uk-button-dropdown uk-width-1-2" data-uk-dropdown="{mode:'click'}">
+                                                                    <button class="uk-button uk-button-primary uk-width-1-1">Ansehen</button>
+                                                                    <div class="uk-dropdown">
+                                                                        <ul class="uk-nav uk-nav-dropdown">
+                                                                            <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
+                                                                            <li><a target="_blank" href="{{route('customer.survey.result.table', [$customer, $survey, $result])}}">Tabellenansicht</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Aktualisieren</a>
+                                                            @else
+                                                                <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
