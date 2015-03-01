@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="description">
                                                         @if($result->data != "")
-                                                            <a class="uk-button uk-button-primary" href="{{route('customer.survey.result', [$customer, $survey, $result])}}">Ansehen</a>
+                                                            <a class="uk-button uk-button-primary" href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Ansehen</a>
                                                         @endif
                                                             <a class="uk-button uk-button-success" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
                                                     </div>
