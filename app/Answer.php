@@ -15,4 +15,9 @@ class Answer extends Model {
         return $this->belongsTo('Survey\Survey');
     }
 
+    public function result ()
+    {
+        return $this->belongsTo('Survey\Result');
+    }
+
 }

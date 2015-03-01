@@ -29,11 +29,11 @@ class CustomerSurveyController extends Controller {
      * @param Customer $customer
      * @return Response
      */
-	public function index(Customer $customer)
-	{
-		$surveys = $customer->surveys;
+    public function index(Customer $customer)
+    {
+        $surveys = $customer->surveys;
         return view('survey.index')->withCustomer($customer)->withSurveys($surveys);
-	}
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,10 +41,10 @@ class CustomerSurveyController extends Controller {
      * @param Customer $customer
      * @return Response
      */
-	public function create(Customer $customer)
-	{
-		return view('survey.create')->withCustomer($customer);
-	}
+    public function create(Customer $customer)
+    {
+        return view('survey.create')->withCustomer($customer);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -53,8 +53,8 @@ class CustomerSurveyController extends Controller {
      * @param Requests\SurveyRequest $request
      * @return Response
      */
-	public function store(Customer $customer, Requests\SurveyRequest $request)
-	{
+    public function store(Customer $customer, Requests\SurveyRequest $request)
+    {
         foreach($request->get('group') as $id=>$on)
         {
             $group = Group::find($id);
@@ -119,7 +119,7 @@ class CustomerSurveyController extends Controller {
         }
 
         return redirect()->route('customer.survey.index', $customer);
-	}
+    }
 
     /**
      * Display the specified resource.
@@ -129,13 +129,13 @@ class CustomerSurveyController extends Controller {
      * @return Response
      * @internal param int $id
      */
-	public function show(Customer $customer, Survey $survey)
-	{
-        dd($survey->questions);
+    public function show(Customer $customer, Survey $survey)
+    {
+        //dd($survey->questions);
         $results = $survey->results->groupBy('facility');
         //dd($results);
-		return view('survey.show')->withCustomer($customer)->withSurvey($survey)->withResults($results);
-	}
+        return view('survey.show')->withCustomer($customer)->withSurvey($survey)->withResults($results);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -145,10 +145,10 @@ class CustomerSurveyController extends Controller {
      * @return Response
      * @internal param int $id
      */
-	public function edit(Customer $customer, Survey $survey)
-	{
+    public function edit(Customer $customer, Survey $survey)
+    {
         return view('survey.edit')->withCustomer($customer)->withSurvey($survey);
-	}
+    }
 
     /**
      * Update the specified resource in storage.
@@ -159,9 +159,9 @@ class CustomerSurveyController extends Controller {
      * @return Response
      * @internal param int $id
      */
-	public function update(Customer $customer, Survey $survey, Requests\SurveyUpdateRequest $request)
-	{
-		$survey->welcome_mail = $request->get('welcome_mail');
+    public function update(Customer $customer, Survey $survey, Requests\SurveyUpdateRequest $request)
+    {
+        $survey->welcome_mail = $request->get('welcome_mail');
         $survey->remember_mail = $request->get('remember_mail');
         $survey->finish_mail = $request->get('finish_mail');
         $survey->name = $request->get('name');
@@ -169,7 +169,7 @@ class CustomerSurveyController extends Controller {
         $survey->save();
 
         return redirect()->route('customer.survey.index', $customer);
-	}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -180,13 +180,13 @@ class CustomerSurveyController extends Controller {
      * @throws \Exception
      * @internal param int $id
      */
-	public function destroy(Customer $customer, Survey $survey)
-	{
+    public function destroy(Customer $customer, Survey $survey)
+    {
         foreach($survey->tokens as $token)
             $token->delete();
-		$survey->delete();
+        $survey->delete();
         return redirect()->route('customer.survey.index', $customer);
-	}
+    }
 
     /**
      * Send begin Mails for selected Survey.
@@ -222,14 +222,102 @@ class CustomerSurveyController extends Controller {
      * @param Customer $customer
      * @param Survey $survey
      * @param Result $result
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function analyze (Customer $customer, Survey $survey, Result $result)
     {
+        /*$result->answers = $result->answers->groupBy('question');
+        $result->questions = $result->survey->questions;
         $this->dispatch(
             new ColltectResults($result)
         );
+*/
+        $all_answers = $result->answers->groupBy('question');
+        $questions = $result->survey->questions;
+        $i=0;
+        foreach($questions as $section)
+        {
+            $data[$i]['name'] = $section['title'];
+            $q = 0;
+
+            foreach ($section['questiongroups'] as $questiongroup)
+            {
+                $data[$i]['questiongroups'][$q]['name'] = $questiongroup['heading'];
+                $data[$i]['questiongroups'][$q]['type'] = $questiongroup['type'];
+                $data[$i]['questiongroups'][$q]['condition'] = $questiongroup['condition'];
+                switch($questiongroup['type'])
+                {
+                    case 1:
+                        $a=0;
+                        if (isset($all_answers[$questiongroup['id']])) {
+                            $answers = $all_answers[$questiongroup['id']];
+
+                            foreach($answers as $answer)
+                            {
+                                $data[$i]['questiongroups'][$q]['answers'][$a] = $answer->text;
+                                $a++;
+                            }
+                        }
+                        break;
+                    case 2:
+                        $a=0;
+                        $answers = $all_answers[$questiongroup['id']];
+                        $part = 0;
+                        $sol = array();
+                        foreach ($answers as $answer) {
+                            $part++;
+                            if(isset($sol[$answer->answer]))
+                                $sol[$answer->answer]++;
+                            else
+                                $sol[$answer->answer]=1;
+                        }
+                        $res = array();
+                        foreach($questiongroup['questions'] as $question)
+                        {
+                            if(!isset($sol[$question['id']]))
+                                $sol[$question['id']]=0;
+                            $res[$a]['vote'] = $question['content'];
+                            $res[$a]['absolut'] = $sol[$question['id']];
+                            $res[$a]['percent'] = ($sol[$question['id']]/$part)*100;
+                            $a++;
+                        }
+                        $data[$i]['questiongroups'][$q]['answers']= $res;
+                        $data[$i]['questiongroups'][$q]['participants']= $part;
+                        break;
+
+                    case 3:
+                        $a = 0;
+                        foreach ($questiongroup['questions'] as $question) {
+                            $answers = $all_answers[$question['id']];
+                            $part = 0;
+                            $sol = array(0, 0, 0, 0, 0, 0);
+                            foreach ($answers as $answer) {
+                                $part++;
+                                $sol[$answer->answer]++;
+                            }
+                            foreach ($sol as $key => $so) {
+                                $votes[$key]['absolut'] = $so;
+                                $votes[$key]['percent'] = ($so / $part) * 100;
+                                $votes[$key]['vote'] = $key;
+                            }
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;
+                            $a++;
+                        }
+                        break;
+                }
+                $q++;
+            }
+            $i++;
+        }
+        $result->data = $data;
+        dd($data);
+        $result->save();
+
 
         return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
+
 
 }
