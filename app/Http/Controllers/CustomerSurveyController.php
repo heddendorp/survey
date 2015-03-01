@@ -318,10 +318,4 @@ class CustomerSurveyController extends Controller {
 
         return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
-
-    public function result(Customer $customer, Survey $survey, Result $result)
-    {
-        return view('survey.result')->withSurvey($survey)->withCustomer($customer)->withResult($result);
-    }
-
 }
