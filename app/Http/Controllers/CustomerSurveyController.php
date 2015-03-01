@@ -312,12 +312,16 @@ class CustomerSurveyController extends Controller {
             $i++;
         }
         $result->data = $data;
-        dd($data);
+        //dd($data);
         $result->save();
 
 
         return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
 
+    public function result(Customer $customer, Survey $survey, Result $result)
+    {
+        return view('survey.result')->withSurvey($survey)->withCustomer($customer)->withResult($result);
+    }
 
 }
