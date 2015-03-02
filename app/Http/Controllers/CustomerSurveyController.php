@@ -184,6 +184,10 @@ class CustomerSurveyController extends Controller {
     {
         foreach($survey->tokens as $token)
             $token->delete();
+        foreach($survey->results as $result)
+            $result->delete();
+        foreach($survey->answers as $answer)
+            $answer->delete();
         $survey->delete();
         return redirect()->route('customer.survey.index', $customer);
     }
@@ -198,8 +202,8 @@ class CustomerSurveyController extends Controller {
      */
     public function sendWelcome(Customer $customer, Survey $survey)
     {
-        $text = $survey->welcome_mail;
         foreach ($survey->tokens as $token) {
+            $text = $survey->welcome_mail;
             $text = str_replace(':name', $token->name, $text);
             $key = $token->token;
             $link = route('survey.token.key', [$survey, $key]);
@@ -233,6 +237,8 @@ class CustomerSurveyController extends Controller {
         );
 */
         $all_answers = $result->answers->groupBy('question');
+        if($result->answers->count() < 4)
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page'=>'Es wurden noch keine Antworten abgegen.']);
         $questions = $result->survey->questions;
         $i=0;
         foreach($questions as $section)

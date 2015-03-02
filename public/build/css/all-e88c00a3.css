@@ -7556,32 +7556,6 @@ a.uk-datepicker-table-muted {
 .uk-form input[type=checkbox]:disabled:checked:before {
   color: #aaa; }
 
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important; }
-  a, a:visited {
-    text-decoration: underline; }
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-  thead {
-    display: table-header-group; }
-  tr, textarea, img {
-    page-break-inside: avoid; }
-  img {
-    max-width: 100% !important; }
-  @page {
-    margin: 0.5cm; }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-  h2, h3 {
-    page-break-after: avoid; } }
-
 /*!
  * # Semantic UI 1.10.3 - Button
  * http://github.com/semantic-org/semantic-ui/

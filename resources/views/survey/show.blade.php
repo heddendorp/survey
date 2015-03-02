@@ -45,38 +45,42 @@
                                 <h3>{{$survey->facilities[$id]['name']}}</h3>
                                 <div class="uk-grid">
                                     <div class="uk-width-1-1">
-                                        @foreach($group as $result)
-                                            <div class="ui card">
-                                                <div class="content">
-                                                    <div class="header">{{$survey->groups[$result->group]['name']}}</div>
-                                                    <div class="meta">
-                                                        @if($result->data != "")
-                                                            <span>{{$result->pretty_date()}} zuletst aktualisiert</span>
-                                                        @else
-                                                            <span>Noch nicht analysiert</span>
-                                                        @endif
-                                                    </div>
-                                                    <div class="description">
-                                                        <div class="uk-grid">
+                                        <div class="ui cards">
+                                            @foreach($group as $result)
+                                                <div class="ui card">
+                                                    <div class="content">
+                                                        <div class="header">{{$survey->groups[$result->group]['name']}}</div>
+                                                        <div class="meta">
                                                             @if($result->data != "")
-                                                                <div class="uk-button-dropdown uk-width-1-2" data-uk-dropdown="{mode:'click'}">
-                                                                    <button class="uk-button uk-button-primary uk-width-1-1">Ansehen</button>
-                                                                    <div class="uk-dropdown">
-                                                                        <ul class="uk-nav uk-nav-dropdown">
-                                                                            <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
-                                                                            <li><a target="_blank" href="{{route('customer.survey.result.table', [$customer, $survey, $result])}}">Tabellenansicht</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Aktualisieren</a>
+                                                                <span>{{$result->pretty_date()}} zuletst aktualisiert</span>
                                                             @else
-                                                                <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                                <span>Noch nicht analysiert</span>
                                                             @endif
+                                                        </div>
+                                                        <div class="description">
+                                                            <div class="uk-grid">
+                                                                @if($result->data != "")
+                                                                    <div class="uk-button-dropdown uk-width-1-2" data-uk-dropdown="{mode:'click'}">
+                                                                        <button class="uk-button uk-button-primary uk-width-1-1">Ansehen</button>
+                                                                        <div class="uk-dropdown">
+                                                                            <ul class="uk-nav uk-nav-dropdown">
+                                                                                <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
+                                                                                <li><a target="_blank" href="{{route('customer.survey.result.table', [$customer, $survey, $result])}}">Tabellenansicht</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Aktualisieren</a>
+                                                                @else
+                                                                    <div class="uk-width-1-2">
+                                                                        <a class="uk-button uk-button-success uk-width-1-1" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                                    </div>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>
