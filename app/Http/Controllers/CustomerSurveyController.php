@@ -198,8 +198,8 @@ class CustomerSurveyController extends Controller {
      */
     public function sendWelcome(Customer $customer, Survey $survey)
     {
-        $text = $survey->welcome_mail;
         foreach ($survey->tokens as $token) {
+            $text = $survey->welcome_mail;
             $text = str_replace(':name', $token->name, $text);
             $key = $token->token;
             $link = route('survey.token.key', [$survey, $key]);
