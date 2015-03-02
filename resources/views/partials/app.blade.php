@@ -10,7 +10,10 @@
 @yield('header')
 @if($errors->has('page'))
     <div class="uk-container uk-container-center">
-        <div class="uk-alert uk-alert-danger">{{$errors->first('page')}}</div>
+        <div class="uk-alert uk-alert-danger">
+            <a href="" class="uk-alert-close uk-close"></a>
+            <p>{{$errors->first('page')}}</p>
+        </div>
     </div>
 @endif
 <div class="uk-grid">

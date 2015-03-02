@@ -237,6 +237,8 @@ class CustomerSurveyController extends Controller {
         );
 */
         $all_answers = $result->answers->groupBy('question');
+        if($result->answers->count() < 4)
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page'=>'Es wurden noch keine Antworten abgegen.']);
         $questions = $result->survey->questions;
         $i=0;
         foreach($questions as $section)
