@@ -184,6 +184,10 @@ class CustomerSurveyController extends Controller {
     {
         foreach($survey->tokens as $token)
             $token->delete();
+        foreach($survey->results as $result)
+            $result->delete();
+        foreach($survey->answers as $answer)
+            $answer->delete();
         $survey->delete();
         return redirect()->route('customer.survey.index', $customer);
     }
