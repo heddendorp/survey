@@ -71,7 +71,9 @@
                                                                     </div>
                                                                     <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Aktualisieren</a>
                                                                 @else
-                                                                    <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                                    <div class="uk-width-1-2">
+                                                                        <a class="uk-button uk-button-success uk-width-1-1" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
+                                                                    </div>
                                                                 @endif
                                                             </div>
                                                         </div>
