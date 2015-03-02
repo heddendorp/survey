@@ -8,9 +8,14 @@
 </head>
 <body>
 @yield('header')
+@if($errors->has('page'))
+    <div class="uk-container uk-container-center">
+        <div class="uk-alert uk-alert-danger">{{$errors->first('page')}}</div>
+    </div>
+@endif
 <div class="uk-grid">
     <div class="uk-width-1-4 uk-conatiner-center">
-            <div class="uk-panel uk-panel-box uk-margin-large-left">
+            <div class="uk-panel uk-panel-box uk-margin-large-left uk-margin-bottom">
                 <ul class="uk-nav uk-nav-side" data-uk-nav>
                     @yield('sidenav')
                 </ul>
