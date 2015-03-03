@@ -16,7 +16,7 @@ elixir(function(mix) {
     mix.copy("bower_components/semantic-ui-card/card.css","public/css/card.css");
     mix.copy("bower_components/uikit/js","resources/js");
     mix.copy("bower_components/jquery/dist/jquery.js","resources/js/jquery.js");
-    mix.copy("bower_components/uikit/fonts","public/fonts");
+    mix.copy("bower_components/uikit/fonts","public/build/fonts");
     mix.scripts([
         "jquery.js",
         "uikit.js",

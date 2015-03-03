@@ -184,6 +184,10 @@ class CustomerSurveyController extends Controller {
     {
         foreach($survey->tokens as $token)
             $token->delete();
+        foreach($survey->results as $result)
+            $result->delete();
+        foreach($survey->answers as $answer)
+            $answer->delete();
         $survey->delete();
         return redirect()->route('customer.survey.index', $customer);
     }
@@ -233,6 +237,8 @@ class CustomerSurveyController extends Controller {
         );
 */
         $all_answers = $result->answers->groupBy('question');
+        if($result->answers->count() < 4)
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page'=>'Es wurden noch keine Antworten abgegen.']);
         $questions = $result->survey->questions;
         $i=0;
         foreach($questions as $section)
@@ -318,10 +324,4 @@ class CustomerSurveyController extends Controller {
 
         return redirect()->route('customer.survey.show', [$customer, $survey]);
     }
-
-    public function result(Customer $customer, Survey $survey, Result $result)
-    {
-        return view('survey.result')->withSurvey($survey)->withCustomer($customer)->withResult($result);
-    }
-
 }
