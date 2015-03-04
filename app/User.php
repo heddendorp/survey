@@ -14,6 +14,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
+    protected $casts = [
+        'role' => 'array',
+    ];
+
 	use Authenticatable, CanResetPassword;
 
 	/**
