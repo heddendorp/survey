@@ -59,16 +59,16 @@
                                     <span><strong>Fargebögen, Sektionen und Fragen</strong></span>
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="questionnaire.view" type="checkbox"/>&nbsp;Ansehen
+                                    <input @if($user->role['questionnaire.view']) checked @endif name="questionnaire.view" type="checkbox"/>&nbsp;Ansehen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="questionnaire.create" type="checkbox"/>&nbsp;Erstellen
+                                    <input @if($user->role['questionnaire.create']) checked @endif name="questionnaire.create" type="checkbox"/>&nbsp;Erstellen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="questionnaire.edit" type="checkbox"/>&nbsp;Bearbeiten
+                                    <input @if($user->role['questionnaire.edit']) checked @endif name="questionnaire.edit" type="checkbox"/>&nbsp;Bearbeiten
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="questionnaire.delete" type="checkbox"/>&nbsp;Löschen
+                                    <input @if($user->role['questionnaire.delete']) checked @endif name="questionnaire.delete" type="checkbox"/>&nbsp;Löschen
                                 </div>
                             </div>
                         </div>
@@ -78,16 +78,16 @@
                                     <span><strong>Standorte, Gruppen und Kinder</strong></span>
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="participant.view" type="checkbox"/>&nbsp;Ansehen
+                                    <input @if($user->role['participant.view']) checked @endif name="participant.view" type="checkbox"/>&nbsp;Ansehen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="participant.create" type="checkbox"/>&nbsp;Erstellen
+                                    <input @if($user->role['participant.create']) checked @endif name="participant.create" type="checkbox"/>&nbsp;Erstellen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="participant.edit" type="checkbox"/>&nbsp;Bearbeiten
+                                    <input @if($user->role['participant.edit']) checked @endif name="participant.edit" type="checkbox"/>&nbsp;Bearbeiten
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="participant.delete" type="checkbox"/>&nbsp;Löschen
+                                    <input @if($user->role['participant.delete']) checked @endif name="participant.delete" type="checkbox"/>&nbsp;Löschen
                                 </div>
                             </div>
                         </div>
@@ -97,16 +97,16 @@
                                     <span><strong>Umfragen</strong></span>
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="survey.view" type="checkbox"/>&nbsp;Ansehen
+                                    <input @if($user->role['survey.view']) checked @endif name="survey.view" type="checkbox"/>&nbsp;Ansehen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="survey.create" type="checkbox"/>&nbsp;Erstellen
+                                    <input @if($user->role['survey.create']) checked @endif name="survey.create" type="checkbox"/>&nbsp;Erstellen
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="survey.edit" type="checkbox"/>&nbsp;Bearbeiten
+                                    <input @if($user->role['survey.edit']) checked @endif name="survey.edit" type="checkbox"/>&nbsp;Bearbeiten
                                 </div>
                                 <div class="uk-width-1-1 uk-margin-left">
-                                    <input name="survey.delete" type="checkbox"/>&nbsp;Löschen
+                                    <input @if($user->role['survey.delete']) checked @endif name="survey.delete" type="checkbox"/>&nbsp;Löschen
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                                 <div class="uk-grid">
                                                     @foreach($result as $group)
                                                         <div class="uk-width-1-1 uk-margin-left">
-                                                            <input name="results[{{$group->id}}]" type="checkbox"/>&nbsp;{{$group->group_name}}
+                                                            <input @if(isset($user->role['results'][$group->id])) checked @endif name="results[{{$group->id}}]" type="checkbox"/>&nbsp;{{$group->group_name}}
                                                         </div>
                                                     @endforeach
                                                 </div>
