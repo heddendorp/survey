@@ -102,30 +102,18 @@ class CustomerUserController extends Controller {
             $user->password = bcrypt($request->get('password'));
         if($user->role != 'admin')
         {
-            if($request->has('survey.view'))
-                $role['survey.view'] = true;
-            if($request->has('survey.create'))
-                $role['survey.create'] = true;
-            if($request->has('survey.edit'))
-                $role['survey.edit'] = true;
-            if($request->has('survey.delete'))
-                $role['survey.delete'] = true;
-            if($request->has('questionnaire.view'))
-                $role['questionnaire.view'] = true;
-            if($request->has('questionnaire.create'))
-                $role['questionnaire.create'] = true;
-            if($request->has('questionnaire.edit'))
-                $role['questionnaire.edit'] = true;
-            if($request->has('questionnaire.delete'))
-                $role['questionnaire.delete'] = true;
-            if($request->has('participant.view'))
-                $role['participant.view'] = true;
-            if($request->has('participant.create'))
-                $role['participant.create'] = true;
-            if($request->has('participant.edit'))
-                $role['participant.edit'] = true;
-            if($request->has('participant.delete'))
-                $role['participant.delete'] = true;
+            $role['survey.view'] = $request->has('survey.view');
+            $role['survey.create'] = $request->has('survey.create');
+            $role['survey.edit'] = $request->has('survey.edit');
+            $role['survey.delete'] = $request->has('survey.delete');
+            $role['questionnaire.view'] = $request->has('questionnaire.view');
+            $role['questionnaire.create'] = $request->has('questionnaire.create');
+            $role['questionnaire.edit'] = $request->has('questionnaire.edit');
+            $role['questionnaire.delete'] = $request->has('questionnaire.delete');
+            $role['participant.view'] = $request->has('participant.view');
+            $role['participant.create'] = $request->has('participant.create');
+            $role['participant.edit'] = $request->has('participant.edit');
+            $role['participant.delete'] = $request->has('participant.delete';
             if($request->has('results'))
             {
                 $role['results'] = $request->get('results');
