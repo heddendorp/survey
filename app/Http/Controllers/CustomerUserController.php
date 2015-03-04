@@ -72,26 +72,36 @@ class CustomerUserController extends Controller {
 		//not used
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Customer $customer
+     * @param User $user
+     * @return Response
+     * @internal param int $id
+     */
+	public function edit(Customer $customer, User $user)
 	{
-		//
+		return view('user.edit')->withUser($user)->withCustomer($customer);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Customer $customer
+     * @param User $user
+     * @param Requests\UserStoreRequest $request
+     * @return Response
+     * @internal param int $id
+     */
+	public function update(Customer $customer, User $user, Requests\UserStoreRequest $request)
 	{
-		//
+		$user->email = $request->get('email');
+        $user->username = $request->get('username');
+        if($user->password != $request->get('password'))
+            $user->password = bcrypt($request->get('password'));
+        $user->save();
+        return redirect()->route('customer.user.index', $customer);
 	}
 
     /**
