@@ -56,7 +56,6 @@ class CustomerUserController extends Controller {
         $user->password = bcrypt($input['password']);
         $user->email = $input['email'];
         $user->customer_id = $customer->id;
-        $user->role = $this->makeRole($request);
         $user->save();
 
         return redirect()->route('customer.user.index', $customer);
@@ -73,41 +72,26 @@ class CustomerUserController extends Controller {
 		//not used
 	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Customer $customer
-     * @param User $user
-     * @return Response
-     * @internal param int $id
-     */
-	public function edit(Customer $customer, User $user)
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
 	{
-		return view('user.edit')->withUser($user)->withCustomer($customer);
+		//
 	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Customer $customer
-     * @param User $user
-     * @param Requests\UserStoreRequest $request
-     * @return Response
-     * @internal param int $id
-     */
-	public function update(Customer $customer, User $user, Requests\UserStoreRequest $request)
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
 	{
-		$user->email = $request->get('email');
-        $user->username = $request->get('username');
-        if($user->password != $request->get('password'))
-            $user->password = bcrypt($request->get('password'));
-        if(!$user->role['admin'])
-        {
-            $user->role = $this->makeRole($request);
-        }
-
-        $user->save();
-        return redirect()->route('customer.user.index', $customer);
+		//
 	}
 
     /**
@@ -123,31 +107,5 @@ class CustomerUserController extends Controller {
         $user->delete();
         return redirect()->route('customer.user.index', $customer);
 	}
-
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    private function makeRole (Request $request)
-    {
-        $role['admin'] = false;
-        $role['survey.view'] = $request->has('survey_view');
-        $role['survey.create'] = $request->has('survey_create');
-        $role['survey.edit'] = $request->has('survey_edit');
-        $role['survey.delete'] = $request->has('survey_delete');
-        $role['questionnaire.view'] = $request->has('questionnaire_view');
-        $role['questionnaire.create'] = $request->has('questionnaire_create');
-        $role['questionnaire.edit'] = $request->has('questionnaire_edit');
-        $role['questionnaire.delete'] = $request->has('questionnaire_delete');
-        $role['participant.view'] = $request->has('participant_view');
-        $role['participant.create'] = $request->has('participant_create');
-        $role['participant.edit'] = $request->has('participant_edit');
-        $role['participant.delete'] = $request->has('participant_delete');
-        if($request->has('results'))
-        {
-            $role['results'] = $request->get('results');
-        }
-        return $role;
-    }
 
 }
