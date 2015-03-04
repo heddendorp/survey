@@ -42,7 +42,18 @@
                             <tr>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a></td>
+                                <td>
+                                    <a href="{{route('customer.user.edit', [$customer,$user])}}" class="uk-button uk-button-primary">Bearbeiten</a>
+                                </td>
+                                <td>
+                                    @if($user->role["admin"])
+                                        <span class="uk-text-danger">
+                                            Dieser benutzer kann nicht gelöscht werden.
+                                        </span>
+                                    @else
+                                        <a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
