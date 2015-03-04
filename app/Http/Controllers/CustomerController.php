@@ -59,7 +59,6 @@ class CustomerController extends Controller {
         $user->email = $input['email'];
         $user->password = bcrypt($input['password']);
         $user->customer_id = $customer->id;
-        $user->role = ['admin'=>true];
         $user->save();
 
         return redirect()->route('customer.show',$customer);

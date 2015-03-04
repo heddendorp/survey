@@ -10,16 +10,6 @@ use Illuminate\Http\Request;
 class CustomerSurveyResultController extends Controller {
 
     /**
-     * Instantiate a new Controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('customerplus');
-        $this->middleware('resultPerms');
-    }
-
-    /**
      * Show the result using the standard template.
      * @param Customer $customer
      * @param Survey $survey
