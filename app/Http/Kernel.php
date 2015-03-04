@@ -31,7 +31,8 @@ class Kernel extends HttpKernel {
         'customerplus' => 'Survey\Http\Middleware\CustomerPlusCheck',
         'questionnairePerms' => 'Survey\Http\Middleware\QuestionnairePermissions',
         'participantPerms' => 'Survey\Http\Middleware\ParticipantPermissions',
-        'surveyPerms' => 'Survey\Http\Middleware\SurveyPermissions'
+        'surveyPerms' => 'Survey\Http\Middleware\SurveyPermissions',
+        'resultPerms' => 'Survey\Http\Middleware\ResultPermissions'
 	];
 
 }

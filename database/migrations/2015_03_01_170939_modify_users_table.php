@@ -14,7 +14,7 @@ class ModifyUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->json('role')->default("");
+			$table->json('role')->default('{"admin":true}');
 		});
 	}
 
