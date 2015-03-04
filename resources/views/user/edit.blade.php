@@ -53,7 +53,7 @@
                     @if($user->role == 'admin')
                         <span class="uk-text-primary">Der administrative Benutzer hat <strong>immer alle</strong> Brechtigungen.</span>
                     @else
-                        <div class="uk-width-1-4">
+                        <div class="uk-width-1-3">
                             <div class="uk-grid">
                                 <div class="uk-width-1-1">
                                     <span><strong>Fargebögen, Sektionen und Fragen</strong></span>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-width-1-4">
+                        <div class="uk-width-1-3">
                             <div class="uk-grid">
                                 <div class="uk-width-1-1">
                                     <span><strong>Standorte, Gruppen und Kinder</strong></span>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-width-1-4">
+                        <div class="uk-width-1-3">
                             <div class="uk-grid">
                                 <div class="uk-width-1-1">
                                     <span><strong>Umfragen</strong></span>
@@ -110,10 +110,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-width-1-4">
+                        <div class="uk-width-1-1 uk-margin-top">
                             <div class="uk-grid">
                                 <div class="uk-width-1-1">
-                                    <span><strong>Ergebnisse einsehen</strong></span>
+                                    <span><strong>Ergebnisse einsehen</strong><br/><small>Ein Benutzer muss Umfragen ansehen dürfen, um die Ergebnisse zu sehen.</small></span>
                                 </div>
                                 @foreach($customer->surveys as $survey)
                                     <div class="uk-width-1-1">

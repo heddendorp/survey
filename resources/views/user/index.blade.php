@@ -46,7 +46,7 @@
                                     <a href="{{route('customer.user.edit', [$customer,$user])}}" class="uk-button uk-button-primary">Bearbeiten</a>
                                 </td>
                                 <td>
-                                    @if($user->role == "admin")
+                                    @if($user->role["admin"])
                                         <span class="uk-text-danger">
                                             Dieser benutzer kann nicht gelöscht werden.
                                         </span>

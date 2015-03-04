@@ -100,8 +100,9 @@ class CustomerUserController extends Controller {
         $user->username = $request->get('username');
         if($user->password != $request->get('password'))
             $user->password = bcrypt($request->get('password'));
-        if($user->role != 'admin')
+        if(!$user->role['admin'])
         {
+            $role['admin'] = false;
             $role['survey.view'] = $request->has('survey.view');
             $role['survey.create'] = $request->has('survey.create');
             $role['survey.edit'] = $request->has('survey.edit');
@@ -113,7 +114,7 @@ class CustomerUserController extends Controller {
             $role['participant.view'] = $request->has('participant.view');
             $role['participant.create'] = $request->has('participant.create');
             $role['participant.edit'] = $request->has('participant.edit');
-            $role['participant.delete'] = $request->has('participant.delete';
+            $role['participant.delete'] = $request->has('participant.delete');
             if($request->has('results'))
             {
                 $role['results'] = $request->get('results');

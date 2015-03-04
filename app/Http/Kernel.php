@@ -29,7 +29,9 @@ class Kernel extends HttpKernel {
 		'guest' => 'Survey\Http\Middleware\RedirectIfAuthenticated',
         'customer' => 'Survey\Http\Middleware\CustomerCheck',
         'customerplus' => 'Survey\Http\Middleware\CustomerPlusCheck',
-        'questionnairePerms' => 'Survey\Http\Middleware\QuestionnairePermissions'
+        'questionnairePerms' => 'Survey\Http\Middleware\QuestionnairePermissions',
+        'participantPerms' => 'Survey\Http\Middleware\ParticipantPermissions',
+        'surveyPerms' => 'Survey\Http\Middleware\SurveyPermissions'
 	];
 
 }

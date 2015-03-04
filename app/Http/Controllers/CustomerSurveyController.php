@@ -21,6 +21,7 @@ class CustomerSurveyController extends Controller {
     {
         $this->middleware('auth');
         $this->middleware('customerplus');
+        $this->middleware('surveyPerms');
     }
 
     /**

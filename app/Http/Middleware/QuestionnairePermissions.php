@@ -14,7 +14,7 @@ class QuestionnairePermissions {
 	public function handle($request, Closure $next)
 	{
         $user = \Auth::user();
-        if($user->role == "admin")
+        if($user->role["admin"])
             return $next($request);
         switch($request->method()){
         case 'POST':
