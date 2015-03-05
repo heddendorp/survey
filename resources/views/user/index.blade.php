@@ -42,7 +42,7 @@
                             <tr>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a></td>
+                                <td><a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i> </a></td>
                             </tr>
                         @endforeach
                         </tbody>
