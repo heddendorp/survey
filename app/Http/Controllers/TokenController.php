@@ -31,6 +31,7 @@ class TokenController extends Controller {
      */
     public function answer(Survey $survey, Token $token, Request $request)
     {
+        //dd($request->get('answer'));
         foreach($request->get('answer') as $question=>$answer)
         {
             if($answer['type'] == 1 && !$answer['answer'] == "" )
@@ -45,7 +46,7 @@ class TokenController extends Controller {
                 $result->result_id = $token->result_id;
                 $result->save();
             }
-            elseif(!$answer['answer'] == "")
+            elseif(!array_key_exists('answer', $answer) || !$answer['answer'] == "")
             {
                 $result = new Answer;
                 $result->type = $answer['type'];

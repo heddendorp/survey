@@ -41,10 +41,10 @@
                                                     ausreichend
                                                 </div>
                                                 <div class="uk-width-1-6">
-                                                    mangelhaft
+                                                    ungenügend
                                                 </div>
                                                 <div class="uk-width-1-6">
-                                                    keine Meinung
+                                                    keine Bewertung
                                                 </div>
                                             </div>
                                         </div>

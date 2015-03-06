@@ -35,7 +35,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Vielen Dank für ihre Teilnahme, ihre Antworten wurden gespeichert.</div>
+				<div class="title">Vielen Dank für Ihre Teilnahme, Ihre Antworten wurden gespeichert.</div>
 			</div>
 		</div>
 	</body>
