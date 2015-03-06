@@ -50,7 +50,7 @@
             <fieldset>
                 <legend>Berechtigungen</legend>
                 <div class="uk-grid">
-                    @if($user->role == 'admin')
+                    @if($user->role['admin'])
                         <span class="uk-text-primary">Der administrative Benutzer hat <strong>immer alle</strong> Brechtigungen.</span>
                     @else
                         <div class="uk-width-1-3">
