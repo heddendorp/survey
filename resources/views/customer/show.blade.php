@@ -6,9 +6,10 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.edit', $customer)}}"><i class="uk-icon-wrench"></i> Enstellungen ändern</a></li>
+    <li><a href="{{route('customer.edit', $customer)}}"><i class="uk-icon-wrench"></i><i class="fa fa-settings"></i> Enstellungen ändern</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#"><i class="uk-icon-life-ring uk-text-danger"></i> Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p>Hier erhalten Sie eine Übersicht über aktuell laufende Umfragen.</p></li>
         </ul>

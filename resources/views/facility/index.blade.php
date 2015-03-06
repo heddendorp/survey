@@ -6,11 +6,12 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.iteration.index', $customer)}}">Alle Iterationen</a></li>
-    <li><a href="{{route('customer.iteration.facility.create', [$customer, $iteration])}}">Standort Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.iteration.index', $customer)}}"><i class="fa fa-database"></i> Alle Iterationen</a></li>
+    <li><a href="{{route('customer.iteration.facility.create', [$customer, $iteration])}}"><i class="fa fa-plus"></i> Standort Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p></p></li>
         </ul>
@@ -40,8 +41,8 @@
                             <tr>
                                 <td><a href="{{route('customer.iteration.facility.group.index', [$customer, $iteration, $facility])}}">{{$facility->name}}</a></td>
                                 <td>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.facility.edit',[$customer, $iteration, $facility])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.iteration.facility.destroy', [$customer,$iteration, $facility]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.facility.edit',[$customer, $iteration, $facility])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
+                                    <a href="{{route('customer.iteration.facility.destroy', [$customer,$iteration, $facility]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         @endforeach
