@@ -43,7 +43,6 @@
                             <tr>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-<<<<<<< HEAD
                                 <td>
                                     <a href="{{route('customer.user.edit', [$customer,$user])}}" class="uk-button uk-button-primary">Bearbeiten</a>
                                 </td>
@@ -53,10 +52,9 @@
                                             Dieser benutzer kann nicht gelöscht werden.
                                         </span>
                                     @else
-                                    <td><a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i> </a></td>                                    @endif
+                                        <a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i> </a>
+                                    @endif
                                 </td>
-=======
->>>>>>> graphic_enhancements
                             </tr>
                         @endforeach
                         </tbody>
