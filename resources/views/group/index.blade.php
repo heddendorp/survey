@@ -6,12 +6,13 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.iteration.index', $customer)}}">Alle Iterationen</a></li>
-    <li><a href="{{route('customer.iteration.facility.index', [$customer, $iteration])}}">Alle Standorte</a></li>
-    <li><a href="{{route('customer.iteration.facility.group.create', [$customer, $iteration, $facility])}}">Gruppe Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.iteration.index', $customer)}}"><i class="fa fa-database"></i> Alle Iterationen</a></li>
+    <li><a href="{{route('customer.iteration.facility.index', [$customer, $iteration])}}"><i class="fa fa-home"></i> Alle Standorte</a></li>
+    <li><a href="{{route('customer.iteration.facility.group.create', [$customer, $iteration, $facility])}}"><i class="fa fa-plus"></i> Gruppe Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p></p></li>
         </ul>
@@ -45,8 +46,8 @@
                                 <td><a href="{{route('customer.iteration.facility.group.child.index', [$customer, $iteration, $facility, $group])}}">{{$group->name}}</a></td>
                                 <td>{{$group->stringType()}}</td>
                                 <td>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.facility.group.edit',[$customer, $iteration, $facility, $group])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.iteration.facility.group.destroy', [$customer,$iteration, $facility, $group]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.facility.group.edit',[$customer, $iteration, $facility, $group])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
+                                    <a href="{{route('customer.iteration.facility.group.destroy', [$customer,$iteration, $facility, $group]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         @endforeach

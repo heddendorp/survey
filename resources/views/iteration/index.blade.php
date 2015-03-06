@@ -6,10 +6,11 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.iteration.create', $customer)}}">Iteration Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.iteration.create', $customer)}}"><i class="fa fa-plus"></i> Iteration Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i>Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p>Iterationen werden dazu genutzt mehrere Sets von Teilnehmern zu unterscheiden, z.B. wenn sich jährlich die Gruppenbelegungen ändern. Hier werden alle aktuell gespeicherten Iterationen aufgelistet.</p></li>
         </ul>
@@ -39,8 +40,8 @@
                             <tr>
                                 <td><a href="{{route('customer.iteration.facility.index', [$customer, $iteration])}}">{{$iteration->description}}</a></td>
                                 <td>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.edit',[$customer, $iteration])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.iteration.destroy', [$customer,$iteration]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.iteration.edit',[$customer, $iteration])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
+                                    <a href="{{route('customer.iteration.destroy', [$customer,$iteration]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         @endforeach

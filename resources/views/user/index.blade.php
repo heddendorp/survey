@@ -6,10 +6,11 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.user.create', $customer)}}">Benutzer Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.user.create', $customer)}}"><i class="fa fa-plus"></i> Benutzer Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p>Hier werden alle Benutzer aufgelistet die im Moment Zugang zu Fragebögen und/oder Auswertungen ihrer Firma haben.</p></li>
         </ul>
@@ -42,7 +43,18 @@
                             <tr>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->email}}</td>
-                                <td><a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a></td>
+                                <td>
+                                    <a href="{{route('customer.user.edit', [$customer,$user])}}" class="uk-button uk-button-primary">Bearbeiten</a>
+                                </td>
+                                <td>
+                                    @if($user->role["admin"])
+                                        <span class="uk-text-danger">
+                                            Dieser benutzer kann nicht gelöscht werden.
+                                        </span>
+                                    @else
+                                        <a href="{{route('customer.user.destroy', [$customer,$user]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i> </a>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

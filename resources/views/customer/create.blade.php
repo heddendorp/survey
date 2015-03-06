@@ -61,7 +61,7 @@
                 </div>
             </fieldset>
             <div class="uk-form-row uk-margin-top">
-                <button type="submit" class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Anmelden</button>
+                <button type="submit" class="uk-width-1-1 uk-button uk-button-success uk-button-large">Anmelden</button>
             </div>
         </form>
     </div>

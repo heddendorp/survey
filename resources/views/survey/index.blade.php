@@ -6,10 +6,11 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.survey.create', $customer)}}">Neue Umfrage beginnen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.survey.create', $customer)}}"><i class="fa fa-plus"></i> Neue Umfrage beginnen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p></p></li>
         </ul>
@@ -48,10 +49,10 @@
                                 <div class="uk-width-1-3">
                                     <div class="uk-grid">
                                         <div class="uk-width-1-1">
-                                            <a class="uk-button uk-button-primary uk-width-1-1" href="{{route('customer.survey.edit',[$customer, $survey])}}">Bearbeiten</a>
+                                            <a class="uk-button uk-button-primary uk-width-1-1" href="{{route('customer.survey.edit',[$customer, $survey])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
                                         </div>
                                         <div class="uk-width-1-1">
-                                            <a href="{{route('customer.survey.destroy', [$customer,$survey]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger uk-width-1-1" data-method="DELETE">Löschen</a>
+                                            <a href="{{route('customer.survey.destroy', [$customer,$survey]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger uk-width-1-1" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                         </div>
                                     </div>
                                 </div>

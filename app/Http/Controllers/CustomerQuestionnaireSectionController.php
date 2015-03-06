@@ -17,6 +17,7 @@ class CustomerQuestionnaireSectionController extends Controller {
     {
         $this->middleware('auth');
         $this->middleware('customerplus');
+        $this->middleware('questionnairePerms');
     }
 
     /**

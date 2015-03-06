@@ -6,11 +6,12 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.survey.index', $customer)}}">Alle Umfragen</a></li>
-    <li><a href="{{route('customer.survey.create', $customer)}}">Neue Umfrage beginnen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.survey.index', $customer)}}"><i class="fa fa-database"></i> Alle Umfragen</a></li>
+    <li><a href="{{route('customer.survey.create', $customer)}}"><i class="fa fa-plus"></i> Neue Umfrage beginnen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p></p></li>
         </ul>
@@ -61,7 +62,7 @@
                                                             <div class="uk-grid">
                                                                 @if($result->data != "")
                                                                     <div class="uk-button-dropdown uk-width-1-2" data-uk-dropdown="{mode:'click'}">
-                                                                        <button class="uk-button uk-button-primary uk-width-1-1">Ansehen</button>
+                                                                        <button class="uk-button uk-button-primary uk-width-1-1"><i class="fa fa-eye"></i> Ansehen</button>
                                                                         <div class="uk-dropdown">
                                                                             <ul class="uk-nav uk-nav-dropdown">
                                                                                 <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
@@ -69,7 +70,7 @@
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-                                                                    <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Aktualisieren</a>
+                                                                    <a class="uk-button uk-button-success uk-width-1-2" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}"><i class="fa fa-refresh"></i> Aktualisieren</a>
                                                                 @else
                                                                     <div class="uk-width-1-2">
                                                                         <a class="uk-button uk-button-success uk-width-1-1" href="{{route('customer.survey.analyze', [$customer, $survey, $result])}}">Erstellen</a>
