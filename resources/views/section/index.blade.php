@@ -6,11 +6,12 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
-    <li><a href="{{route('customer.questionnaire.section.create', [$customer, $questionnaire])}}">Sektion Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.questionnaire.index', $customer)}}"><i class="fa fa-database"></i> Alle Fragebögen</a></li>
+    <li><a href="{{route('customer.questionnaire.section.create', [$customer, $questionnaire])}}"><i class="fa fa-plus"></i> Sektion Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p>Hier sehen sie eine Auflistung aller Sektionen für <q>{{$questionnaire->title}}</q>. Sie stellen sich dem Teilnehmer der Umfrage als Seiten dar die er der Reihe nach beatwortet. Um die Fragen zu sehen die mit einer Sektion verknüpft sind, klicken Sie bitte auf den jeweiligen Namen. Um den Namen der Sektion zu bearbeiten, klicken Sie bitte auf <code>bearbeiten</code>. Ein klick auf <code>Löschen</code> löscht die Sektion und alle ihre Fragen unwierderruflich.</p></li>
         </ul>
@@ -44,8 +45,8 @@
                                 <td><a href="{{route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section])}}">{{$section->title}}</a></td>
                                 <td>{{$section->intern}}</td>
                                 <td>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.section.edit',[$customer, $questionnaire, $section])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.questionnaire.section.destroy', [$customer,$questionnaire, $section]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.section.edit',[$customer, $questionnaire, $section])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
+                                    <a href="{{route('customer.questionnaire.section.destroy', [$customer,$questionnaire, $section]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         @endforeach

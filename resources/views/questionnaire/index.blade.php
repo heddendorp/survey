@@ -6,10 +6,11 @@
     @include('partials.nav')
 @stop
 @section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.questionnaire.create', $customer)}}">Fragebogen Hinzufügen</a></li>
+    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
+    <li><a href="{{route('customer.questionnaire.create', $customer)}}"><i class="fa fa-plus"></i> Fragebogen Hinzufügen</a></li>
+    <li class="uk-nav-divider"></li>
     <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
         <ul class="uk-nav-sub">
             <li><p>Hier werden alle Fragebögen aufgelistet die im Moment im Account ihrer Firma gespeichert sind. um die Sektionenn eines Fragebogens einzusehen klicken Sie diesen an. <code>Bearbeiten</code> ermöglicht es ihnen den Name des Fragebogens zu verändern und <code>Löschen</code> entfernt ihn und alle Fragen unwiederruflich.</p></li>
         </ul>
@@ -43,9 +44,9 @@
                                 <td><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">{{$questionnaire->title}}</a></td>
                                 <td>{{$questionnaire->intern}}</td>
                                 <td>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.duplicate',[$customer, $questionnaire])}}">Duplizieren</a>
-                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.edit',[$customer, $questionnaire])}}">Bearbeiten</a>
-                                    <a href="{{route('customer.questionnaire.destroy', [$customer,$questionnaire]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen</a>
+                                    <a class="uk-button uk-button-success" href="{{route('customer.questionnaire.duplicate',[$customer, $questionnaire])}}"><i class="fa fa-files-o"></i> Duplizieren</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('customer.questionnaire.edit',[$customer, $questionnaire])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
+                                    <a href="{{route('customer.questionnaire.destroy', [$customer,$questionnaire]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                         @endforeach
