@@ -4,13 +4,13 @@
         @if(Auth::user()->role['admin'])
         <li><a href="{{route('customer.user.index',$customer)}}">Benutzer</a></li>
         @endif
-        @if(Auth::user()->role['admin'] || Auth::user()->role['questionnaire.show'])
+        @if(Auth::user()->role['admin'] || Auth::user()->role['questionnaire.view'])
         <li><a href="{{route('customer.questionnaire.index',$customer)}}">Fragebogen</a></li>
         @endif
-        @if(Auth::user()->role['admin'] || Auth::user()->role['participant.show'])
+        @if(Auth::user()->role['admin'] || Auth::user()->role['participant.view'])
         <li><a href="{{route('customer.iteration.index',$customer)}}">Teilnehmer</a></li>
         @endif
-        @if(Auth::user()->role['admin'] || Auth::user()->role['survey.show'])
+        @if(Auth::user()->role['admin'] || Auth::user()->role['survey.view'])
         <li><a href="{{route('customer.survey.index',$customer)}}">Umfragen</a></li>
         @endif
     </ul>
