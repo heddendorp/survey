@@ -28,6 +28,7 @@ class TokenController extends Controller {
      * @param Survey $survey
      * @param Token $token
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function answer(Survey $survey, Token $token, Request $request)
     {
