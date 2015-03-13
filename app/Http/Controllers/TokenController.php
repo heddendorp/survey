@@ -47,7 +47,7 @@ class TokenController extends Controller {
                 $result->result_id = $token->result_id;
                 $result->save();
             }
-            elseif(!array_key_exists('answer', $answer) || !$answer['answer'] == "")
+            else
             {
                 $result = new Answer;
                 $result->type = $answer['type'];
