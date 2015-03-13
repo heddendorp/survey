@@ -150,6 +150,7 @@ return [
          */
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
+        'Laracasts\Utilities\JavaScript\JavascriptServiceProvider'
 
 	],
 

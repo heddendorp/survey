@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "uikit": "2.*",
-    "semantic-ui-card": "*"
+    "semantic-ui-card": "*",
+    "chartist": "~0.7.3"
   }
 }

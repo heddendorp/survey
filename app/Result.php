@@ -7,6 +7,25 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property-read \Survey\Group $group
  * @property-read \Survey\Questionnaire $questionnaire
+ * @property integer $id 
+ * @property integer $survey_id 
+ * @property integer $facility 
+ * @property string $facility_name 
+ * @property string $group_name 
+ * @property string $data 
+ * @property \Carbon\Carbon $created_at 
+ * @property \Carbon\Carbon $updated_at 
+ * @property-read \Survey\Survey $survey 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Answer[] $answers 
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereSurveyId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereFacility($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereGroup($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereFacilityName($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereGroupName($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereData($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\Result whereUpdatedAt($value)
  */
 class Result extends Model {
 

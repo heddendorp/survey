@@ -28,6 +28,7 @@ class TokenController extends Controller {
      * @param Survey $survey
      * @param Token $token
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function answer(Survey $survey, Token $token, Request $request)
     {
@@ -46,7 +47,7 @@ class TokenController extends Controller {
                 $result->result_id = $token->result_id;
                 $result->save();
             }
-            elseif(!array_key_exists('answer', $answer) || !$answer['answer'] == "")
+            else
             {
                 $result = new Answer;
                 $result->type = $answer['type'];

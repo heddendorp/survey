@@ -11,6 +11,24 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  *
  * @property-read \Survey\Customer $customer
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Group[] $groups
+ * @property integer $id 
+ * @property string $username 
+ * @property string $email 
+ * @property string $password 
+ * @property integer $customer_id 
+ * @property string $remember_token 
+ * @property \Carbon\Carbon $created_at 
+ * @property \Carbon\Carbon $updated_at 
+ * @property string $role 
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereCustomerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Survey\User whereRole($value)
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
