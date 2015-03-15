@@ -5,16 +5,10 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.questionnaire.index', $customer)}}"><i class="fa fa-database"></i> Alle Fragebögen</a></li>
-    <li class="uk-nav-divider"></li>
-    <li class="uk-parent">
-        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p>Hier können sie einen neuen Fragebogen anlegen. Nur der <code>Titel</code> wird für Teilnehmer der Umfrage einsehbar sein. Der <code>Interne Titel</code> ist ausschließlich für Nutzer des Systems sichtbar. Es müssen jedoch beide Felder ausgefüllt werden.</p></li>
-        </ul>
-    </li>
+@section('helptext')
+ Hier können sie einen neuen Fragebogen anlegen.
+ Nur der <code>Titel</code> wird für Teilnehmer der Umfrage einsehbar sein.
+ Der <code>Interne Titel</code> ist ausschließlich für Nutzer des Systems sichtbar. Es müssen jedoch beide Felder ausgefüllt werden.
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

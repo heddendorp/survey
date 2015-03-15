@@ -7,14 +7,10 @@
 @stop
 @section('sidenav')
     <li><a href="{{route('customer.edit', $customer)}}"><i class="uk-icon-wrench"></i><i class="fa fa-settings"></i> Enstellungen ändern</a></li>
-    <li class="uk-nav-divider"></li>
-    <li class="uk-parent">
-        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p>Hier erhalten Sie eine Übersicht über aktuell laufende Umfragen.</p></li>
-        </ul>
-    </li>
 @stop
+@section("helptext")
+    Hier erhalten Sie eine Übersicht über aktuell laufende Umfragen.
+    @stop
 @section('content')
     <div class="uk-container uk-container-center">
         <div class="uk-panel uk-panel-box">

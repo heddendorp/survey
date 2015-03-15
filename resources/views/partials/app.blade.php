@@ -2,6 +2,7 @@
 <html @yield('head-style')>
 <head>
     @section('title')<title>Survey-X</title>@show
+        <meta charset="utf-8">
     <link rel="stylesheet" href="{{ elixir("css/all.css") }}" />
     <script src="{{ elixir("js/all.js") }}"></script>
     @yield('head')
@@ -20,7 +21,15 @@
     <div class="uk-width-1-4 uk-conatiner-center">
             <div class="uk-panel uk-panel-box uk-margin-large-left uk-margin-bottom">
                 <ul class="uk-nav uk-nav-side" data-uk-nav>
+                    @include("partials.sidebar")
                     @yield('sidenav')
+                    <li class="uk-nav-divider"></li>
+                    <li class="uk-parent">
+                        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
+                        <ul class="uk-nav-sub">
+                            <li><p>@yield('helptext')</p></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
     </div>

@@ -5,10 +5,8 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.questionnaire.index', $customer)}}">Alle Fragebögen</a></li>
-    <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}">Alle Sektionen</a></li>
-    <li><a href="{{route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section])}}">Alle Fragen</a></li>
+@section('helptext')
+    Hilfetext fehlt
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
