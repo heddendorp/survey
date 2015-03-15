@@ -5,15 +5,8 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}">Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.user.index', $customer)}}">Alle Benutzer</a></li>
-    <li class="uk-parent">
-        <a href="#">Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p></p></li>
-        </ul>
-    </li>
+@section('helptext')
+    Kein Hilfetext
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
