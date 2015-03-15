@@ -50,3 +50,6 @@
 @if(isset($surveys))
     <li><a href="{{route('customer.survey.create', [$customer])}}"><i class="uk-icon-file uk-text-success"></i>&nbsp;Umfrage beginnen</a></li>
 @endif
+@if(isset($results))
+    <li><a href="{{route('customer.survey.index', [$customer])}}"><i class="uk-icon-server"></i>&nbsp;Alle Umfragen</a></li>
+@endif

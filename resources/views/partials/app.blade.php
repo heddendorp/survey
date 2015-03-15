@@ -22,6 +22,7 @@
             <div class="uk-panel uk-panel-box uk-margin-large-left uk-margin-bottom">
                 <ul class="uk-nav uk-nav-side" data-uk-nav>
                     @include("partials.sidebar")
+                    @yield('sidenav')
                     <li class="uk-nav-divider"></li>
                     <li class="uk-parent">
                         <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
@@ -29,7 +30,6 @@
                             <li><p>@yield('helptext')</p></li>
                         </ul>
                     </li>
-                    @yield('sidenav')
                 </ul>
             </div>
     </div>
