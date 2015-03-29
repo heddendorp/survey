@@ -16,7 +16,8 @@
 		"phpspec/phpspec": "2.*",
         "barryvdh/laravel-ide-helper": "2.*",
         "barryvdh/laravel-debugbar": "2.*",
-        "doctrine/dbal": "2.*"
+        "doctrine/dbal": "2.*",
+		"laracasts/generators": "~1.1"
 	},
 	"autoload": {
 		"classmap": [
