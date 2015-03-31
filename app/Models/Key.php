@@ -22,9 +22,14 @@ class Key extends Model {
         return $this->hasMany('Survey\Models\Mail');
     }
 
-    public function survey ()
+    public function answers()
     {
-        return $this->belongsTo('Survey\Models\Survey');
+        return $this->hasMany('Survey\Models\Answer');
+    }
+
+    public function result ()
+    {
+        return $this->belongsTo('Survey\Models\Result');
     }
 
 }

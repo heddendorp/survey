@@ -31,7 +31,7 @@ class Survey extends Model {
 
     public function keys()
     {
-        return $this->hasMany('Survey\Models\Key');
+        return $this->hasManyThrough('Survey\Models\Key', 'Survey\Models\Result');
     }
 
     public function results()
