@@ -1,7 +1,8 @@
-<?php namespace Survey\Events;
+<?php
 
-abstract class Event {
+namespace Survey\Events;
 
-	//
-
+abstract class Event
+{
+    //
 }

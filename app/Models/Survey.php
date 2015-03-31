@@ -1,18 +1,18 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Lukas
  * Date: 30.03.2015
- * Time: 13:03
+ * Time: 13:03.
  */
 
 namespace Survey\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
-class Survey extends Model {
-
+class Survey extends Model
+{
     protected $dates = ['created_at', 'updated_at', 'ends'];
 
     protected $table = 'surveys';
@@ -21,7 +21,7 @@ class Survey extends Model {
 
     protected $casts = [
         'questions' => 'array',
-        'groups' => 'array'
+        'groups' => 'array',
     ];
 
     public function answers()
@@ -43,5 +43,4 @@ class Survey extends Model {
     {
         return $this->belongsTo('Survey\Models\Customer');
     }
-
 }

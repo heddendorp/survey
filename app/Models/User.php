@@ -1,13 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Lukas
  * Date: 30.03.2015
- * Time: 08:48
+ * Time: 08:48.
  */
 
 namespace Survey\Models;
-
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -15,8 +15,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
-
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
     use Authenticatable, CanResetPassword;
 
     protected $dates = ['created_at', 'updated_at'];
@@ -32,7 +32,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token'];
 
     /**
-     * Hashes the password before setting it
+     * Hashes the password before setting it.
      *
      * @param $password
      */
@@ -44,16 +44,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     /**
      * Returns the current admin status.
      *
-     * @return boolean
+     * @return bool
      */
     public function getAdminAttribute()
     {
         return $this->role['admin'];
     }
 
-    public function customer ()
+    public function customer()
     {
         return $this->belongsTo('Survey\Models\Customer');
     }
-
 }
