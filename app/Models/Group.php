@@ -37,6 +37,8 @@ class Group extends Model {
                 return 'Kindergarten';
             case 2:
                 return 'Kinderkrippe';
+            default:
+                return "Es ist ein Fehler aufgetreten";
         }
     }
 

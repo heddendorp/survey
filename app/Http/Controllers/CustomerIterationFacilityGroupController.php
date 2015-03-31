@@ -4,9 +4,6 @@ use Survey\Customer;
 use Survey\Facility;
 use Survey\Group;
 use Survey\Http\Requests;
-use Survey\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use Survey\Iteration;
 
 class CustomerIterationFacilityGroupController extends Controller {
@@ -21,11 +18,14 @@ class CustomerIterationFacilityGroupController extends Controller {
         $this->middleware('participantPerms');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @return Response
+     */
 	public function index(Customer $customer, Iteration $iteration, Facility $facility)
 	{
 		$groups = $facility->groups;

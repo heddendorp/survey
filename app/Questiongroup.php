@@ -48,6 +48,8 @@ class Questiongroup extends Model {
                 return '5er-Frage';
             case 4:
                 return '10er-Frage';
+            default:
+                return "Es ist ein Fehler aufgetreten";
         }
     }
 
@@ -61,6 +63,8 @@ class Questiongroup extends Model {
                 return 'für Krippenteilnehmer';
             case 3:
                 return 'für Kindergartenteilnehmer';
+            default:
+                return "Es ist ein Fehler aufgetreten";
         }
     }
 

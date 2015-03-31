@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
+
 /**
  * Survey\Facility
  *

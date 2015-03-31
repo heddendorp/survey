@@ -244,6 +244,7 @@ class CustomerSurveyController extends Controller {
             return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page'=>'Es wurden noch keine Antworten abgegen.']);
         $questions = $result->survey->questions;
         $i=0;
+        /** @var array $questions */
         foreach($questions as $section)
         {
             $data[$i]['name'] = $section['title'];

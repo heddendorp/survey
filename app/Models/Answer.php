@@ -4,6 +4,7 @@
  * User: Lukas
  * Date: 31.03.2015
  * Time: 23:24
+ * TODO map the new database and relation structure
  */
 
 namespace Survey\Models;

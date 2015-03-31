@@ -22,11 +22,15 @@ class CustomerIterationFacilityGroupChildController extends Controller {
         $this->middleware('participantPerms');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @return Response
+     */
 	public function index(Customer $customer, Iteration $iteration, Facility $facility, Group $group)
 	{
 		$children = $group->children;
@@ -82,11 +86,16 @@ class CustomerIterationFacilityGroupChildController extends Controller {
         return view('child.multi')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroup($group);
 	}
 
-	/**
-	 * Store many newly created resources in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Store many newly created resources in storage.
+     *
+     * @param Customer $customer
+     * @param Iteration $iteration
+     * @param Facility $facility
+     * @param Group $group
+     * @param Request $request
+     * @return Response
+     */
 	public function storemany(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Request $request)
 	{
         if(!$request->hasFile('sheet'))

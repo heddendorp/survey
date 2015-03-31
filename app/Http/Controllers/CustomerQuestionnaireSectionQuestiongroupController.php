@@ -153,8 +153,6 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller {
         }
 
         return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
-
-        return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
 	}
 
     /**

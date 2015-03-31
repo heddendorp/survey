@@ -46,15 +46,15 @@ class CustomerIterationFacilityController extends Controller {
         return view('facility.create')->withCustomer($customer)->withIteration($iteration);
 	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Customer $customer
-     * @param Iteration $iteration
-     * @param Facility $facility
-     * @param Requests\FacilityRequest $request
-     * @return Response
-     */
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param Customer $customer
+	 * @param Iteration $iteration
+	 * @param Requests\FacilityRequest $request
+	 * @return Response
+	 * @internal param Facility $facility
+	 */
 	public function store(Customer $customer, Iteration $iteration, Requests\FacilityRequest $request)
 	{
 		$facility = new Facility;
@@ -109,8 +109,12 @@ class CustomerIterationFacilityController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
+	 * @param Customer $customer
+	 * @param Iteration $iteration
+	 * @param Facility $facility
 	 * @return Response
+	 * @throws \Exception
+	 * @internal param int $id
 	 */
 	public function destroy(Customer $customer, Iteration $iteration, Facility $facility)
 	{
