@@ -15,7 +15,7 @@ class Key extends Model
 {
     protected $dates = ['created_at', 'updated_at'];
 
-    protected $table = 'keays';
+    protected $table = 'keys';
 
     public function mails()
     {
