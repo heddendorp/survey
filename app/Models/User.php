@@ -52,6 +52,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Sets the Admin attribute in the Role Array.
+     */
+    public function setAdminAttribute($admin)
+    {
+        $this->role['admin'] = $admin;
+    }
+
+    /**
      * Returns the associated Customer
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
