@@ -14,7 +14,7 @@ class CreateKeysTable extends Migration {
 	{
 		Schema::create('keys', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('result_id');
+            $table->integer('result_id')->unsigned();
             $table->foreign('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->integer('progress')->default(0);
             $table->string('name');

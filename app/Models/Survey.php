@@ -9,6 +9,7 @@
 
 namespace Survey\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Survey extends Model
@@ -23,6 +24,17 @@ class Survey extends Model
         'questions' => 'array',
         'groups' => 'array',
     ];
+
+    public function getOpenAttribute()
+    {
+        $now = Carbon::now();
+        if(!isset($this->ends))
+        {
+            return true;
+        } else {
+            return ($this->ends->diff($now)->days == 0);
+        }
+    }
 
     public function keys()
     {

@@ -14,7 +14,7 @@ class CreateSectionsTable extends Migration {
 	{
 		Schema::create('sections', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('questionnaire_id');
+            $table->integer('questionnaire_id')->unsigned();
             $table->foreign('questionnaire_id')->references('id')->on('questionnaires')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();

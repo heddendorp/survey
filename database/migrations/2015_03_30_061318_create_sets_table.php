@@ -14,7 +14,7 @@ class CreateSetsTable extends Migration {
 	{
 		Schema::create('sets', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('customer_id');
+            $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();

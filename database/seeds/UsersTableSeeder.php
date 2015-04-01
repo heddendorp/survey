@@ -9,7 +9,7 @@ class UsersTableSeeder extends Seeder {
     public function run()
     {
         DB::table('users')->delete();
-        $joki = Customer::find(1);
+        $joki = Customer::where('name', 'Joki')->first();
 
         $user = new User;
         $user->name = 'Lukas';
@@ -27,11 +27,11 @@ class UsersTableSeeder extends Seeder {
         $user->customer()->associate($joki);
         $user->save();
 
-        $kukita = Customer::find(2);
+        $kukita = Customer::where('name', 'Kukita')->first();
 
         $user = new User;
         $user->name = 'Lukas';
-        $user->email = 'lu.heddendorp@gmail.com';
+        $user->email = 'heddendorp@outlook.com';
         $user->password = 'lukas2110';
         $user->admin = true;
         $user->customer()->associate($kukita);

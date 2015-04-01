@@ -14,7 +14,7 @@ class CreateBatchesTable extends Migration {
 	{
 		Schema::create('batches', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('section_id');
+            $table->integer('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->integer('type');
             $table->integer('order');

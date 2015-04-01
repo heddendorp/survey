@@ -14,7 +14,7 @@ class CreateGroupsTable extends Migration {
 	{
 		Schema::create('groups', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('facility_id');
+            $table->integer('facility_id')->unsigned();
             $table->foreign('facility_id')->references('id')->on('facilities')->onDelete('cascade');
             $table->integer('type');
             $table->string('name');

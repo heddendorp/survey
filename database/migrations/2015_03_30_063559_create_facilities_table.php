@@ -14,7 +14,7 @@ class CreateFacilitiesTable extends Migration {
 	{
 		Schema::create('facilities', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('set_id');
+            $table->integer('set_id')->unsigned();
             $table->foreign('set_id')->references('id')->on('sets')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();

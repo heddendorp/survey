@@ -14,7 +14,7 @@ class CreateChildrenTable extends Migration {
 	{
 		Schema::create('children', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id');
+            $table->integer('group_id')->unsigned();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->string('name');
             $table->string('email');

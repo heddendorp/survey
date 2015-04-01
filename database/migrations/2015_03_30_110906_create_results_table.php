@@ -14,7 +14,7 @@ class CreateResultsTable extends Migration {
 	{
 		Schema::create('results', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('survey_id');
+            $table->integer('survey_id')->unsigned();
             $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');
             $table->integer('group');
             $table->json('data')->nullable();

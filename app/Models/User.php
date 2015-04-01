@@ -53,10 +53,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * Sets the Admin attribute in the Role Array.
+     * @param $admin
      */
     public function setAdminAttribute($admin)
     {
-        $this->role['admin'] = $admin;
+        if($admin) {
+            $this->role = ['admin'=>true];
+        } else {
+            $this->role['admin'] = false;
+        }
     }
 
     /**
