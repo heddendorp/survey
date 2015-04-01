@@ -11,6 +11,7 @@
 /resources/assets/sass/uikit
 /public/css
 /public/js
+npm-debug.log
 composer.lock
 _ide_helper.php
 .env
