@@ -23,9 +23,4 @@ class Question extends Model
     {
         return $this->belongsTo('Survey\Models\Batch');
     }
-
-    public function answers()
-    {
-        return $this->hasMany('Survey\Models\Answer');
-    }
 }

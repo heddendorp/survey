@@ -24,11 +24,6 @@ class Survey extends Model
         'groups' => 'array',
     ];
 
-    public function answers()
-    {
-        return $this->hasMany('Survey\Models\Answer');
-    }
-
     public function keys()
     {
         return $this->hasManyThrough('Survey\Models\Key', 'Survey\Models\Result');
