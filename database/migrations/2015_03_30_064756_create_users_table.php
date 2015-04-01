@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration {
             $table->increments('id');
             $table->integer('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->string('username');
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->json('role');
