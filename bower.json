@@ -1,6 +1,6 @@
 {
   "name": "survey",
-  "version": "0.0.0",
+  "version": "0.2.2",
   "homepage": "https://github.com/Isigiel/survey",
   "authors": [
     "Lukas Heddendorp <lu.heddendorp@gmail.com>"
@@ -16,8 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "uikit": "2.*",
-    "semantic-ui-card": "*",
-    "chartist": "~0.7.3"
+    "chartist": "0.7.*",
+    "jquery": "*"
   }
 }

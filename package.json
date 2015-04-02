@@ -6,7 +6,8 @@
   "devDependencies": {
     "gulp": "^3.8.8",
     "laravel-elixir": "*",
-    "bower": "*"
+    "bower": "*",
+    "semantic-ui": "*"
   },
 
   "private":true,
