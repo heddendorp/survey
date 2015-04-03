@@ -2,9 +2,8 @@
 
 namespace Survey\Http\Controllers;
 
-use Survey\Customer;
 use Survey\Http\Requests;
-use Survey\User;
+use Survey\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -74,8 +73,8 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //dd($customer);
-        return view('customer.show')->withCustomer($customer);
+        //dd($this->getRouter()->getCurrentRoute()->getActionName());
+        return view('dashboard.view')->withCustomer($customer);
     }
 
     /**

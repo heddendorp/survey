@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{ elixir("css/all.css") }}">
 </head>
 <body>
-@yield('outlet')
+@yield('body')
 <script src="{{ elixir("js/all.js") }}"></script>
-@yield('js')
+@yield('footer')
 </body>
 </html>

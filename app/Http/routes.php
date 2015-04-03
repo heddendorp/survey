@@ -14,10 +14,10 @@
 //routes
 
 Route::get('view', function(){
-   return view('welcome.view');
+   return view('app.interface');
 });
 
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController@index');
 
 Route::get('data', function () {
     return response()->download(storage_path().'/database.sqlite');

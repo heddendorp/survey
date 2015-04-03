@@ -25,18 +25,18 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
 
-        $router->model('customer', 'Survey\Customer');
-        $router->model('user', 'Survey\User');
-        $router->model('questionnaire', 'Survey\Questionnaire');
-        $router->model('section', 'Survey\Section');
-        $router->model('questiongroup', 'Survey\Questiongroup');
-        $router->model('iteration', 'Survey\Iteration');
-        $router->model('facility', 'Survey\Facility');
-        $router->model('group', 'Survey\Group');
-        $router->model('child', 'Survey\Child');
-        $router->model('survey', 'Survey\Survey');
-        $router->model('token', 'Survey\Token');
-        $router->model('result', 'Survey\Result');
+        $router->model('customer', 'Survey\Models\Customer');
+        $router->model('user', 'Survey\Models\User');
+        $router->model('questionnaire', 'Survey\Models\Questionnaire');
+        $router->model('section', 'Survey\Models\Section');
+        $router->model('batch', 'Survey\Models\Batch');
+        $router->model('set', 'Survey\Models\Set');
+        $router->model('facility', 'Survey\Models\Facility');
+        $router->model('group', 'Survey\Models\Group');
+        $router->model('child', 'Survey\Models\Child');
+        $router->model('survey', 'Survey\Models\Survey');
+        $router->model('token', 'Survey\Models\Token');
+        $router->model('result', 'Survey\Models\Result');
     }
 
     /**

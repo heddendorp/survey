@@ -1,0 +1,34 @@
+<div class="header">
+        Firmendaten für {{$customer->name}}
+    </div>
+    {!!Form::model($customer,['class'=>'ui form', 'method'=>'PUT', 'route'=>['customer.update',$customer]])!!}
+    <div class="content">
+                <div class="ui medium image">
+                    <img src="http://lorempixel.com/400/200/" alt="Logo"/>
+                </div>
+
+    </div>
+    <div class="description">
+        <div class="field">
+            {!!Form::label('logo','Logo-URL')!!}
+            <div class="ui input">
+                {!!Form::text('logo')!!}
+            </div>
+            <div class="field">
+                {!!Form::label('name','Firmenname')!!}
+                <div class="ui input">
+                    {!!Form::text('name')!!}
+                </div>
+            </div>
+            <div class="field">
+                {!!Form::label('info_email','Info-Adresse')!!}
+                <div class="ui input">
+                    {!!Form::email('info_email')!!}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+
+    </div>
+    {!!Form::close()!!}

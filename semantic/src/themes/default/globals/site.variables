@@ -77,11 +77,11 @@
     Brand Colors
 --------------------*/
 
-@primaryColor        : @blue;
-@secondaryColor      : @black;
+@primaryColor        : @teal;
+@secondaryColor      : @orange;
 
-@lightPrimaryColor   : @lightBlue;
-@lightSecondaryColor : @lightBlack;
+@lightPrimaryColor   : @lightTeal;
+@lightSecondaryColor : @lightOrange;
 
 /*-------------------
         Sizes
