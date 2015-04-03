@@ -11,15 +11,11 @@
 |
 */
 
-//Papertrail
-$monolog = Log::getMonolog();
-$syslog = new \Monolog\Handler\SyslogHandler('papertrail');
-$formatter = new \Monolog\Formatter\LineFormatter('%channel%.%level_name%: %message% %extra%');
-$syslog->setFormatter($formatter);
-
-$monolog->pushHandler($syslog);
-
 //routes
+
+Route::get('view', function(){
+   return view('welcome.view');
+});
 
 Route::get('/', 'WelcomeController@index');
 

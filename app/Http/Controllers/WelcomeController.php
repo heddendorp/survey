@@ -2,6 +2,7 @@
 
 namespace Survey\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Survey\Http\Requests\LoginFormRequest;
 
 class WelcomeController extends Controller
@@ -32,23 +33,21 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('app.welcome');
+        return view('util.welcome');
     }
 
     public function login()
     {
-        return view('app.login');
+        return view('util.login');
     }
 
     public function authenticate(LoginFormRequest $request)
     {
-        if (\Auth::attempt($request->except(['_token', 'remember'], $request->only(['remember'])))) {
-            $customer = \Auth::user()->customer;
-
+        if (Auth::attempt($request->only(['email', 'password']), $request->get('remember'))) {
+            $customer = Auth::user()->customer;
             return redirect()->route('customer.show', $customer);
         }
-
-        return redirect('login')->withErrors(['login' => 'Benutzername oder Passwort sind falsch.']);
+        return redirect()->action('WelcomeController@login')->withErrors(['login' => 'Benutzername oder Passwort sind falsch.']);
     }
 
     public function logout()

@@ -2,15 +2,7 @@
 /node_modules
 /.idea
 /bower_components
-/resources/assets
-/resources/js/core
-/resources/js/components
-/resources/js/jquery.js
-/resources/js/uikit.js
-/resources/js/uikit.min.js
-/resources/assets/sass/uikit
-/public/css
-/public/js
+/resources/views.old
 npm-debug.log*
 composer.lock
 _ide_helper.php
