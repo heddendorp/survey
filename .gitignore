@@ -5,5 +5,5 @@
 /resources/views.old
 npm-debug.log*
 composer.lock
-_ide_helper.php
+_ide_helper*
 .env

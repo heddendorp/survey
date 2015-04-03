@@ -18,7 +18,7 @@ elixir(function(mix) {
     mix.copy("bower_components/jquery/dist/jquery.js","resources/js/jquery.js");
     mix.copy("semantic/dist/semantic.js","resources/js/semantic.js");
     mix.copy("semantic/dist/semantic.css","resources/css/semantic.css");
-    mix.copy("semantic/dist/themes/default/assets/fonts","public/build/css/themes/default/assets/fonts");
+    mix.copy("semantic/dist/themes/default/assets/fonts","public/fonts");
 
     mix.scripts([
         "jquery.js",
