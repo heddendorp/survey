@@ -6,12 +6,16 @@
                 Zuletst bearbeitete Fragebögen
             </h5>
             <div class="ui purple attached segment">
-                <p>
-                <ol>
-                    <li>Frgabeogen 1</li>
-                    <li>Fragebogen 2</li>
-                </ol>
-                </p>
+                <div class="ui list">
+                    @forelse($questionnaires as $questionnaire)
+                        <a class="item" href="">{{$questionnaire->name}}</a>
+                    @empty
+                        <div class="item">
+                            Keine Fragebögen gespeichert. <br/>
+                            Bitte <strong><a href="{{route('customer.questionnaire.index', $customer)}}">erstellen</a></strong> sie einen neuen Fragebogen.
+                        </div>
+                    @endforelse
+                </div>
             </div>
         </div>
         <div class="column">
@@ -19,7 +23,16 @@
                 Zuletst bearbeitete Teilnehmer
             </h5>
             <div class="ui orange attached segment">
-                <p>Lalalal</p>
+                <div class="ui list">
+                    @forelse($sets as $set)
+                        <a class="item" href="">{{$set->name}}</a>
+                    @empty
+                        <div class="item">
+                            Keine Teilnehmer gespeichert. <br/>
+                            Bitte <strong><a href="{{route('customer.set.index', $customer)}}">erstellen</a></strong> sie ein neues Set um Teilnehmer hinzuzufügen.
+                        </div>
+                    @endforelse
+                </div>
             </div>
         </div>
         <div class="column">
@@ -27,7 +40,16 @@
                 Zuletst bearbeitete Umfragen
             </h5>
             <div class="ui teal attached segment">
-                <p>Lalalal</p>
+                <div class="ui list">
+                    @forelse($surveys as $survey)
+                        <a class="item" href="">{{$survey->name}}</a>
+                    @empty
+                        <div class="item">
+                            Keine Umfragen gespeichert. <br/>
+                            Bitte <strong><a href="{{route('customer.survey.index', $customer)}}">erstellen</a></strong> sie eine neue Umfrage.
+                        </div>
+                    @endforelse
+                </div>
             </div>
         </div>
         <div class="column">
@@ -35,7 +57,16 @@
                 Neueste Ergebnisse
             </h5>
             <div class="ui blue attached segment">
-                <p>Lalalal</p>
+                <div class="ui list">
+                    @forelse($results as $result)
+                        <a class="item" href="">{{$result->name}}</a>
+                    @empty
+                        <div class="item">
+                            Keine Ergebnisse gespeichert. <br/>
+                            Bitte <strong><a href="{{route('customer.questionnaire.index', $customer)}}">erstellen</a></strong> sie ein Ergebnis.
+                        </div>
+                    @endforelse
+                </div>
             </div>
         </div>
         <div class="column">

@@ -29,14 +29,16 @@ class CustomerSetController extends Controller
     public function index(Customer $customer)
     {
         $sets = $customer->sets;
+
         return view('set.index')->withCustomer($customer)->withSets($sets);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Customer $customer
+     * @param Customer                          $customer
      * @param Request|Requests\IterationRequest $request
+     *
      * @return Response
      */
     public function store(Customer $customer, Request $request)
@@ -44,15 +46,17 @@ class CustomerSetController extends Controller
         $set = new Set($request->only(['name']));
         $set->customer()->associate($customer);
         $set->save();
+
         return redirect()->route('customer.set.index', $customer);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Customer $customer
-     * @param Set $set
+     * @param Customer                          $customer
+     * @param Set                               $set
      * @param Request|Requests\IterationRequest $request
+     *
      * @return Response
      */
     public function update(Customer $customer, Set $set, Request $request)
@@ -67,8 +71,10 @@ class CustomerSetController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Customer $customer
-     * @param Set $set
+     * @param Set      $set
+     *
      * @return Response
+     *
      * @throws \Exception
      */
     public function destroy(Customer $customer, Set $set)

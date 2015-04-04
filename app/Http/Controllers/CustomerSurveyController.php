@@ -132,6 +132,7 @@ class CustomerSurveyController extends Controller
     public function show(Customer $customer, Survey $survey)
     {
         $results = $survey->results->groupBy('facility');
+
         return view('survey.show')->withCustomer($customer)->withSurvey($survey)->withResults($results);
     }
 

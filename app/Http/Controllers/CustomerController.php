@@ -54,7 +54,7 @@ class CustomerController extends Controller
         $customer->info_email = $input['info_email'];
         $customer->save();
 
-        $user = new User;
+        $user = new User();
         $user->username = $input['username'];
         $user->email = $input['email'];
         $user->password = bcrypt($input['password']);
@@ -74,7 +74,12 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        return view('dashboard.view')->withCustomer($customer);
+        $sets = $customer->sets->sortBy('updated_at')->take(5);
+        $questionnaires = $customer->questionnaires->sortBy('updated_at')->take(5);
+        $surveys = $customer->surveys->sortBy('updated_at')->take(5);
+        $results = $customer->results->sortBy('updated_at')->take(5);
+
+        return view('dashboard.view')->withCustomer($customer)->withSets($sets)->withQuestionnaires($questionnaires)->withSurveys($surveys)->withResults($results);
     }
 
     /**

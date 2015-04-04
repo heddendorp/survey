@@ -59,4 +59,9 @@ class Customer extends Model
     {
         return $this->hasMany('Survey\Models\Survey');
     }
+
+    public function results()
+    {
+        return $this->hasManyThrough('Survey\Models\Result', 'Survey\Models\Survey');
+    }
 }

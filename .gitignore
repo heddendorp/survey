@@ -7,3 +7,4 @@ npm-debug.log*
 composer.lock
 _ide_helper*
 .env
+*.tmp
