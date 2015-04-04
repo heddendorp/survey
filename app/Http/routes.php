@@ -14,10 +14,7 @@
 //routes
 
 Route::get('view', function () {
-    $user = \Survey\Models\User::find(11)->toArray();
-    dd(array_get($user, 'role.admin'));
-
-   return str_replace(array('.', '[]', '[', ']'), array('_', '', '.', ''), 'role[survey.view]');
+    return view('set.index');
 });
 
 Route::get('/', 'WelcomeController@index');
@@ -38,7 +35,7 @@ Route::get('logout', 'WelcomeController@logout');
 
 Route::resource('customer', 'CustomerController');
 
-Route::resource('customer.user', 'CustomerUserController', ['except' => ['show', 'create']]);
+Route::resource('customer.user', 'CustomerUserController', ['only' => ['index', 'store', 'update', 'destroy']]);
 
 Route::resource('customer.survey', 'CustomerSurveyController');
 
@@ -60,7 +57,7 @@ Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestio
 
 Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}/questiongroup/order', ['as' => 'customer.questionnaire.section.questiongroup.order', 'uses' => 'CustomerQuestionnaireSectionQuestiongroupController@order']);
 
-Route::resource('customer.set', 'CustomerIterationController', ['except' => 'show']);
+Route::resource('customer.set', 'CustomerSetController', ['only' => ['index', 'store', 'update', 'destroy']]);
 
 Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except' => 'show']);
 
