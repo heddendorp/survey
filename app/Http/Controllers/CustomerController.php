@@ -4,6 +4,7 @@ namespace Survey\Http\Controllers;
 
 use Survey\Http\Requests;
 use Survey\Models\Customer;
+use Survey\Models\User;
 
 class CustomerController extends Controller
 {
@@ -53,7 +54,7 @@ class CustomerController extends Controller
         $customer->info_email = $input['info_email'];
         $customer->save();
 
-        $user = new User();
+        $user = new User;
         $user->username = $input['username'];
         $user->email = $input['email'];
         $user->password = bcrypt($input['password']);
