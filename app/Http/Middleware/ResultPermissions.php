@@ -3,6 +3,7 @@
 namespace Survey\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
 class ResultPermissions
 {
@@ -14,7 +15,7 @@ class ResultPermissions
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $user = \Auth::user();
         if ($user->role['admin']) {

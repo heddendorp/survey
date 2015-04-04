@@ -227,7 +227,7 @@ class CustomerSurveyController extends Controller
             $link = '<a href="'.$link.'">Fragebogen</a>';
             $text = str_replace(':link', $link, $text);
             $text = nl2br($text);
-            \Mail::queue('emails.welcome', ['text' => $text], function ($message) use ($customer, $token, $survey) {
+            \Mail::queue('emails.welcome', ['text' => $text], function (\Message $message) use ($customer, $token, $survey) {
                 $message->from($customer->info_email, $customer->name);
                 $message->to($token->email)->subject($survey->name);
             });

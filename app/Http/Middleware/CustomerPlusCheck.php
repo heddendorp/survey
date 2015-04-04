@@ -3,6 +3,7 @@
 namespace Survey\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
 class CustomerPlusCheck
 {
@@ -14,7 +15,7 @@ class CustomerPlusCheck
      *
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $customer_id = $request->user()->customer->id;
         //dd('/customer/'.$customer_id.'*');
