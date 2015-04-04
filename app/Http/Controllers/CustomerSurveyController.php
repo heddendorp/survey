@@ -217,7 +217,7 @@ class CustomerSurveyController extends Controller
     public function sendWelcome(Customer $customer, Survey $survey)
     {
         if ($survey->welcome_mail == '') {
-            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text für die Email eingegeben!']);
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text fï¿½r die Email eingegeben!']);
         }
         foreach ($survey->tokens as $token) {
             $text = $survey->welcome_mail;

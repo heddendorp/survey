@@ -94,11 +94,11 @@ class Batch extends Model
     {
         switch ($this->condition) {
             case 1:
-                return 'für alle Teilnehmer';
+                return 'fï¿½r alle Teilnehmer';
             case 2:
-                return 'für Krippenteilnehmer';
+                return 'fï¿½r Krippenteilnehmer';
             case 3:
-                return 'für Kindergartenteilnehmer';
+                return 'fï¿½r Kindergartenteilnehmer';
             default:
                 return 'Es ist ein Fehler aufgetreten';
         }
