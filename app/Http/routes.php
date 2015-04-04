@@ -14,10 +14,12 @@
 //routes
 
 Route::get('view', function(){
-   return view('app.interface');
+    $user = \Survey\Models\User::find(11)->toArray();
+    dd(array_get($user, 'role.admin'));
+   return str_replace(array('.', '[]', '[', ']'), array('_', '', '.', ''), 'role[survey.view]');
 });
 
-//Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
 Route::get('data', function () {
     return response()->download(storage_path().'/database.sqlite');
@@ -35,7 +37,7 @@ Route::get('logout', 'WelcomeController@logout');
 
 Route::resource('customer', 'CustomerController');
 
-Route::resource('customer.user', 'CustomerUserController', ['except' => 'show']);
+Route::resource('customer.user', 'CustomerUserController', ['except' => ['show', 'create']]);
 
 Route::resource('customer.survey', 'CustomerSurveyController');
 
@@ -59,7 +61,7 @@ Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}
 
 //Route::resource('customer.questionnaire.section.questiongroup.question', 'CustomerQuestionnaireSectionQuestiongroupQuestionController', ['only'=>['index', 'destroy']]);
 
-Route::resource('customer.iteration', 'CustomerIterationController', ['except' => 'show']);
+Route::resource('customer.set', 'CustomerIterationController', ['except' => 'show']);
 
 Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except' => 'show']);
 

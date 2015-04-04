@@ -23,8 +23,8 @@ class UserStoreRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|min:3',
-            'email' => 'required|email',
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed',
         ];
     }

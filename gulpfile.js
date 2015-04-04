@@ -24,7 +24,8 @@ elixir(function(mix) {
         "jquery.js",
         "jquery.restfulizer.js",
         "semantic.js",
-        "chartist.js"
+        "chartist.js",
+        "app.js"
     ]);
     mix.styles([
         "chartist.min.css",

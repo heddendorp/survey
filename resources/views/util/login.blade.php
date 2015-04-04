@@ -1,5 +1,5 @@
 @extends('app.main')
-@section('outlet')
+@section('body')
     <div style="margin-top: 12em;"></div>
     <div class="ui four column centered grid">
         <div class="column">
@@ -10,7 +10,7 @@
                     <div class="required field">
                         {!!Form::label('email', 'Email-Adresse')!!}
                         <div class="ui icon input">
-                            {!!Form::email('email', 'beispiel@gmail.com')!!}
+                            {!!Form::email('email', null, ['placeholder'=>'beispiel@gmail.com'])!!}
                             <i class="mail icon"></i>
                         </div>
                     </div>

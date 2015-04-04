@@ -6,7 +6,12 @@
                 Zuletst bearbeitete Fragebögen
             </h5>
             <div class="ui purple attached segment">
-                <p>Lalalal</p>
+                <p>
+                    <ol>
+                    <li>Frgabeogen 1</li>
+                    <li>Fragebogen 2</li>
+                </ol>
+                </p>
             </div>
         </div>
         <div class="column">
