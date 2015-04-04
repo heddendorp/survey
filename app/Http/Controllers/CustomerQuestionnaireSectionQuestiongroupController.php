@@ -137,8 +137,6 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller
      */
     public function update(Requests\QuestiongroupRequest $request, Customer $customer, Questionnaire $questionnaire, Section $section, Questiongroup $questiongroup)
     {
-        //dd($request->all());
-
         $questiongroup->condition = $request->get('condition');
         $questiongroup->heading = $request->get('heading');
         $questiongroup->save();
@@ -202,6 +200,5 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller
         }
 
         return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
-        //dd($request->all());
     }
 }

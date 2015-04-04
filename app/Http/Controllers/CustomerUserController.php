@@ -34,7 +34,6 @@ class CustomerUserController extends Controller
 
     public function store(Customer $customer, Request $request)
     {
-        //dd($customer);
         $user = new User($request->only(['name', 'email', 'password']));
         $user->role = $this->makeRole($request);
         $user->customer()->associate($customer);
@@ -110,7 +109,6 @@ class CustomerUserController extends Controller
     private function makeRole(Request $request)
     {
         $post = $request->get('role');
-        //dd($post);
         $role['admin'] = false;
         $role['survey_view'] = isset($post['survey.view']);
         $role['survey_create'] = isset($post['survey.create']);

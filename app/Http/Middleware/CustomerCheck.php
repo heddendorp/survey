@@ -18,7 +18,6 @@ class CustomerCheck
     public function handle(Request $request, Closure $next)
     {
         $customer_id = $request->user()->customer->id;
-        //dd('/customer/'.$customer_id.'*');
         if ($request->is('customer/'.$customer_id)) {
             return $next($request);
         }

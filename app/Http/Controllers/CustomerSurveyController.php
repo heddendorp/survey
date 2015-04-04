@@ -2,7 +2,6 @@
 
 namespace Survey\Http\Controllers;
 
-use Survey\Commands\ColltectResults;
 use Survey\Customer;
 use Survey\Group;
 use Survey\Http\Requests;
@@ -132,9 +131,7 @@ class CustomerSurveyController extends Controller
      */
     public function show(Customer $customer, Survey $survey)
     {
-        //dd($survey->questions);
         $results = $survey->results->groupBy('facility');
-        //dd($results);
         return view('survey.show')->withCustomer($customer)->withSurvey($survey)->withResults($results);
     }
 
@@ -249,12 +246,6 @@ class CustomerSurveyController extends Controller
      */
     public function analyze(Customer $customer, Survey $survey, Result $result)
     {
-        /*$result->answers = $result->answers->groupBy('question');
-        $result->questions = $result->survey->questions;
-        $this->dispatch(
-            new ColltectResults($result)
-        );
-*/
         $all_answers = $result->answers->groupBy('question');
         if ($result->answers->count() < 4) {
             return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurden noch keine Antworten abgegen.']);
@@ -336,7 +327,6 @@ class CustomerSurveyController extends Controller
             $i++;
         }
         $result->data = $data;
-        //dd($data);
         $result->save();
 
         return redirect()->route('customer.survey.show', [$customer, $survey]);

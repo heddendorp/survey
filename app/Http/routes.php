@@ -60,8 +60,6 @@ Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestio
 
 Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}/questiongroup/order', ['as' => 'customer.questionnaire.section.questiongroup.order', 'uses' => 'CustomerQuestionnaireSectionQuestiongroupController@order']);
 
-//Route::resource('customer.questionnaire.section.questiongroup.question', 'CustomerQuestionnaireSectionQuestiongroupQuestionController', ['only'=>['index', 'destroy']]);
-
 Route::resource('customer.set', 'CustomerIterationController', ['except' => 'show']);
 
 Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except' => 'show']);

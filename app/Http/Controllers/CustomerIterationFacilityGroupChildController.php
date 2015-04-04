@@ -108,7 +108,6 @@ class CustomerIterationFacilityGroupChildController extends Controller
             return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet' => 'Es muss eine Tabelle ausgewählt werden.']);
         }
         $file = $request->file('sheet');
-        //dd($file->getClientOriginalExtension());
         if ($file->getClientOriginalExtension() !== 'csv') {
             return redirect()->route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])->withErrors(['sheet' => 'Tabelle muss im .csv Format gespeichert werden.']);
         }

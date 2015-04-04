@@ -73,7 +73,6 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //dd($this->getRouter()->getCurrentRoute()->getActionName());
         return view('dashboard.view')->withCustomer($customer);
     }
 

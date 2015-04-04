@@ -35,7 +35,6 @@ class TokenController extends Controller
      */
     public function answer(Survey $survey, Token $token, Request $request)
     {
-        //dd($request->get('answer'));
         foreach ($request->get('answer') as $question => $answer) {
             if ($answer['type'] == 1 && !$answer['answer'] == '') {
                 $result = new Answer();
