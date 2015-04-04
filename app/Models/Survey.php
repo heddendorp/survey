@@ -13,23 +13,24 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Survey
+ * Survey\Models\Survey.
  *
- * @property integer $id 
- * @property integer $customer_id 
- * @property boolean $started 
- * @property string $questions 
- * @property string $groups 
- * @property string $welcome_mail 
- * @property string $remember_mail 
- * @property string $finish_mail 
- * @property string $name 
- * @property \Carbon\Carbon $ends 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read mixed $open 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Result[] $results 
- * @property-read \Survey\Models\Customer $customer 
+ * @property integer $id
+ * @property integer $customer_id
+ * @property boolean $started
+ * @property string $questions
+ * @property string $groups
+ * @property string $welcome_mail
+ * @property string $remember_mail
+ * @property string $finish_mail
+ * @property string $name
+ * @property \Carbon\Carbon $ends
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read mixed $open
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Result[] $results
+ * @property-read \Survey\Models\Customer $customer
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereCustomerId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereStarted($value)
@@ -59,8 +60,7 @@ class Survey extends Model
     public function getOpenAttribute()
     {
         $now = Carbon::now();
-        if(!isset($this->ends))
-        {
+        if (!isset($this->ends)) {
             return true;
         } else {
             return ($this->ends->diff($now)->days == 0);

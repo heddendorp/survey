@@ -12,18 +12,19 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Customer
+ * Survey\Models\Customer.
  *
- * @property integer $id 
- * @property string $name 
- * @property string $logo 
- * @property string $info_email 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Set[] $sets 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\User[] $users 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Questionnaire[] $questionnaires 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Survey[] $surveys 
+ * @property integer $id
+ * @property string $name
+ * @property string $logo
+ * @property string $info_email
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Set[] $sets
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\User[] $users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Questionnaire[] $questionnaires
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Survey[] $surveys
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Customer whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Customer whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Customer whereLogo($value)

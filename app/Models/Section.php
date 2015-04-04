@@ -12,15 +12,16 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Section
+ * Survey\Models\Section.
  *
- * @property integer $id 
- * @property integer $questionnaire_id 
- * @property string $name 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Survey\Models\Questionnaire $questionnaire 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Batch[] $batches 
+ * @property integer $id
+ * @property integer $questionnaire_id
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Survey\Models\Questionnaire $questionnaire
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Batch[] $batches
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereQuestionnaireId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereName($value)

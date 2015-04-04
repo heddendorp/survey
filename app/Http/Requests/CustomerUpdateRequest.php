@@ -2,7 +2,6 @@
 
 namespace Survey\Http\Requests;
 
-
 class CustomerUpdateRequest extends Request
 {
     /**

@@ -12,17 +12,18 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Group
+ * Survey\Models\Group.
  *
- * @property integer $id 
- * @property integer $facility_id 
- * @property integer $type 
- * @property string $name 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Survey\Facility $facility 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children 
- * @property-read mixed $stringtype 
+ * @property integer $id
+ * @property integer $facility_id
+ * @property integer $type
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Survey\Facility $facility
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children
+ * @property-read mixed $stringtype
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereFacilityId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereType($value)

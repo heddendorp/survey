@@ -2,7 +2,6 @@
 
 namespace Survey\Http\Requests;
 
-
 class ChildRequest extends Request
 {
     /**

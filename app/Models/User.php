@@ -16,19 +16,20 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
- * Survey\Models\User
+ * Survey\Models\User.
  *
- * @property integer $id 
- * @property integer $customer_id 
- * @property string $name 
- * @property string $email 
- * @property string $password 
- * @property string $role 
- * @property string $remember_token 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property mixed $admin 
- * @property-read \Survey\Models\Customer $customer 
+ * @property integer $id
+ * @property integer $customer_id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $role
+ * @property string $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property mixed $admin
+ * @property-read \Survey\Models\Customer $customer
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereCustomerId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereName($value)
@@ -77,19 +78,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * Sets the Admin attribute in the Role Array.
+     *
      * @param $admin
      */
     public function setAdminAttribute($admin)
     {
-        if($admin) {
-            $this->role = ['admin'=>true];
+        if ($admin) {
+            $this->role = ['admin' => true];
         } else {
             $this->role['admin'] = false;
         }
     }
 
     /**
-     * Returns the associated Customer
+     * Returns the associated Customer.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

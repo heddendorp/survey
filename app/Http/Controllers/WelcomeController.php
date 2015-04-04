@@ -45,8 +45,10 @@ class WelcomeController extends Controller
     {
         if (Auth::attempt($request->only(['email', 'password']), $request->get('remember'))) {
             $customer = Auth::user()->customer;
+
             return redirect()->route('customer.show', $customer);
         }
+
         return redirect()->action('WelcomeController@login')->withErrors(['login' => 'Benutzername oder Passwort sind falsch.']);
     }
 

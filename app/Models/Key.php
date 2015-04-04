@@ -12,20 +12,21 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Key
+ * Survey\Models\Key.
  *
- * @property integer $id 
- * @property integer $result_id 
- * @property integer $progress 
- * @property string $name 
- * @property string $email 
- * @property string $token 
- * @property boolean $finished 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Mail[] $mails 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Answer[] $answers 
- * @property-read \Survey\Models\Result $result 
+ * @property integer $id
+ * @property integer $result_id
+ * @property integer $progress
+ * @property string $name
+ * @property string $email
+ * @property string $token
+ * @property boolean $finished
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Mail[] $mails
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Answer[] $answers
+ * @property-read \Survey\Models\Result $result
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereResultId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereProgress($value)

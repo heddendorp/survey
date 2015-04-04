@@ -13,9 +13,10 @@
 
 //routes
 
-Route::get('view', function(){
+Route::get('view', function () {
     $user = \Survey\Models\User::find(11)->toArray();
     dd(array_get($user, 'role.admin'));
+
    return str_replace(array('.', '[]', '[', ']'), array('_', '', '.', ''), 'role[survey.view]');
 });
 

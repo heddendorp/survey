@@ -12,20 +12,21 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Batch
+ * Survey\Models\Batch.
  *
- * @property integer $id 
- * @property integer $section_id 
- * @property integer $type 
- * @property integer $order 
- * @property integer $codition 
- * @property string $name 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Survey\Models\Section $section 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Question[] $questions 
- * @property-read mixed $stringtype 
- * @property-read mixed $stringcondition 
+ * @property integer $id
+ * @property integer $section_id
+ * @property integer $type
+ * @property integer $order
+ * @property integer $codition
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Survey\Models\Section $section
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Question[] $questions
+ * @property-read mixed $stringtype
+ * @property-read mixed $stringcondition
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereSectionId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereType($value)

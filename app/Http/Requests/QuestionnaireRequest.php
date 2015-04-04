@@ -2,7 +2,6 @@
 
 namespace Survey\Http\Requests;
 
-
 class QuestionnaireRequest extends Request
 {
     /**

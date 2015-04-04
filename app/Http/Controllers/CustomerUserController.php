@@ -32,8 +32,6 @@ class CustomerUserController extends Controller
         return view('user.index')->withCustomer($customer)->withUsers($users);
     }
 
-
-
     public function store(Customer $customer, Request $request)
     {
         //dd($customer);
@@ -129,6 +127,7 @@ class CustomerUserController extends Controller
         if ($request->has('results')) {
             $role['results'] = isset($post['results']);
         }
+
         return $role;
     }
 }

@@ -12,14 +12,15 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Question
+ * Survey\Models\Question.
  *
- * @property integer $id 
- * @property integer $batch_id 
- * @property string $content 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Survey\Models\Batch $batch 
+ * @property integer $id
+ * @property integer $batch_id
+ * @property string $content
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Survey\Models\Batch $batch
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Question whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Question whereBatchId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Question whereContent($value)
