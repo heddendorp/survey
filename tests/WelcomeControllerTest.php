@@ -24,16 +24,46 @@ class WelcomeControllerTest extends TestCase {
         $this->assertResponseOk();
     }
 
-    /*public function testLoginValidation()
+    public function testUnauthorizedLogin()
     {
-        $this->call('POST','WelcomeController@authenticate');
-        $this->assertSessionHasErrors();
-    }*/
+        $credentials = array(
+            'email' => 'test@admin.com',
+            'password' => 'ifail',
+            'remember' => false
+        );
+        $response = $this->call('POST', '/login', $credentials);
+        $this->assertRedirectedTo('/login');
+    }
+
+    public function testAuthorizedLogin()
+    {
+        $credentials = array(
+            'email' => 'lu.heddendorp@gmail.com',
+            'password' => 'lukas2110'
+        );
+        $response = $this->call('POST', '/login', $credentials);
+        $this->assertRedirectedTo('/customer/1');
+    }
+
+    public function testUnauthorizedAccess()
+    {
+        $this->call('GET', '/customer/1');
+        $this->assertRedirectedTo('/login');
+    }
+
+    public function testDashboard()
+    {
+        $user = \Survey\Models\User::first();
+        $this->be($user);
+        $this->call('GET', '/customer/1');
+        $this->assertResponseOk();
+    }
 
     public function testLogoutMechanic ()
     {
+        $user = \Survey\Models\User::first();
+        $this->be($user);
         $this->call('GET', 'logout');
-
         $this->assertRedirectedTo('/');
     }
 
