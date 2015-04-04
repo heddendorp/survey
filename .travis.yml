@@ -15,5 +15,4 @@ install:
 script: vendor/bin/phpunit --verbose --colors
 
 before_script:
-  - php artisan migrate:refresh --seed
-  - mysql -e 'create database test;'
+  - php artisan migrate --seed
