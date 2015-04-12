@@ -1,31 +1,30 @@
-<?php namespace Survey\Http\Requests;
+<?php
 
-use Survey\Http\Requests\Request;
+namespace Survey\Http\Requests;
 
-class SurveyRequest extends Request {
+class SurveyRequest extends Request
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return true;
-	}
-
-	/**
-	 * Get the validation rules that apply to the request.
-	 *
-	 * @return array
-	 */
-	public function rules()
-	{
-		return [
-			'name'=>'required',
-            'end_date'=>'required|date_format:j.m.Y',
-            'group'=>'required'
-		];
-	}
-
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'name' => 'required',
+            'end_date' => 'required|date_format:j.m.Y',
+            'group' => 'required',
+        ];
+    }
 }

@@ -1,40 +1,48 @@
-<?php namespace Survey\Http\Middleware;
+<?php
+
+namespace Survey\Http\Middleware;
 
 use Closure;
 
-class ParticipantPermissions {
-
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \Closure  $next
-	 * @return mixed
-	 */
-	public function handle($request, Closure $next)
-	{
+class ParticipantPermissions
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
         $user = \Auth::user();
-        if($user->role["admin"])
+        if ($user->role['admin']) {
             return $next($request);
-        switch($request->method()){
+        }
+        switch ($request->method()) {
             case 'POST':
-                if(!$user->role['participant.create'])
-                    return redirect()->back()->withErrors(['page'=>'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                if (!$user->role['participant.create']) {
+                    return redirect()->back()->withErrors(['page' => 'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                }
                 break;
             case 'PATCH':
-                if(!$user->role['participant.edit'])
-                    return redirect()->back()->withErrors(['page'=>'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                if (!$user->role['participant.edit']) {
+                    return redirect()->back()->withErrors(['page' => 'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                }
                 break;
             case 'DELETE':
-                if(!$user->role['participant.delete'])
-                    return redirect()->back()->withErrors(['page'=>'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                if (!$user->role['participant.delete']) {
+                    return redirect()->back()->withErrors(['page' => 'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                }
                 break;
             default:
-                if(!$user->role['participant.view'])
-                    return redirect()->back()->withErrors(['page'=>'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                if (!$user->role['participant.view']) {
+                    return redirect()->back()->withErrors(['page' => 'Es ist ihnen nicht gestattet diese Aktion auszuführen.']);
+                }
                 break;
         }
-        return $next($request);
-	}
 
+        return $next($request);
+    }
 }

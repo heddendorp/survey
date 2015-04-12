@@ -1,30 +1,33 @@
-<?php namespace Survey;
+<?php
+
+namespace Survey;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Survey
+ * Survey\Survey.
  *
- * @property integer $id 
- * @property boolean $open 
- * @property boolean $welcomed 
- * @property integer $customer_id 
- * @property string $questions 
- * @property string $facilities 
- * @property string $groups 
- * @property string $welcome_mail 
- * @property string $remember_mail 
- * @property string $finish_mail 
- * @property string $questionnaire 
- * @property string $name 
- * @property string $end_date 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Answer[] $answers 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Token[] $tokens 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Result[] $result 
- * @property-read \Survey\Customer $customer 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Result[] $results 
+ * @property integer $id
+ * @property boolean $open
+ * @property boolean $welcomed
+ * @property integer $customer_id
+ * @property string $questions
+ * @property string $facilities
+ * @property string $groups
+ * @property string $welcome_mail
+ * @property string $remember_mail
+ * @property string $finish_mail
+ * @property string $questionnaire
+ * @property string $name
+ * @property string $end_date
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Answer[] $answers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Token[] $tokens
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Result[] $result
+ * @property-read \Survey\Customer $customer
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Result[] $results
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Survey whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Survey whereOpen($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Survey whereWelcomed($value)
@@ -41,8 +44,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Survey\Survey whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Survey whereUpdatedAt($value)
  */
-class Survey extends Model {
-
+class Survey extends Model
+{
     protected $casts = [
         'members' => 'array',
         'groups' => 'array',
@@ -50,7 +53,7 @@ class Survey extends Model {
         'facilities' => 'array',
     ];
 
-	public function answers()
+    public function answers()
     {
         return $this->hasMany('Survey\Answer');
     }
@@ -77,7 +80,6 @@ class Survey extends Model {
 
     public function stringDate()
     {
-        return date('d.m.Y',strtotime($this->end_date));
+        return date('d.m.Y', strtotime($this->end_date));
     }
-
 }

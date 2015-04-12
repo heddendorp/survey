@@ -1,18 +1,21 @@
-<?php namespace Survey;
+<?php
+
+namespace Survey;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Group
+ * Survey\Group.
  *
  * @property-read \Survey\Facility $facility
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children
- * @property integer $id 
- * @property integer $facility_id 
- * @property integer $type 
- * @property string $name 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
+ * @property integer $id
+ * @property integer $facility_id
+ * @property integer $type
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Group whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Group whereFacilityId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Group whereType($value)
@@ -20,27 +23,25 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Survey\Group whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Group whereUpdatedAt($value)
  */
-class Group extends Model {
-
-	public function facility ()
+class Group extends Model
+{
+    public function facility()
     {
         return $this->belongsTo('Survey\Facility');
     }
 
-    public function children ()
+    public function children()
     {
         return $this->hasMany('Survey\Child');
     }
 
-    public function stringType ()
+    public function stringType()
     {
-        switch ($this->type)
-        {
+        switch ($this->type) {
             case 1:
                 return 'Kindergarten';
             case 2:
                 return 'Kinderkrippe';
         }
     }
-
 }

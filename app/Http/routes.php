@@ -23,11 +23,11 @@ $monolog->pushHandler($syslog);
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('data', function(){
+Route::get('data', function () {
     return response()->download(storage_path().'/database.sqlite');
 });
 
-Route::get('env', function(){
+Route::get('env', function () {
     return app()->environment();
 });
 
@@ -39,44 +39,44 @@ Route::get('logout', 'WelcomeController@logout');
 
 Route::resource('customer', 'CustomerController');
 
-Route::resource('customer.user', 'CustomerUserController', ['except'=>'show']);
+Route::resource('customer.user', 'CustomerUserController', ['except' => 'show']);
 
 Route::resource('customer.survey', 'CustomerSurveyController');
 
-Route::get('customer/{customer}/survey/{survey}/send-welcome',['as' => 'customer.survey.sendWelcome', 'uses' => 'CustomerSurveyController@sendWelcome']);
+Route::get('customer/{customer}/survey/{survey}/send-welcome', ['as' => 'customer.survey.sendWelcome', 'uses' => 'CustomerSurveyController@sendWelcome']);
 
-Route::get('customer/{customer}/survey/{survey}/analyze/{result}',['as' => 'customer.survey.analyze', 'uses' => 'CustomerSurveyController@analyze']);
+Route::get('customer/{customer}/survey/{survey}/analyze/{result}', ['as' => 'customer.survey.analyze', 'uses' => 'CustomerSurveyController@analyze']);
 
-Route::get('customer/{customer}/survey/{survey}/result/standard/{result}',['as' => 'customer.survey.result.standard', 'uses' => 'CustomerSurveyResultController@standard']);
+Route::get('customer/{customer}/survey/{survey}/result/standard/{result}', ['as' => 'customer.survey.result.standard', 'uses' => 'CustomerSurveyResultController@standard']);
 
-Route::get('customer/{customer}/survey/{survey}/result/excel/{result}',['as' => 'customer.survey.result.table', 'uses' => 'CustomerSurveyResultController@excel']);
+Route::get('customer/{customer}/survey/{survey}/result/excel/{result}', ['as' => 'customer.survey.result.table', 'uses' => 'CustomerSurveyResultController@excel']);
 
-Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except'=>'show']);
+Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except' => 'show']);
 
-Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate',['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);
+Route::get('customer/{customer}/questionnaire/{questionnaire}/duplicate', ['as' => 'customer.questionnaire.duplicate', 'uses' => 'CustomerQuestionnaireController@duplicate']);
 
-Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController', ['except'=>'show']);
+Route::resource('customer.questionnaire.section', 'CustomerQuestionnaireSectionController', ['except' => 'show']);
 
-Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestionnaireSectionQuestiongroupController', ['except'=>'show']);
+Route::resource('customer.questionnaire.section.questiongroup', 'CustomerQuestionnaireSectionQuestiongroupController', ['except' => 'show']);
 
-Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}/questiongroup/order',['as' => 'customer.questionnaire.section.questiongroup.order', 'uses' => 'CustomerQuestionnaireSectionQuestiongroupController@order']);
+Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}/questiongroup/order', ['as' => 'customer.questionnaire.section.questiongroup.order', 'uses' => 'CustomerQuestionnaireSectionQuestiongroupController@order']);
 
 //Route::resource('customer.questionnaire.section.questiongroup.question', 'CustomerQuestionnaireSectionQuestiongroupQuestionController', ['only'=>['index', 'destroy']]);
 
-Route::resource('customer.iteration', 'CustomerIterationController', ['except'=>'show']);
+Route::resource('customer.iteration', 'CustomerIterationController', ['except' => 'show']);
 
-Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except'=>'show']);
+Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except' => 'show']);
 
-Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController', ['except'=>'show']);
+Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController', ['except' => 'show']);
 
-Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController', ['except'=>'show']);
+Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController', ['except' => 'show']);
 
-Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/multi',['as' => 'customer.iteration.facility.group.child.multi', 'uses' => 'CustomerIterationFacilityGroupChildController@multi']);
+Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/multi', ['as' => 'customer.iteration.facility.group.child.multi', 'uses' => 'CustomerIterationFacilityGroupChildController@multi']);
 
-Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany',['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
+Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany', ['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
 
 Route::resource('mail', 'MailController');
 
-Route::get('/survey/{survey}/token/{key}',['as' => 'survey.token.key', 'uses' => 'TokenController@key']);
+Route::get('/survey/{survey}/token/{key}', ['as' => 'survey.token.key', 'uses' => 'TokenController@key']);
 
-Route::post('/survey/{survey}/token/{token}',['as' => 'survey.token.answer', 'uses' => 'TokenController@answer']);
+Route::post('/survey/{survey}/token/{token}', ['as' => 'survey.token.answer', 'uses' => 'TokenController@answer']);

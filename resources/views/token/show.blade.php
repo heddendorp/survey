@@ -10,10 +10,10 @@
                         <legend>{{$questiongroup['heading']}}</legend>
                         @if($questiongroup['type'] == 2)
                             <div class="uk-flex">
+                                <input type="hidden" name="answer[{{$questiongroup['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                 @foreach($questiongroup['questions'] as $question)
                                     <label class="uk-margin-right">
                                         <input type="radio" name="answer[{{$questiongroup['id']}}][answer]" value="{{$question['id']}}"/>
-                                        <input type="hidden" name="answer[{{$questiongroup['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                         {{$question['content']}}
                                     </label>
                                 @endforeach
@@ -51,6 +51,7 @@
                                     </div>
                                 </div>
                                 @foreach($questiongroup['questions'] as $question)
+                                    <input type="hidden" name="answer[{{$question['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                     <div class="uk-width-1-1">
                                         <div class="uk-grid">
                                             <div class="uk-width-1-3">
@@ -60,7 +61,6 @@
                                                 <div class="uk-grid">
                                                     <div class="uk-width-1-6">
                                                         <input type="radio" name="answer[{{$question['id']}}][answer]" value="1"/>
-                                                        <input type="hidden" name="answer[{{$question['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                                     </div>
                                                     <div class="uk-width-1-6">
                                                         <input type="radio" name="answer[{{$question['id']}}][answer]" value="2"/>
