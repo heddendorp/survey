@@ -10,13 +10,13 @@
 @if(isset($sections))
     <li><a href="{{route('customer.questionnaire.section.create', [$customer, $questionnaire])}}"><i class="uk-icon-file uk-text-success"></i>&nbsp;Neue Sektion</a></li>
 @endif
-@if(isset($questiongroups) || (empty($sections) && isset($section)))
+@if(isset($questiongroups) && isset($questionnaire) || (empty($sections) && isset($section) && isset($questionnaire)))
     <li><a href="{{route('customer.questionnaire.section.index', [$customer, $questionnaire])}}"><i class="uk-icon-tags"></i>&nbsp;Alle Sektionen</a></li>
 @endif
 @if(isset($questiongroups))
     <li><a href="{{route('customer.questionnaire.section.questiongroup.create', [$customer, $questionnaire, $section])}}"><i class="uk-icon-file uk-text-success"></i>&nbsp;Neue Frage</a></li>
 @endif
-@if(empty($questiongroups) && isset($questiongroup))
+@if(empty($questiongroups) && isset($questiongroup) && isset($questionnaire))
     <li><a href="{{route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section])}}"><i class="uk-icon-sitemap"></i>&nbsp;Alle Fragen</a></li>
 @endif
 @if(isset($iterations))

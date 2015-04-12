@@ -31,7 +31,7 @@
                         <h3>{{$section['name']}}</h3>
                         <div class="uk-grid">
                             @foreach($section['questiongroups'] as $questiongroup)
-                                <div class="uk-width-1-2">
+                                <div class="uk-width-1-1">
                                     <h4>{{$questiongroup['name']}}</h4>
                                     <div class="uk-grid">
                                         @if($questiongroup['type'] == 1)
