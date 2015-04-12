@@ -5,16 +5,9 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.iteration.create', $customer)}}"><i class="fa fa-plus"></i> Iteration Hinzufügen</a></li>
-    <li class="uk-nav-divider"></li>
-    <li class="uk-parent">
-        <a href="#"><i class="fa fa-info-circle"></i>Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p>Iterationen werden dazu genutzt mehrere Sets von Teilnehmern zu unterscheiden, z.B. wenn sich jährlich die Gruppenbelegungen ändern. Hier werden alle aktuell gespeicherten Iterationen aufgelistet.</p></li>
-        </ul>
-    </li>
+@section('helptext')
+  Iterationen werden dazu genutzt mehrere Sets von Teilnehmern zu unterscheiden, z.B. wenn sich jährlich die Gruppenbelegungen ändern.
+  Hier werden alle aktuell gespeicherten Iterationen aufgelistet.
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

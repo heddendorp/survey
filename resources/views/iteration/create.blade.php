@@ -5,16 +5,8 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.iteration.index', $customer)}}"><i class="fa fa-database"></i> Alle Iterationen</a></li>
-    <li class="uk-nav-divider"></li>
-    <li class="uk-parent">
-        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p></p></li>
-        </ul>
-    </li>
+@section('helptext')
+    Kein Hilfetext
 @stop
 @section('content')
     <div class="uk-container uk-container-center">

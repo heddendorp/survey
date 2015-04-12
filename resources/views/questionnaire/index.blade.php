@@ -5,16 +5,10 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
-    <li><a href="{{route('customer.show', $customer)}}"><i class="fa fa-arrow-left"></i> Zurück zu Übersicht</a></li>
-    <li><a href="{{route('customer.questionnaire.create', $customer)}}"><i class="fa fa-plus"></i> Fragebogen Hinzufügen</a></li>
-    <li class="uk-nav-divider"></li>
-    <li class="uk-parent">
-        <a href="#"><i class="fa fa-info-circle"></i> Hilfe zu diesem Fenster</a>
-        <ul class="uk-nav-sub">
-            <li><p>Hier werden alle Fragebögen aufgelistet die im Moment im Account ihrer Firma gespeichert sind. um die Sektionenn eines Fragebogens einzusehen klicken Sie diesen an. <code>Bearbeiten</code> ermöglicht es ihnen den Name des Fragebogens zu verändern und <code>Löschen</code> entfernt ihn und alle Fragen unwiederruflich.</p></li>
-        </ul>
-    </li>
+@section('helptext')
+Hier werden alle Fragebögen aufgelistet die im Moment im Account ihrer Firma gespeichert sind.
+Um die Sektionenn eines Fragebogens einzusehen klicken Sie diesen an.
+<code>Bearbeiten</code> ermöglicht es ihnen den Name des Fragebogens zu verändern und <code>Löschen</code> entfernt ihn und alle Fragen unwiederruflich.
 @stop
 @section('content')
     <div class="uk-container uk-container-center">
