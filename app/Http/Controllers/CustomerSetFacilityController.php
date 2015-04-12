@@ -7,7 +7,7 @@ use Survey\Facility;
 use Survey\Http\Requests;
 use Survey\Iteration;
 
-class CustomerIterationFacilityController extends Controller
+class CustomerSetFacilityController extends Controller
 {
     /**
      * Instantiate a new Controller instance.

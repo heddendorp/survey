@@ -15,7 +15,7 @@
                 <tbody>
                 @forelse($sets as $set)
                     <tr>
-                        <td>{{$set->name}}</td>
+                        <td><a href="{{route('customer.set.facility.index', [$customer, $set])}}">{{$set->name}}</a></td>
                         <td>
                             <button id="launch-{{$set->id}}" class="ui labeled icon button"><i class="configure icon"></i> Bearbeiten</button>
                             <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.destroy', [$customer,$set]).'?_token='.csrf_token()}}"><i class="trash icon"></i> Löschen</a>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-@include('set._create-modal')
+    @include('set._create-modal')
     @include('set._edit-modals')
 @stop
 @section('js')

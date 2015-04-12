@@ -59,16 +59,16 @@ Route::post('customer/{customer}/questionnaire/{questionnaire}/section/{section}
 
 Route::resource('customer.set', 'CustomerSetController', ['only' => ['index', 'store', 'update', 'destroy']]);
 
-Route::resource('customer.iteration.facility', 'CustomerIterationFacilityController', ['except' => 'show']);
+Route::resource('customer.set.facility', 'CustomerSetFacilityController', ['except' => 'show']);
+/*
+Route::resource('customer.set.facility.group', 'CustomerSetFacilityGroupController', ['except' => 'show']);
 
-Route::resource('customer.iteration.facility.group', 'CustomerIterationFacilityGroupController', ['except' => 'show']);
+Route::resource('customer.set.facility.group.child', 'CustomerSetFacilityGroupChildController', ['except' => 'show']);
 
-Route::resource('customer.iteration.facility.group.child', 'CustomerIterationFacilityGroupChildController', ['except' => 'show']);
+Route::get('customer/{customer}/set/{set}/facility/{facility}/group/{group}/multi', ['as' => 'customer.set.facility.group.child.multi', 'uses' => 'CustomerSetFacilityGroupChildController@multi']);
 
-Route::get('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/multi', ['as' => 'customer.iteration.facility.group.child.multi', 'uses' => 'CustomerIterationFacilityGroupChildController@multi']);
-
-Route::post('customer/{customer}/iteration/{iteration}/facility/{facility}/group/{group}/storemany', ['as' => 'customer.iteration.facility.group.child.storemany', 'uses' => 'CustomerIterationFacilityGroupChildController@storemany']);
-
+Route::post('customer/{customer}/set/{set}/facility/{facility}/group/{group}/storemany', ['as' => 'customer.set.facility.group.child.storemany', 'uses' => 'CustomerSetFacilityGroupChildController@storemany']);
+*/
 Route::resource('mail', 'MailController');
 
 Route::get('/survey/{survey}/token/{key}', ['as' => 'survey.token.key', 'uses' => 'TokenController@key']);

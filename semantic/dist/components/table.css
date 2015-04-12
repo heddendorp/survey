@@ -23,7 +23,7 @@
   border: 1px solid #d0d0d0;
   box-shadow: none;
   border-radius: 0.25rem;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.8);
   border-collapse: separate;
   border-spacing: 0px;
 }
@@ -55,7 +55,7 @@
   cursor: auto;
   background: #f0f0f0;
   text-align: left;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
   vertical-align: middle;
   font-style: none;
@@ -86,7 +86,7 @@
   border-top: 1px solid #d4d4d5;
   background: #ffffff;
   text-align: left;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
   vertical-align: middle;
   font-style: normal;
@@ -555,28 +555,28 @@
   border-top: 0.2em solid #1b1c1d;
 }
 .ui.blue.table {
-  border-top: 0.2em solid #2196f3;
+  border-top: 0.2em solid #3b83c0;
 }
 .ui.green.table {
-  border-top: 0.2em solid #4caf50;
+  border-top: 0.2em solid #5bbd72;
 }
 .ui.orange.table {
-  border-top: 0.2em solid #ff9800;
+  border-top: 0.2em solid #e07b53;
 }
 .ui.pink.table {
-  border-top: 0.2em solid #e91e63;
+  border-top: 0.2em solid #d9499a;
 }
 .ui.purple.table {
-  border-top: 0.2em solid #9c27b0;
+  border-top: 0.2em solid #564f8a;
 }
 .ui.red.table {
-  border-top: 0.2em solid #f44336;
+  border-top: 0.2em solid #d95c5c;
 }
 .ui.teal.table {
-  border-top: 0.2em solid #1de9b6;
+  border-top: 0.2em solid #00b5ad;
 }
 .ui.yellow.table {
-  border-top: 0.2em solid #ffeb3b;
+  border-top: 0.2em solid #f2c61f;
 }
 
 /*-------------------
@@ -589,35 +589,35 @@
   color: #ffffff !important;
 }
 .ui.inverted.blue.table {
-  background-color: #2196f3 !important;
+  background-color: #3b83c0 !important;
   color: #ffffff !important;
 }
 .ui.inverted.green.table {
-  background-color: #4caf50 !important;
+  background-color: #5bbd72 !important;
   color: #ffffff !important;
 }
 .ui.inverted.orange.table {
-  background-color: #ff9800 !important;
+  background-color: #e07b53 !important;
   color: #ffffff !important;
 }
 .ui.inverted.pink.table {
-  background-color: #e91e63 !important;
+  background-color: #d9499a !important;
   color: #ffffff !important;
 }
 .ui.inverted.purple.table {
-  background-color: #9c27b0 !important;
+  background-color: #564f8a !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.table {
-  background-color: #f44336 !important;
+  background-color: #d95c5c !important;
   color: #ffffff !important;
 }
 .ui.inverted.teal.table {
-  background-color: #1de9b6 !important;
+  background-color: #00b5ad !important;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {
-  background-color: #ffeb3b !important;
+  background-color: #f2c61f !important;
   color: #ffffff !important;
 }
 
@@ -750,7 +750,7 @@
   cursor: pointer;
   white-space: nowrap;
   border-left: 1px solid #d0d0d0;
-  color: #212121;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.sortable.table thead th:first-child {
   border-left: none;
