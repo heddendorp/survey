@@ -62,9 +62,9 @@ Route::resource('customer.set', 'CustomerSetController', ['only' => ['index', 's
 Route::resource('customer.set.facility', 'CustomerSetFacilityController', ['except' => 'show']);
 
 Route::resource('customer.set.facility.group', 'CustomerSetFacilityGroupController', ['except' => 'show']);
-/*
-Route::resource('customer.set.facility.group.child', 'CustomerSetFacilityGroupChildController', ['except' => 'show']);
 
+Route::resource('customer.set.facility.group.child', 'CustomerSetFacilityGroupChildController', ['except' => 'show']);
+/*
 Route::get('customer/{customer}/set/{set}/facility/{facility}/group/{group}/multi', ['as' => 'customer.set.facility.group.child.multi', 'uses' => 'CustomerSetFacilityGroupChildController@multi']);
 
 Route::post('customer/{customer}/set/{set}/facility/{facility}/group/{group}/storemany', ['as' => 'customer.set.facility.group.child.storemany', 'uses' => 'CustomerSetFacilityGroupChildController@storemany']);

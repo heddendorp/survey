@@ -2,11 +2,12 @@
 
 namespace Survey\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Survey\Models\Customer;
 use Survey\Models\Facility;
 use Survey\Models\Group;
 use Survey\Http\Requests;
-use Survey\Models\Iteration;
+use Survey\Models\Set;
 
 class CustomerSetFacilityGroupController extends Controller
 {
@@ -33,7 +34,7 @@ class CustomerSetFacilityGroupController extends Controller
     {
         $groups = $facility->groups;
 
-        return view('group.index')->withCustomer($customer)->withSet($set)->withFacility($facility)->withGroups($groups);
+        return view('set.facility.group.index')->withCustomer($customer)->withSet($set)->withFacility($facility)->withGroups($groups);
     }
 
     /**
@@ -45,9 +46,9 @@ class CustomerSetFacilityGroupController extends Controller
      *
      * @return Response
      */
-    public function create(Customer $customer, Iteration $iteration, Facility $facility)
+    public function create(Customer $customer, Set $set, Facility $facility)
     {
-        return view('group.create')->withCustomer($customer)->withIteration($iteration)->withFacility($facility);
+        return view('set.facility.group.create')->withCustomer($customer)->withSet($set)->withFacility($facility);
     }
 
     /**
@@ -60,15 +61,16 @@ class CustomerSetFacilityGroupController extends Controller
      *
      * @return Response
      */
-    public function store(Customer $customer, Iteration $iteration, Facility $facility, Requests\FacilityRequest $request)
+    public function store(Customer $customer, Set $set, Facility $facility, Request $request)
     {
         $group = new Group();
         $group->name = $request->get('name');
         $group->type = $request->get('type');
+        //$group->facility()->associate($facility);
         $group->facility_id = $facility->id;
         $group->save();
 
-        return redirect()->route('customer.iteration.facility.group.index', [$customer, $iteration, $facility]);
+        return redirect()->route('customer.set.facility.group.index', [$customer, $set, $facility]);
     }
 
     /**
@@ -103,23 +105,22 @@ class CustomerSetFacilityGroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Customer                 $customer
-     * @param Iteration                $iteration
-     * @param Facility                 $facility
-     * @param Group                    $group
-     * @param Requests\FacilityRequest $request
-     *
+     * @param Customer $customer
+     * @param Set $set
+     * @param Facility $facility
+     * @param Group $group
+     * @param Request|Requests\FacilityRequest $request
      * @return Response
-     *
+     * @internal param Iteration $iteration
      * @internal param int $id
      */
-    public function update(Customer $customer, Iteration $iteration, Facility $facility, Group $group, Requests\FacilityRequest $request)
+    public function update(Customer $customer, Set $set, Facility $facility, Group $group, Request $request)
     {
         $group->name = $request->get('name');
         $group->type = $request->get('type');
         $group->save();
 
-        return redirect()->route('customer.iteration.facility.group.index', [$customer, $iteration, $facility]);
+        return redirect()->route('customer.set.facility.group.index', [$customer, $set, $facility]);
     }
 
     /**
@@ -134,10 +135,10 @@ class CustomerSetFacilityGroupController extends Controller
      *
      * @internal param int $id
      */
-    public function destroy(Customer $customer, Iteration $iteration, Facility $facility, Group $group)
+    public function destroy(Customer $customer, Set $set, Facility $facility, Group $group)
     {
         $group->delete();
 
-        return redirect()->route('customer.iteration.facility.group.index', [$customer, $iteration, $facility]);
+        return redirect()->route('customer.set.facility.group.index', [$customer, $set, $facility]);
     }
 }

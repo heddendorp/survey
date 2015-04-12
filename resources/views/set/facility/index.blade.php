@@ -17,7 +17,7 @@
                     <tr>
                         <td><a href="{{route('customer.set.facility.group.index', [$customer, $set, $facility])}}">{{$facility->name}}</a></td>
                         <td>
-                            <button id="launch-{{$set->id}}" class="ui labeled icon button"><i class="configure icon"></i> Bearbeiten</button>
+                            <button id="launch-{{$facility->id}}" class="ui labeled icon button"><i class="configure icon"></i> Bearbeiten</button>
                             <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.facility.destroy', [$customer,$set,$facility]).'?_token='.csrf_token()}}"><i class="trash icon"></i> Löschen</a>
                         </td>
                     </tr>
@@ -42,7 +42,7 @@
     </div>
 
     @include('set.facility._create-modal')
-    @include('set._edit-modals')
+    @include('set.facility._edit-modals')
 @stop
 @section('js')
     <script>

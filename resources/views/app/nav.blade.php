@@ -32,8 +32,12 @@ $action = str_replace('Survey\Http\Controllers\\', '', Route::getCurrentRoute()-
             <div class="ui breadcrumb">
                 <a class="section" href="{{route('customer.set.index', $customer)}}">Teilnehmer</a>
                 @if(str_contains($action,'Facility'))
-                <i class="right chevron icon divider"></i>
-                <a class="section" href="{{route('customer.set.facility.index', [$customer, $set])}}">{{$set->name}}</a>
+                    <i class="right chevron icon divider"></i>
+                    <a class="section" href="{{route('customer.set.facility.index', [$customer, $set])}}">{{$set->name}}</a>
+                @endif
+                @if(str_contains($action,'Group'))
+                    <i class="right chevron icon divider"></i>
+                    <a class="section" href="{{route('customer.set.facility.group.index', [$customer, $set, $facility])}}">{{$facility->name}}</a>
                 @endif
             </div>
         </div>

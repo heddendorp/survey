@@ -25,9 +25,9 @@ class CustomerSetFacilityController extends Controller
      * Display a listing of the resource.
      *
      * @param Customer $customer
-     * @param Set $set
-     * @return Response
+     * @param Set      $set
      *
+     * @return Response
      */
     public function index(Customer $customer, Set $set)
     {
@@ -52,14 +52,15 @@ class CustomerSetFacilityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Customer $customer
-     * @param Set $set
+     * @param Customer                         $customer
+     * @param Set                              $set
      * @param Request|Requests\FacilityRequest $request
+     *
      * @return Response
      */
     public function store(Request $request, Customer $customer, Set $set)
     {
-        $facility = new Facility;
+        $facility = new Facility();
         $facility->name = $request->get('name');
         $facility->set()->associate($set);
         $facility->save();
@@ -119,9 +120,11 @@ class CustomerSetFacilityController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Customer $customer
-     * @param Set $set
+     * @param Set      $set
      * @param Facility $facility
+     *
      * @return Response
+     *
      * @throws \Exception
      */
     public function destroy(Customer $customer, Set $set, Facility $facility)

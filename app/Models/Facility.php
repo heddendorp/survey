@@ -12,15 +12,15 @@ namespace Survey\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Survey\Models\Facility
+ * Survey\Models\Facility.
  *
- * @property integer $id 
- * @property integer $set_id 
- * @property string $name 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
- * @property-read \Survey\Models\Set $set 
- * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Group[] $groups 
+ * @property integer $id
+ * @property integer $set_id
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Survey\Models\Set $set
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Group[] $groups
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Facility whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Facility whereSetId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Facility whereName($value)

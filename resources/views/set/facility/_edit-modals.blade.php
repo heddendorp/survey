@@ -1,10 +1,10 @@
-@foreach($sets as $set)
-    <div id="edit-{{$set->id}}" class="ui modal">
+@foreach($facilities as $facility)
+    <div id="edit-{{$facility->id}}" class="ui modal">
         <div class="header">
-            {{$set->name}} bearbeiten
+            {{$facility->name}} bearbeiten
         </div>
         <div class="content">
-            {!!Form::model($set, ['class'=>'ui form', 'id'=>'form', 'method'=>'PATCH', 'route'=>['customer.set.update', $customer, $set]])!!}
+            {!!Form::model($facility, ['class'=>'ui form', 'id'=>'form', 'method'=>'PATCH', 'route'=>['customer.set.facility.update', $customer, $set, $facility]])!!}
             <div class="required field">
                 {!!Form::label('name', 'Titel')!!}
                 <div class="ui icon input">
