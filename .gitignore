@@ -14,3 +14,4 @@
 composer.lock
 _ide_helper.php
 .env
+*.tmp

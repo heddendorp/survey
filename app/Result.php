@@ -46,6 +46,11 @@ class Result extends Model
         return $this->hasMany('Survey\Answer');
     }
 
+    public function tokens()
+    {
+        return $this->hasMany('Survey\Token');
+    }
+
     public function pretty_date()
     {
         $datestr = $this->updated_at;

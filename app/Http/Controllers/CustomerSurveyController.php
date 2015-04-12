@@ -217,7 +217,7 @@ class CustomerSurveyController extends Controller
     public function sendWelcome(Customer $customer, Survey $survey)
     {
         if ($survey->welcome_mail == '') {
-            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text für die Email eingegeben!']);
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text fï¿½r die Email eingegeben!']);
         }
         foreach ($survey->tokens as $token) {
             $text = $survey->welcome_mail;
@@ -256,7 +256,7 @@ class CustomerSurveyController extends Controller
         );
 */
         $all_answers = $result->answers->groupBy('question');
-        if ($result->answers->count() < 4) {
+        if ($result->tokens()->where('finished', true)->count()<1) {
             return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurden noch keine Antworten abgegen.']);
         }
         $questions = $result->survey->questions;
@@ -309,20 +309,26 @@ class CustomerSurveyController extends Controller
                         break;
 
                     case 3:
+                        //dd($questiongroup);
                         $a = 0;
                         foreach ($questiongroup['questions'] as $question) {
                             $answers = $all_answers[$question['id']];
+                            //dd($answers);
                             $part = 0;
                             $sol = array(0, 0, 0, 0, 0, 0);
                             foreach ($answers as $answer) {
-                                $part++;
-                                $sol[$answer->answer]++;
+                                if ($answer->type == 3) {
+                                    $part++;
+                                    $sol[$answer->answer]++;
+                                }
                             }
+                            //dd($sol);
                             foreach ($sol as $key => $so) {
                                 $votes[$key]['absolut'] = $so;
                                 $votes[$key]['percent'] = ($so / $part) * 100;
                                 $votes[$key]['vote'] = $key;
                             }
+                            //dd($votes);
                             $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
                             $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
                             $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;

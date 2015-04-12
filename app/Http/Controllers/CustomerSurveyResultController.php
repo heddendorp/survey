@@ -29,7 +29,7 @@ class CustomerSurveyResultController extends Controller
      */
     public function standard(Customer $customer, Survey $survey, Result $result)
     {
-        dd($result->data);
+        //dd($result->data);
 
         return view('result.standard')->withSurvey($survey)->withCustomer($customer)->withResult($result);
     }

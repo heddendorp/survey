@@ -19,7 +19,7 @@ class TokenController extends Controller
     {
         $customer = $survey->customer;
         $token = Token::where('token', $key)->first();
-        if ($token->progress >= count($survey->questions)) {
+        if ($token->finished) {
             return view('token.finished');
         }
 
@@ -46,12 +46,12 @@ class TokenController extends Controller
             switch ($answer['type']) {
                 case 1:
                     if ($answer['answer'] == '') {
-                        exit;
+                        break;
                     }
                     $input->answer = $question;
                     $input->text = $answer['answer'];
                     $input->save();
-                    exit;
+                    break;
 
                 case 2:
                     if (array_key_exists('answer', $answer)) {
@@ -60,14 +60,15 @@ class TokenController extends Controller
                         $input->answer = 0;
                     }
                     $input->save();
-                    exit;
+                    break;
 
                 case 3:
                     $input->answer = $answer['answer'];
                     $input->save();
-                    exit;
+                    break;
 
             }
+            //dd($input);
             unset($input);
             /*if($answer['type'] == 1 && !$answer['answer'] == "" )
             {
@@ -97,6 +98,9 @@ class TokenController extends Controller
             }*/
         }
         $token->progress ++;
+        if ($token->progress >= count($survey->questions)) {
+            $token->finished = true;
+        }
         $token->save();
 
         return redirect()->route('survey.token.key', [$survey, $token->token]);

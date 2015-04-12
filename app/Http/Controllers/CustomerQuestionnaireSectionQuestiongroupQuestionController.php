@@ -2,7 +2,6 @@
 
 namespace Survey\Http\Controllers;
 
-
 class CustomerQuestionnaireSectionQuestiongroupQuestionController extends Controller
 {
     /**
