@@ -2,10 +2,12 @@
 
 namespace Survey\Http\Controllers;
 
-use Survey\Customer;
-use Survey\Facility;
+use Illuminate\Http\Request;
+use Survey\Models\Customer;
+use Survey\Models\Facility;
 use Survey\Http\Requests;
-use Survey\Iteration;
+use Survey\Models\Iteration;
+use Survey\Models\Set;
 
 class CustomerSetFacilityController extends Controller
 {
@@ -22,16 +24,16 @@ class CustomerSetFacilityController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Customer  $customer
-     * @param Iteration $iteration
-     *
+     * @param Customer $customer
+     * @param Set $set
      * @return Response
+     *
      */
-    public function index(Customer $customer, Iteration $iteration)
+    public function index(Customer $customer, Set $set)
     {
-        $facilities = $iteration->facilities;
+        $facilities = $set->facilities;
 
-        return view('facility.index')->withCustomer($customer)->withIteration($iteration)->withFacilities($facilities);
+        return view('set.facility.index')->withCustomer($customer)->withSet($set)->withFacilities($facilities);
     }
 
     /**
@@ -50,22 +52,19 @@ class CustomerSetFacilityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Customer                 $customer
-     * @param Iteration                $iteration
-     * @param Requests\FacilityRequest $request
-     *
+     * @param Customer $customer
+     * @param Set $set
+     * @param Request|Requests\FacilityRequest $request
      * @return Response
-     *
-     * @internal param Facility $facility
      */
-    public function store(Customer $customer, Iteration $iteration, Requests\FacilityRequest $request)
+    public function store(Request $request, Customer $customer, Set $set)
     {
-        $facility = new Facility();
+        $facility = new Facility;
         $facility->name = $request->get('name');
-        $facility->iteration_id = $iteration->id;
+        $facility->set()->associate($set);
         $facility->save();
 
-        return redirect()->route('customer.iteration.facility.index', [$customer, $iteration]);
+        return redirect()->route('customer.set.facility.index', [$customer, $set]);
     }
 
     /**
@@ -108,31 +107,27 @@ class CustomerSetFacilityController extends Controller
      *
      * @internal param int $id
      */
-    public function update(Customer $customer, Iteration $iteration, Facility $facility, Requests\FacilityRequest $request)
+    public function update(Customer $customer, Set $set, Facility $facility, Request $request)
     {
         $facility->name = $request->get('name');
         $facility->save();
 
-        return redirect()->route('customer.iteration.facility.index', [$customer, $iteration]);
+        return redirect()->route('customer.set.facility.index', [$customer, $set]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Customer  $customer
-     * @param Iteration $iteration
-     * @param Facility  $facility
-     *
+     * @param Customer $customer
+     * @param Set $set
+     * @param Facility $facility
      * @return Response
-     *
      * @throws \Exception
-     *
-     * @internal param int $id
      */
-    public function destroy(Customer $customer, Iteration $iteration, Facility $facility)
+    public function destroy(Customer $customer, Set $set, Facility $facility)
     {
         $facility->delete();
 
-        return redirect()->route('customer.iteration.facility.index', [$customer, $iteration]);
+        return redirect()->route('customer.set.facility.index', [$customer, $set]);
     }
 }

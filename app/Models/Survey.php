@@ -30,7 +30,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read mixed $open
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Result[] $results
  * @property-read \Survey\Models\Customer $customer
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereCustomerId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Survey whereStarted($value)

@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Survey\Facility $facility
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Child[] $children
  * @property-read mixed $stringtype
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereFacilityId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Group whereType($value)

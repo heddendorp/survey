@@ -21,7 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Survey\Models\Questionnaire $questionnaire
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Batch[] $batches
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereQuestionnaireId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Section whereName($value)

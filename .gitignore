@@ -6,5 +6,6 @@
 npm-debug.log*
 composer.lock
 _ide_helper*
+.phpstorm.meta.php
 .env
 *.tmp

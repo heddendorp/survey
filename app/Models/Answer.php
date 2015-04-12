@@ -21,7 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Survey\Models\Key $key
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Answer whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Answer whereKeyId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Answer whereQuestion($value)

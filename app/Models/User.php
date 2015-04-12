@@ -29,7 +29,6 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @property \Carbon\Carbon $updated_at
  * @property mixed $admin
  * @property-read \Survey\Models\Customer $customer
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereCustomerId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\User whereName($value)

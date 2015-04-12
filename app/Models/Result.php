@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Survey\Models\Survey $survey
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Key[] $keys
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Result whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Result whereSurveyId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Result whereGroup($value)

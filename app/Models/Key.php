@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Mail[] $mails
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Answer[] $answers
  * @property-read \Survey\Models\Result $result
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereResultId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Key whereProgress($value)

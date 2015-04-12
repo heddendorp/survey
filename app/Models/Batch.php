@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Question[] $questions
  * @property-read mixed $stringtype
  * @property-read mixed $stringcondition
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereSectionId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Batch whereType($value)

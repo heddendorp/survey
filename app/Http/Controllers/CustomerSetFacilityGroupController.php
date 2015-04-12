@@ -2,13 +2,13 @@
 
 namespace Survey\Http\Controllers;
 
-use Survey\Customer;
-use Survey\Facility;
-use Survey\Group;
+use Survey\Models\Customer;
+use Survey\Models\Facility;
+use Survey\Models\Group;
 use Survey\Http\Requests;
-use Survey\Iteration;
+use Survey\Models\Iteration;
 
-class CustomerIterationFacilityGroupController extends Controller
+class CustomerSetFacilityGroupController extends Controller
 {
     /**
      * Instantiate a new Controller instance.
@@ -29,11 +29,11 @@ class CustomerIterationFacilityGroupController extends Controller
      *
      * @return Response
      */
-    public function index(Customer $customer, Iteration $iteration, Facility $facility)
+    public function index(Customer $customer, Set $set, Facility $facility)
     {
         $groups = $facility->groups;
 
-        return view('group.index')->withCustomer($customer)->withIteration($iteration)->withFacility($facility)->withGroups($groups);
+        return view('group.index')->withCustomer($customer)->withSet($set)->withFacility($facility)->withGroups($groups);
     }
 
     /**

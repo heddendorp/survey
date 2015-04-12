@@ -21,7 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Survey\Models\Customer $customer
  * @property-read \Illuminate\Database\Eloquent\Collection|\Survey\Models\Facility[] $facilities
- *
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Set whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Set whereCustomerId($value)
  * @method static \Illuminate\Database\Query\Builder|\Survey\Models\Set whereName($value)
