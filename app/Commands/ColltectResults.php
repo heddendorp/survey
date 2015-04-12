@@ -1,6 +1,6 @@
-<?php namespace Survey\Commands;
+<?php
 
-use Survey\Commands\Command;
+namespace Survey\Commands;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -8,9 +8,9 @@ use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 use Survey\Result;
 
-class ColltectResults extends Command implements SelfHandling, ShouldBeQueued {
-
-	use InteractsWithQueue, SerializesModels;
+class ColltectResults extends Command implements SelfHandling, ShouldBeQueued
+{
+    use InteractsWithQueue, SerializesModels;
 
     protected $result;
 
@@ -19,34 +19,29 @@ class ColltectResults extends Command implements SelfHandling, ShouldBeQueued {
      *
      * @param Result $result
      */
-	public function __construct(Result $result)
-	{
-		$this->result = $result;
-	}
+    public function __construct(Result $result)
+    {
+        $this->result = $result;
+    }
 
-	/**
-	 * Execute the command.
-	 *
-	 * @return void
-	 */
-	public function handle()
-	{
+    /**
+     * Execute the command.
+     */
+    public function handle()
+    {
         $result = $this->result;
         $all_answers = $result['answers'];
         $questions = $result['questions'];
-        $i=0;
-        foreach($questions as $section)
-        {
+        $i = 0;
+        foreach ($questions as $section) {
             $data[$i]['name'] = $section['title'];
             $q = 0;
 
-            foreach ($section['questiongroups'] as $questiongroup)
-            {
+            foreach ($section['questiongroups'] as $questiongroup) {
                 $data[$i]['questiongroups'][$q]['name'] = $questiongroup['heading'];
                 $data[$i]['questiongroups'][$q]['type'] = $questiongroup['type'];
                 $data[$i]['questiongroups'][$q]['condition'] = $questiongroup['condition'];
-                switch($questiongroup['type'])
-                {
+                switch ($questiongroup['type']) {
                     case 3:
                         $a = 0;
                         foreach ($questiongroup['questions'] as $question) {
@@ -75,6 +70,5 @@ class ColltectResults extends Command implements SelfHandling, ShouldBeQueued {
         }
         $result->data = $data;
         $result->save();
-	}
-
+    }
 }

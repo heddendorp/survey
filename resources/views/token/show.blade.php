@@ -10,10 +10,10 @@
                         <legend>{{$questiongroup['heading']}}</legend>
                         @if($questiongroup['type'] == 2)
                             <div class="uk-flex">
+                                <input type="hidden" name="answer[{{$questiongroup['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                 @foreach($questiongroup['questions'] as $question)
                                     <label class="uk-margin-right">
                                         <input type="radio" name="answer[{{$questiongroup['id']}}][answer]" value="{{$question['id']}}"/>
-                                        <input type="hidden" name="answer[{{$questiongroup['id']}}][type]" value="{{$questiongroup['type']}}"/>
                                         {{$question['content']}}
                                     </label>
                                 @endforeach

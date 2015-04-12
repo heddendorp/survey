@@ -1,7 +1,8 @@
-<?php namespace Survey\Commands;
+<?php
 
-abstract class Command {
+namespace Survey\Commands;
 
-	//
-
+abstract class Command
+{
+    //
 }
