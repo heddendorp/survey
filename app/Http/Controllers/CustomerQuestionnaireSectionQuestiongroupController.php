@@ -137,14 +137,14 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller
      */
     public function update(Requests\QuestiongroupRequest $request, Customer $customer, Questionnaire $questionnaire, Section $section, Questiongroup $questiongroup)
     {
-        //dd($request->all());
-
         $questiongroup->condition = $request->get('condition');
         $questiongroup->heading = $request->get('heading');
         $questiongroup->save();
+        $inputs = $request->get('questions');
         foreach ($questiongroup->questions as $question) {
             if ($request->has('questions') && array_key_exists($question->id, $request->get('questions'))) {
-                $question->content = $request->get('questions')[$question->id];
+                $question->content = $inputs[$question->id];
+                $question->save();
             } else {
                 $question->delete();
             }
@@ -157,8 +157,6 @@ class CustomerQuestionnaireSectionQuestiongroupController extends Controller
                 $question->save();
             }
         }
-
-        return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
 
         return redirect()->route('customer.questionnaire.section.questiongroup.index', [$customer, $questionnaire, $section]);
     }
