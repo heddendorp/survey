@@ -5,7 +5,7 @@
 @section('header')
     @include('partials.nav')
 @stop
-@section('sidenav')
+@section('helptext')
 Hier sehen sie eine Auflistung aller Sektionen für <q>{{$questionnaire->title}}</q>.
 Sie stellen sich dem Teilnehmer der Umfrage als Seiten dar die er der Reihe nach beatwortet.
 Um die Fragen zu sehen die mit einer Sektion verknüpft sind, klicken Sie bitte auf den jeweiligen Namen.
