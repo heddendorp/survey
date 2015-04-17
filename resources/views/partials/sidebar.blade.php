@@ -32,7 +32,7 @@
     <li><a href="{{route('customer.iteration.facility.index', [$customer, $iteration])}}"><i class="uk-icon-tags"></i>&nbsp;Alle Standorte</a></li>
 @endif
 @if(isset($groups))
-    <li><a href="{{route('customer.iteration.facility.group.create', [$customer, $iteration])}}"><i class="uk-icon-file uk-text-success"></i>&nbsp;Neue Gruppe</a></li>
+    <li><a href="{{route('customer.iteration.facility.group.create', [$customer, $iteration, $facility])}}"><i class="uk-icon-file uk-text-success"></i>&nbsp;Neue Gruppe</a></li>
 @endif
 @if(isset($children) && isset($facilities)  || (empty($groups) && isset($group) && isset($facilities)))
     <li><a href="{{route('customer.iteration.facility.group.index', [$customer, $iteration, $facility])}}"><i class="uk-icon-users"></i>&nbsp;Alle Gruppen</a></li>
