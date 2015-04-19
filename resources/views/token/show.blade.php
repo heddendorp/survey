@@ -83,6 +83,72 @@
                                     </div>
                                 @endforeach
                             </div>
+                        @elseif($questiongroup['type'] == 4)
+                            <div class="uk-grid">
+                                <div class="uk-width-1-1">
+                                    <div class="uk-grid">
+                                        <div class="uk-width-1-3"></div>
+                                        <div class="uk-width-2-3">
+                                            <div class="uk-grid">
+                                                <div class="uk-width-1-6">
+                                                    nicht wahrscheinlich
+                                                </div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6">
+                                                    sehr wahrscheinlich
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @foreach($questiongroup['questions'] as $question)
+                                    <input type="hidden" name="answer[{{$question['id']}}][type]" value="{{$questiongroup['type']}}"/>
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-3">
+                                                {{$question['content']}}
+                                            </div>
+                                            <div class="uk-width-2-3">
+                                                <div class="uk-grid">
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="0"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="1"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="2"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="3"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="4"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="5"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="6"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="7"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="8"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="9"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         @endif
                     </fieldset>
                 </div>

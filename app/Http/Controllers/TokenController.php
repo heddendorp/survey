@@ -19,6 +19,7 @@ class TokenController extends Controller
     {
         $customer = $survey->customer;
         $token = Token::where('token', $key)->first();
+        //dd($survey->questions[$token->progress]);
         if ($token->finished) {
             return view('token.finished');
         }
@@ -66,7 +67,14 @@ class TokenController extends Controller
                     $input->answer = $answer['answer'];
                     $input->save();
                     break;
-
+                case 4:
+                    if (array_key_exists('answer', $answer)) {
+                        $input->answer = $answer['answer'];
+                    } else {
+                        $input->answer = 0;
+                    }
+                    $input->save();
+                    break;
             }
             //dd($input);
             unset($input);

@@ -335,6 +335,33 @@ class CustomerSurveyController extends Controller
                             $a++;
                         }
                         break;
+                    case 4:
+                        //dd($questiongroup);
+                        $a = 0;
+                        foreach ($questiongroup['questions'] as $question) {
+                            $answers = $all_answers[$question['id']];
+                            //dd($answers);
+                            $part = 0;
+                            $sol = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                            foreach ($answers as $answer) {
+                                if ($answer->type == 4) {
+                                    $part++;
+                                    $sol[$answer->answer]++;
+                                }
+                            }
+                            //dd($sol);
+                            foreach ($sol as $key => $so) {
+                                $votes[$key]['absolut'] = $so;
+                                $votes[$key]['percent'] = ($so / $part) * 100;
+                                $votes[$key]['vote'] = $key;
+                            }
+                            //dd($votes);
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
+                            $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;
+                            $a++;
+                        }
+                        break;
                 }
                 $q++;
             }

@@ -81,6 +81,34 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                        @elseif($questiongroup['type'] == 4)
+                                            <div class="uk-width-1-1">
+                                                <table class="uk-table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>1</th>
+                                                        <th>2</th>
+                                                        <th>3</th>
+                                                        <th>4</th>
+                                                        <th>5</th>
+                                                        <th>6</th>
+                                                        <th>7</th>
+                                                        <th>8</th>
+                                                        <th>9</th>
+                                                        <th>10</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($questiongroup['answers'] as $answer)
+                                                        <tr>
+                                                            @foreach($answer['votes'] as $vote)
+                                                                <td><span class="uk-badge">{{$vote['absolut']}}</span>&nbsp;<span class="uk-badge">{{$vote['percent']}}%</span></td>
+                                                            @endforeach
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         @endif
                                     </div>
                                     <hr class="uk-grid-divider"/>
