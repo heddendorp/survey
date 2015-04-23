@@ -90,16 +90,16 @@
                                         <div class="uk-width-1-3"></div>
                                         <div class="uk-width-2-3">
                                             <div class="uk-grid">
-                                                <div class="uk-width-1-6">
-                                                    nicht wahrscheinlich
-                                                </div>
-                                                <div class="uk-width-1-6"></div>
-                                                <div class="uk-width-1-6"></div>
-                                                <div class="uk-width-1-6"></div>
-                                                <div class="uk-width-1-6"></div>
-                                                <div class="uk-width-1-6">
-                                                    sehr wahrscheinlich
-                                                </div>
+                                                <div class="uk-width-1-10">10</div>
+                                                <div class="uk-width-1-10">9</div>
+                                                <div class="uk-width-1-10">8</div>
+                                                <div class="uk-width-1-10">7</div>
+                                                <div class="uk-width-1-10">6</div>
+                                                <div class="uk-width-1-10">5</div>
+                                                <div class="uk-width-1-10">4</div>
+                                                <div class="uk-width-1-10">3</div>
+                                                <div class="uk-width-1-10">2</div>
+                                                <div class="uk-width-1-10">1</div>
                                             </div>
                                         </div>
                                     </div>
@@ -114,40 +114,63 @@
                                             <div class="uk-width-2-3">
                                                 <div class="uk-grid">
                                                     <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="0"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="1"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="2"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="3"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="4"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="5"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="6"/>
-                                                    </div>
-                                                    <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="7"/>
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="9"/>
                                                     </div>
                                                     <div class="uk-width-1-10">
                                                         <input type="radio" name="answer[{{$question['id']}}][answer]" value="8"/>
                                                     </div>
                                                     <div class="uk-width-1-10">
-                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="9"/>
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="7"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="6"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="5"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="4"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="3"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="2"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="1"/>
+                                                    </div>
+                                                    <div class="uk-width-1-10">
+                                                        <input type="radio" name="answer[{{$question['id']}}][answer]" value="0"/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+                                <div class="uk-width-1-1">
+                                    <div class="uk-grid">
+                                        <div class="uk-width-1-3"></div>
+                                        <div class="uk-width-2-3">
+                                            <div class="uk-grid">
+                                                <div class="uk-width-1-6">
+                                                    Ja, <br/>auf jeden Fall
+                                                </div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6"></div>
+                                                <div class="uk-width-1-6">
+                                                    <div class="uk-clearfix">
+                                                        <div class="uk-float-right">
+                                                            Nein,auf keinen Fall
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @endif
                     </fieldset>

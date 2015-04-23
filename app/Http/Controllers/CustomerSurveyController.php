@@ -217,7 +217,7 @@ class CustomerSurveyController extends Controller
     public function sendWelcome(Customer $customer, Survey $survey)
     {
         if ($survey->welcome_mail == '') {
-            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text f�r die Email eingegeben!']);
+            return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text für die Email eingegeben!']);
         }
         foreach ($survey->tokens as $token) {
             $text = $survey->welcome_mail;
@@ -227,9 +227,13 @@ class CustomerSurveyController extends Controller
             $link = '<a href="'.$link.'">Fragebogen</a>';
             $text = str_replace(':link', $link, $text);
             $text = nl2br($text);
-            \Mail::queue('emails.welcome', ['text' => $text], function ($message) use ($customer, $token, $survey) {
-                $message->from($customer->info_email, $customer->name);
-                $message->to($token->email)->subject($survey->name);
+            $email = $token->email;
+            $info = $customer->info_email;
+            $name = $customer->name;
+            $sname = $survey->name;
+            \Mail::queue('emails.welcome', ['text' => $text], function ($message) use ($info, $name, $sname, $email) {
+                $message->from($info, $name);
+                $message->to($email)->subject($sname);
             });
         }
         $survey->welcomed = true;
