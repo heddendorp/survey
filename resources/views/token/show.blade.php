@@ -153,20 +153,12 @@
                                         <div class="uk-width-1-3"></div>
                                         <div class="uk-width-2-3">
                                             <div class="uk-grid">
-                                                <div class="uk-width-1-6">
-                                                    Ja, <br/>auf jeden Fall
-                                                </div>
+                                                <div class="uk-width-1-6" style="padding-right: 4%; margin-left: -2%;">Ja, auf jeden Fall</div>
                                                 <div class="uk-width-1-6"></div>
                                                 <div class="uk-width-1-6"></div>
                                                 <div class="uk-width-1-6"></div>
                                                 <div class="uk-width-1-6"></div>
-                                                <div class="uk-width-1-6">
-                                                    <div class="uk-clearfix">
-                                                        <div class="uk-float-right">
-                                                            Nein,auf keinen Fall
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <div style="margin-left: 55%;width: 67%;">Nein, auf keinen Fall</div>
                                             </div>
                                         </div>
                                     </div>

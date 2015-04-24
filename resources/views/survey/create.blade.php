@@ -45,7 +45,7 @@
                         <p class="uk-form-help-block uk-text-danger">{{$errors->first('group')}}</p>
                     </div>
                     @foreach($customer->iterations as $iteration)
-                        <div class="uk-width-1-4">
+                        <div class="uk-width-1-3">
                             <label>
                                 {{$iteration->description}}
                             </label><br/>
