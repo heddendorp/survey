@@ -72,7 +72,7 @@
                                                     <tbody>
                                                     @foreach($questiongroup['answers'] as $answer)
                                                         <tr>
-                                                            <td>{{$answer['name']}}</td>
+                                                            <td style="width: 50%">{{$answer['name']}}</td>
                                                             @foreach($answer['votes'] as $vote)
                                                                 <td><span class="uk-badge">{{$vote['absolut']}}</span>&nbsp;<span class="uk-badge">{{$vote['percent']}}%</span></td>
                                                             @endforeach

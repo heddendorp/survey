@@ -291,11 +291,14 @@ class CustomerSurveyController extends Controller
                         $part = 0;
                         $sol = array();
                         foreach ($answers as $answer) {
-                            $part++;
-                            if (isset($sol[$answer->answer])) {
-                                $sol[$answer->answer]++;
-                            } else {
-                                $sol[$answer->answer] = 1;
+                            if($answer->type == 2)
+                            {
+                                $part++;
+                                if (isset($sol[$answer->answer])) {
+                                    $sol[$answer->answer]++;
+                                } else {
+                                    $sol[$answer->answer] = 1;
+                                }
                             }
                         }
                         $res = array();
@@ -319,17 +322,32 @@ class CustomerSurveyController extends Controller
                             $answers = $all_answers[$question['id']];
                             //dd($answers);
                             $part = 0;
+                            $allparts = 0;
                             $sol = array(0, 0, 0, 0, 0, 0);
                             foreach ($answers as $answer) {
                                 if ($answer->type == 3) {
-                                    $part++;
+                                    if($answer->answer != 0)
+                                        $part++;
+                                    $allparts++;
                                     $sol[$answer->answer]++;
                                 }
                             }
                             //dd($sol);
                             foreach ($sol as $key => $so) {
                                 $votes[$key]['absolut'] = $so;
-                                $votes[$key]['percent'] = ($so / $part) * 100;
+                                if($key == 0)
+                                    $votes[$key]['percent'] = ($so / $allparts) * 100;
+                                else
+                                {
+                                    if($part == 0)
+                                    {
+                                        $votes[$key]['percent'] = 0;
+                                    }
+                                    else
+                                    {
+                                        $votes[$key]['percent'] = ($so / $part) * 100;
+                                    }
+                                }
                                 $votes[$key]['vote'] = $key;
                             }
                             //dd($votes);

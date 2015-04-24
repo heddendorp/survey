@@ -37,7 +37,7 @@
                                                 @else
                                                     <div style="border: rgba(0, 0, 0, 0.5); border-style: groove;">
                                                         <span onclick="$(this).parent('div').remove();" class="uk-close"></span>
-                                                        Es wurden noch keine Antowrten abgegeben.
+                                                        Es wurden noch keine Antworten abgegeben.
                                                     </div>
                                                 @endif
                                             @elseif($questiongroup['type'] == 2)

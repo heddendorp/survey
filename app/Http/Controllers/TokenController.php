@@ -17,6 +17,7 @@ class TokenController extends Controller
      */
     public function key(Survey $survey, $key)
     {
+        \Debugbar::disable();
         $customer = $survey->customer;
         $token = Token::where('token', $key)->first();
         //dd($survey->questions[$token->progress]);
@@ -46,6 +47,7 @@ class TokenController extends Controller
             $input->result()->associate($token->result);
             switch ($answer['type']) {
                 case 1:
+                    $answer['answer']=str_replace(' ', '', $answer['answer']);
                     if ($answer['answer'] == '') {
                         break;
                     }
