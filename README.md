@@ -6,3 +6,12 @@
 
 Now with testing!
 Now with code style analysis!
+
+## Hello people --- about v2
+
+This is the future of the project you can see a listing of things already finished down below
+* migrations and models
+* Controllers, routes and views for:
+* CustomerController
+* CustomerUserController
+* CustomerSetController
