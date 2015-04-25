@@ -58,6 +58,7 @@
                                                                             <ul class="uk-nav uk-nav-dropdown">
                                                                                 <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
                                                                                 <li><a target="_blank" href="{{route('customer.survey.result.table', [$customer, $survey, $result])}}">Tabellenansicht</a></li>
+                                                                                <li><a target="_blank" href="{{route('customer.survey.result.copy', [$customer, $survey, $result])}}">Ansicht zum kopieren</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>

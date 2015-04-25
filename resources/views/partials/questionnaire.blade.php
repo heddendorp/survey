@@ -11,7 +11,7 @@
 <div class="uk-container uk-container-center uk-margin-large-top">
     <div class="uk-grid">
         <div class="uk-width-1-4">
-            <img class="uk-responsive-width" src="{{$customer->logo}}" alt=""/>
+            <img class="uk-responsive-width uk-margin-bottom" style="max-height: 100px;" src="{{$customer->logo}}" alt="{{$customer->name}}"/>
         </div>
         <div class="uk-width-2-4">
             <h1 class="uk-margin-top" align="center">{{$survey->name}}</h1>
