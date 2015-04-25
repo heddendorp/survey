@@ -355,6 +355,7 @@ class CustomerSurveyController extends Controller
                                 }
                                 //dd($votes);
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
+                                $data[$i]['questiongroups'][$q]['answers'][$a]['allparticipants'] = $allparts;
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;
                                 $a++;
