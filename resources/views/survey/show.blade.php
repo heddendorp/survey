@@ -34,7 +34,7 @@
                     <div class="uk-grid">
                         @foreach($results as $id=>$kids)
                             <div class="uk-width-1-2">
-                                <h3>{{$survey->facilities[$id]['name']}}</h3>
+                                <h3>{{$survey->facilities[$id]['name']}}&nbsp;<small><a href="{{route('customer.survey.result.facility', [$customer, $survey, $id])}}">Ergebnis ansehen</a></small></h3>
                                 <div class="uk-grid">
                                     <div class="uk-width-1-1">
                                         <div class="ui cards">
@@ -58,6 +58,7 @@
                                                                             <ul class="uk-nav uk-nav-dropdown">
                                                                                 <li><a href="{{route('customer.survey.result.standard', [$customer, $survey, $result])}}">Standardansicht</a></li>
                                                                                 <li><a target="_blank" href="{{route('customer.survey.result.table', [$customer, $survey, $result])}}">Tabellenansicht</a></li>
+                                                                                <li><a target="_blank" href="{{route('customer.survey.result.copy', [$customer, $survey, $result])}}">Ansicht zum kopieren</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
