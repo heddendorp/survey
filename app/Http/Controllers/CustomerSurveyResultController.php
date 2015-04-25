@@ -59,6 +59,7 @@ class CustomerSurveyResultController extends Controller
      */
     public function copy(Customer $customer, Survey $survey, Result $result)
     {
+        //dd($result->data);
         return view('result.copy')->withSurvey($survey)->withCustomer($customer)->withResult($result);
     }
 
@@ -192,12 +193,13 @@ class CustomerSurveyResultController extends Controller
                             $a = 0;
                             foreach ($questiongroup['questions'] as $question) {
                                 $part = 0;
+                                $sol = [0,0,0,0,0,0,0,0,0,0];
                                 foreach($results as $result)
                                 {
                                     $part += $result->data[$i]['questiongroups'][$q]['answers'][$a]['participants'];
                                     foreach($result->data[$i]['questiongroups'][$q]['answers'][$a]['votes'] as $id => $vote)
                                     {
-                                        $sol[$id] = $vote['absolut'];
+                                        $sol[$id] += $vote['absolut'];
                                     }
                                 }
 
@@ -207,6 +209,9 @@ class CustomerSurveyResultController extends Controller
                                     $votes[$id]['percent'] = round(($so / $part) * 100, 1);
                                     $votes[$id]['vote'] = $id;
                                 }
+                                $good = $votes[9]['percent'] + $votes[8]['percent'];
+                                $bad = $votes[0]['percent'] + $votes[1]['percent'] + $votes[2]['percent'] + $votes[3]['percent'] +$votes[4]['percent'] + $votes[5]['percent'];
+                                $data[$i]['questiongroups'][$q]['mps'] = $good-$bad;
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;

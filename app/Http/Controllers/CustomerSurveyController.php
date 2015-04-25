@@ -382,6 +382,9 @@ class CustomerSurveyController extends Controller
                                     $votes[$key]['vote'] = $key;
                                 }
                                 //dd($votes);
+                                $good = $votes[9]['percent'] + $votes[8]['percent'];
+                                $bad = $votes[0]['percent'] + $votes[1]['percent'] + $votes[2]['percent'] + $votes[3]['percent'] +$votes[4]['percent'] + $votes[5]['percent'];
+                                $data[$i]['questiongroups'][$q]['mps'] = $good-$bad;
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['name'] = $question['content'];
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['votes'] = $votes;
