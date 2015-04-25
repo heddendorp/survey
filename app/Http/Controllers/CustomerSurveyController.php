@@ -311,7 +311,10 @@ class CustomerSurveyController extends Controller
                                 }
                                 $res[$a]['vote'] = $question['content'];
                                 $res[$a]['absolut'] = $sol[$question['id']];
-                                $res[$a]['percent'] = round(($sol[$question['id']]/$part)*100, 1);
+                                if($part == 0)
+                                    $res[$a]['percent'] = 0;
+                                else
+                                    $res[$a]['percent'] = round(($sol[$question['id']]/$part)*100, 1);
                                 $a++;
                             }
                             $data[$i]['questiongroups'][$q]['answers'] = $res;
