@@ -38,6 +38,7 @@
     <li><a href="{{route('customer.iteration.facility.group.index', [$customer, $iteration, $facility])}}"><i class="uk-icon-users"></i>&nbsp;Alle Gruppen</a></li>
 @endif
 @if(isset($children))
+    <li><a href="{{route('customer.iteration.facility.group.index', [$customer, $iteration, $facility])}}"><i class="uk-icon-users"></i>&nbsp;Alle Gruppen</a></li>
     <li><a href="{{route('customer.iteration.facility.group.child.create', [$customer, $iteration, $facility, $group])}}"><i class="uk-icon-user-plus uk-text-success"></i>&nbsp;Kind Hinzufügen</a></li>
     <li><a href="{{route('customer.iteration.facility.group.child.multi', [$customer, $iteration, $facility, $group])}}"><i class="uk-icon-database uk-text-success"></i>&nbsp;Mehrere Kinder hinzufügen</a></li>
 @endif
