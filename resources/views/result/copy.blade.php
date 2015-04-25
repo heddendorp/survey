@@ -22,13 +22,13 @@
                                     <div class="uk-grid" style="page-break-inside: avoid;">
                                         <div class="uk-width-1-1">
                                             @if($questiongroup['type'] == 1)
-                                                    <strong>{{$questiongroup['name']}}</strong><br/>
+                                                <strong>{{$questiongroup['name']}}</strong><br/>
                                                 @if(isset($questiongroup['answers']))
                                                     @foreach($questiongroup['answers'] as $answer)
-                                                    <div style="border: rgba(0, 0, 0, 0.5); border-style: groove;">
-                                                        <span onclick="$(this).parent('div').remove();" class="uk-close"></span>
-                                                        {{$answer}}
-                                                    </div><br/>
+                                                        <div style="border: rgba(0, 0, 0, 0.5); border-style: groove;">
+                                                            <span onclick="$(this).parent('div').remove();" class="uk-close"></span>
+                                                            {{$answer}}
+                                                        </div><br/>
                                                     @endforeach
                                                 @endif
                                             @elseif($questiongroup['type'] == 2)
@@ -71,6 +71,37 @@
                                                     </tbody>
                                                     </thead>
                                                 </table>
+                                            @elseif($questiongroup['type'] == 4)
+                                                <table border="1" class="uk-table uk-float-right">
+                                                    <thead>
+                                                    <tr>
+                                                        <th colspan="2">1</th>
+                                                        <th colspan="2">2</th>
+                                                        <th colspan="2">3</th>
+                                                        <th colspan="2">4</th>
+                                                        <th colspan="2">5</th>
+                                                        <th colspan="2">6</th>
+                                                        <th colspan="2">7</th>
+                                                        <th colspan="2">8</th>
+                                                        <th colspan="2">9</th>
+                                                        <th colspan="2">10</th>
+                                                    </tr>
+                                                    <tbody>
+                                                    @foreach($questiongroup['answers'] as $answer)
+                                                        <tr>
+                                                            @foreach($answer['votes'] as $vote)
+                                                                <td>{{$vote['absolut']}}</td>
+                                                                <td>{{$vote['percent']}}%</td>
+                                                            @endforeach
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td colspan="20">MPS={{$questiongroup['mps']}}%</td>
+                                                    </tr>
+                                                    </tbody>
+                                                    </thead>
+                                                </table>
+
                                             @endif
                                         </div>
                                     </div>

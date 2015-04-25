@@ -94,26 +94,29 @@
                                                 <table class="uk-table">
                                                     <thead>
                                                     <tr>
-                                                        <th>1</th>
-                                                        <th>2</th>
-                                                        <th>3</th>
-                                                        <th>4</th>
-                                                        <th>5</th>
-                                                        <th>6</th>
-                                                        <th>7</th>
-                                                        <th>8</th>
-                                                        <th>9</th>
-                                                        <th>10</th>
+                                                        <th colspan="2">1</th>
+                                                        <th colspan="2">2</th>
+                                                        <th colspan="2">3</th>
+                                                        <th colspan="2">4</th>
+                                                        <th colspan="2">5</th>
+                                                        <th colspan="2">6</th>
+                                                        <th colspan="2">7</th>
+                                                        <th colspan="2">8</th>
+                                                        <th colspan="2">9</th>
+                                                        <th colspan="2">10</th>
                                                     </tr>
-                                                    </thead>
                                                     <tbody>
                                                     @foreach($questiongroup['answers'] as $answer)
                                                         <tr>
                                                             @foreach($answer['votes'] as $vote)
-                                                                <td><span class="uk-badge">{{$vote['absolut']}}</span>&nbsp;<span class="uk-badge">{{$vote['percent']}}%</span></td>
+                                                                <td>{{$vote['absolut']}}</td>
+                                                                <td>{{$vote['percent']}}%</td>
                                                             @endforeach
                                                         </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td colspan="20">MPS={{$questiongroup['mps']}}%</td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
