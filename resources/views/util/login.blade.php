@@ -5,17 +5,17 @@
         <div class="column">
             <div class="ui green segment">
                 {!!Form::open(array('action'=>'WelcomeController@authenticate','class'=>'ui form'))!!}
-                <h4 class="ui dividing header">Login</h4>
+                <h4 class="ui dividing header">{{ trans('if.app.login') }}</h4>
                 <div class="two fields">
                     <div class="required field">
-                        {!!Form::label('email', 'Email-Adresse')!!}
+                        {!!Form::label('email', trans('if.app.email'))!!}
                         <div class="ui icon input">
                             {!!Form::email('email', null, ['placeholder'=>'beispiel@gmail.com'])!!}
                             <i class="mail icon"></i>
                         </div>
                     </div>
                     <div class="required field">
-                        {!!Form::label('password','Passwort')!!}
+                        {!!Form::label('password',trans('if.app.pass'))!!}
                         <div class="ui icon input">
                             {!!Form::password('password')!!}
                             <i class="lock icon"></i>
@@ -25,7 +25,7 @@
                 <div class="field">
                     <div class="ui toggle checkbox">
                         {!!Form::checkbox('remember')!!}
-                        {!!Form::label('remember', 'Angemeldet bleiben')!!}
+                        {!!Form::label('remember', trans('if.app.rem'))!!}
                     </div>
                 </div>
                 {!!Form::submit('Anmelden',array('class'=>'ui green submit button'))!!}
@@ -53,11 +53,11 @@
                         rules: [
                             {
                                 type   : 'empty',
-                                prompt : 'Bitte geben sie ihre Email ein.'
+                                prompt : {!! trans('if.user.e_req')
                             },
                             {
                                 type   : 'email',
-                                prompt : 'Email-Adresse ist nicht korrekt.'
+                                prompt : {!! trans('if.user.e_is')
                             }
                         ]
                     },
@@ -66,7 +66,7 @@
                         rules: [
                             {
                                 type   : 'empty',
-                                prompt : 'Bitte geben sie ihr Passwort ein.'
+                                prompt : {!! trans('if.user.p_req')
                             }
                         ]
                     },

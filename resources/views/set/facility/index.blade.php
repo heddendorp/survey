@@ -5,10 +5,10 @@
             <table class="ui orange striped table">
                 <thead>
                 <tr>
-                    <th colspan="2"><h3>Standorte</h3></th>
+                    <th colspan="2"><h3>{{ trans('if.set.loc') }}</h3></th>
                 </tr>
                 <tr>
-                    <th>Name</th>
+                    <th>{{ trans('if.app.name') }}</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -17,18 +17,18 @@
                     <tr>
                         <td><a href="{{route('customer.set.facility.group.index', [$customer, $set, $facility])}}">{{$facility->name}}</a></td>
                         <td>
-                            <button id="launch-{{$facility->id}}" class="ui labeled icon button"><i class="configure icon"></i> Bearbeiten</button>
-                            <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.facility.destroy', [$customer,$set,$facility]).'?_token='.csrf_token()}}"><i class="trash icon"></i> Löschen</a>
+                            <button id="launch-{{$facility->id}}" class="ui labeled icon button"><i class="configure icon"></i> {{ trans('if.app.edit') }}</button>
+                            <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.facility.destroy', [$customer,$set,$facility]).'?_token='.csrf_token()}}"><i class="trash icon"></i> {{ trans('if.app.delete') }}</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
                         <td colspan="2">
                             <h5>
-                                Keine Standorte gespeichert
+								{{ trans('if.set.saved2') }}
                             </h5>
                             <p>
-                                Um Teilnehmer hinzuzufügen erstellen sie bitte einen neuen Standort.
+								{{ trans('if.set.to_add2') }}
                             </p>
                         </td>
                     </tr>
@@ -36,7 +36,7 @@
                 </tbody>
             </table>
             <div id="launcher" class="ui right floated primary labeled icon button">
-                <i class="plus icon"></i> Neuer Standort
+                <i class="plus icon"></i> {{ trans('if.set.new2') }}
             </div>
         </div>
     </div>
@@ -61,11 +61,11 @@
                         rules: [
                             {
                                 type: 'empty',
-                                prompt: 'Bitte geben sie einen Titel ein.'
+                                prompt: {!! trans('if.set.title_req') !!}
                             },
                             {
                                 type: 'length[3]',
-                                prompt: 'Der Titel muss mindestens drei Zeichen lang sein.'
+                                prompt: {!! trans('if.set.title_len') !!}
                             }
                         ]
                     }

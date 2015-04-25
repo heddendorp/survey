@@ -56,11 +56,11 @@
                         rules: [
                             {
                                 type   : 'empty',
-                                prompt : 'Bitte geben sie ihre Email ein.'
+                                prompt : {!! trans('if.user.e_req') !!}
                             },
                             {
                                 type   : 'email',
-                                prompt : 'Email-Adresse ist nicht korrekt.'
+                                prompt : {!! trans('if.user.e_is') !!}
                             }
                         ]
                     },
@@ -69,11 +69,11 @@
                         rules: [
                             {
                                 type   : 'empty',
-                                prompt : 'Bitte geben sie einen Namen ein.'
+                                prompt : {!! trans('if.user.n_req') !!}
                             },
                             {
                                 type   : 'length[3]',
-                                prompt : 'Der Name muss mindestens drei Zeichen lang sein.'
+                                prompt : {!! trans('if.user.n_len') !!}
                             }
                         ]
                     },
@@ -82,11 +82,11 @@
                         rules: [
                             {
                                 type   : 'empty',
-                                prompt : 'Bitte geben sie ein Passwort ein.'
+                                prompt : {!! trans('if.user.p_req') !!}
                             },
                             {
                                 type   : 'length[8]',
-                                prompt : 'Das Passwort muss mindestens acht Zeichen lang sein.'
+                                prompt : {!! trans('if.user.p_len') !!}
                             }
                         ]
                     },
@@ -95,7 +95,7 @@
                         rules: [
                             {
                                 type   : 'match[password]',
-                                prompt : 'Die Passwörter müssen übereinstimmen.'
+                                prompt : {!! trans('if.user.p_mat') !!}
                             }
                         ]
                     },

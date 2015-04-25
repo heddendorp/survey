@@ -5,10 +5,10 @@
             <table class="ui orange striped table">
                 <thead>
                 <tr>
-                    <th colspan="2"><h3>Sets</h3></th>
+                    <th colspan="2"><h3>{{ trans('if.set.sets') }}</h3></th>
                 </tr>
                 <tr>
-                    <th>Name</th>
+                    <th>{{ trans('if.app.name') }}</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -17,18 +17,18 @@
                     <tr>
                         <td><a href="{{route('customer.set.facility.index', [$customer, $set])}}">{{$set->name}}</a></td>
                         <td>
-                            <button id="launch-{{$set->id}}" class="ui labeled icon button"><i class="configure icon"></i> Bearbeiten</button>
-                            <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.destroy', [$customer,$set]).'?_token='.csrf_token()}}"><i class="trash icon"></i> Löschen</a>
+                            <button id="launch-{{$set->id}}" class="ui labeled icon button"><i class="configure icon"></i> {{ trans('if.app.edit') }}</button>
+                            <a class="rest ui red labeled icon button" data-method="DELETE" href="{{route('customer.set.destroy', [$customer,$set]).'?_token='.csrf_token()}}"><i class="trash icon"></i> {{ trans('if.app.delete') }}</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
                         <td colspan="2">
                             <h5>
-                                Keine Sets gespeichert
+                                {{ trans('if.set.saved') }}
                             </h5>
                             <p>
-                                Um Teilnehmer hinzuzufügen erstellen sie bitte ein neues Set.
+                                {{ trans('if.set.to_add') }}
                             </p>
                         </td>
                     </tr>
@@ -36,7 +36,7 @@
                 </tbody>
             </table>
             <div id="launcher" class="ui right floated primary labeled icon button">
-                <i class="plus icon"></i> Neues Set
+                <i class="plus icon"></i> {{ trans('if.set.new') }}
             </div>
         </div>
     </div>
@@ -60,11 +60,11 @@
                         rules: [
                             {
                                 type: 'empty',
-                                prompt: 'Bitte geben sie einen Titel ein.'
+                                prompt: {!! trans('if.set.title_req') !!}
                             },
                             {
                                 type: 'length[3]',
-                                prompt: 'Der Titel muss mindestens drei Zeichen lang sein.'
+                                prompt: {!! trans('if.set.title_len') !!}
                             }
                         ]
                     }
