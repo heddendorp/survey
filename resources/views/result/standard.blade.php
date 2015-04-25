@@ -52,21 +52,28 @@
                                                     {{$answer['vote']}}
                                                 </div>
                                                 <div class="uk-width-1-2">
-                                                    <span class="uk-badge">{{$answer['absolut']}}</span>&nbsp;<span class="uk-badge">{{$answer['percent']}}%</span>
+                                                    <div class="uk-grid">
+                                                        <div class="uk-with-1-10">
+                                                            {{$answer['absolut']}}
+                                                        </div>
+                                                        <div class="uk-width-1-10">
+                                                            {{$answer['percent']}}%
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             @endforeach
                                         @elseif($questiongroup['type'] == 3)
                                             <div class="uk-width-1-1">
-                                                <table class="uk-table">
+                                                <table class="uk-table uk-table-hover">
                                                     <thead>
                                                     <tr>
                                                         <th>Option</th>
-                                                        <th>Enthaltung</th>
-                                                        <th>1</th>
-                                                        <th>2</th>
-                                                        <th>3</th>
-                                                        <th>4</th>
-                                                        <th>5</th>
+                                                        <th colspan="2">Enthaltung</th>
+                                                        <th colspan="2">1</th>
+                                                        <th colspan="2">2</th>
+                                                        <th colspan="2">3</th>
+                                                        <th colspan="2">4</th>
+                                                        <th colspan="2">5</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -74,7 +81,8 @@
                                                         <tr>
                                                             <td style="width: 50%">{{$answer['name']}}</td>
                                                             @foreach($answer['votes'] as $vote)
-                                                                <td><span class="uk-badge">{{$vote['absolut']}}</span>&nbsp;<span class="uk-badge">{{$vote['percent']}}%</span></td>
+                                                                <td>{{$vote['absolut']}}</td>
+                                                                <td>{{$vote['percent']}}%</td>
                                                             @endforeach
                                                         </tr>
                                                     @endforeach

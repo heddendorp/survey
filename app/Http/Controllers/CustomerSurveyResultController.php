@@ -119,7 +119,7 @@ class CustomerSurveyResultController extends Controller
                             {
                                 $part += $result->data[$i]['questiongroups'][$q]['participants'];
                             }
-                            $sol = array();
+                            $sol = array_fill(0, count($results[0]->data[$i]['questiongroups'][$q]['answers']), 0);
                             foreach ($results as $result)
                             {
                                 $answers = $result->data[$i]['questiongroups'][$q]['answers'];
@@ -131,11 +131,12 @@ class CustomerSurveyResultController extends Controller
                                         $sol[$id]=$answer['absolut'];
                                 }
                             }
+
                             foreach ($sol as $id=>$so)
                             {
                                 $res[$id]['vote']= $results[0]->data[$i]['questiongroups'][$q]['answers'][$id]['vote'];
                                 $res[$id]['absolut'] = $so;
-                                $res[$id]['percent'] = ($so/$part)*100;
+                                $res[$id]['percent'] = round(($so/$part)*100, 1);
                             }
                             $data[$i]['questiongroups'][$q]['answers'] = $res;
                             $data[$i]['questiongroups'][$q]['participants'] = $part;
@@ -166,7 +167,7 @@ class CustomerSurveyResultController extends Controller
                                 {
                                     $votes[$id]['absolut'] = $so;
                                     if($id == 0)
-                                        $votes[$id]['percent'] = ($so / $allparts) * 100;
+                                        $votes[$id]['percent'] = round(($so / $allparts) * 100, 1);
                                     else
                                     {
                                         if($part == 0)
@@ -175,7 +176,7 @@ class CustomerSurveyResultController extends Controller
                                         }
                                         else
                                         {
-                                            $votes[$id]['percent'] = ($so / $part) * 100;
+                                            $votes[$id]['percent'] = round(($so / $part) * 100, 1);
                                         }
                                     }
                                     $votes[$id]['vote'] = $id;
@@ -203,7 +204,7 @@ class CustomerSurveyResultController extends Controller
                                 foreach($sol as $id=>$so)
                                 {
                                     $votes[$id]['absolut'] = $so;
-                                    $votes[$id]['percent'] = ($so / $part) * 100;
+                                    $votes[$id]['percent'] = round(($so / $part) * 100, 1);
                                     $votes[$id]['vote'] = $id;
                                 }
                                 $data[$i]['questiongroups'][$q]['answers'][$a]['participants'] = $part;
@@ -213,6 +214,8 @@ class CustomerSurveyResultController extends Controller
                             }
                             break;
                     }
+                    unset($res);
+                    unset($votes);
                     $q++;
                 }
             }
