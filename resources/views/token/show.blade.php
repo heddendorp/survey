@@ -159,7 +159,7 @@
                                                     <div class="uk-width-1-6"></div>
                                                     <div class="uk-width-1-6"></div>
                                                     <div class="uk-width-1-6"></div>
-                                                    <div style="margin-left: 55%;width: 67%;">Nein, auf keinen Fall</div>
+                                                    <div class="uk-width-1-6" style="margin-left: 5%;width: 13%;">Nein, auf keinen Fall</div>
                                                 </div>
                                             </div>
                                         </div>
