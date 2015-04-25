@@ -1,7 +1,7 @@
 @extends('app.main')
 @section('body')
     <div style="margin-top: 12em;"></div>
-    <div class="ui four column centered grid">
+    <div class="ui two column centered grid">
         <div class="column">
             <div class="ui green segment">
                 {!!Form::open(array('action'=>'WelcomeController@authenticate','class'=>'ui form'))!!}
