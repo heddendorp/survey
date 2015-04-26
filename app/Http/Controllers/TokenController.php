@@ -48,7 +48,6 @@ class TokenController extends Controller
             $input->result()->associate($token->result);
             switch ($answer['type']) {
                 case 1:
-                    $answer['answer']=str_replace(' ', '', $answer['answer']);
                     if ($answer['answer'] == '') {
                         break;
                     }
@@ -65,7 +64,6 @@ class TokenController extends Controller
                     }
                     $input->save();
                     break;
-
                 case 3:
                     $input->answer = $answer['answer'];
                     $input->save();

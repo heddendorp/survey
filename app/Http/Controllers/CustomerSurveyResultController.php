@@ -147,22 +147,17 @@ class CustomerSurveyResultController extends Controller
                             //dd($questiongroup);
                             $a = 0;
                             foreach ($questiongroup['questions'] as $question) {
-
+                                $sol=[0,0,0,0,0,0];
                                 $part=0;
                                 $allparts=0;
                                 foreach ($results as $id=>$result) {
-                                    if(($questiongroup['condition'] == 1) || ($questiongroup['condition'] == 2 && $result->type == 2) || ($questiongroup['condition'] == 3 && $result->type == 1))
+                                    if(isset($result->data[$i]['questiongroups'][$q]))
                                     {
                                         $part+= $result->data[$i]['questiongroups'][$q]['answers'][$a]['participants'];
                                         $allparts += $result->data[$i]['questiongroups'][$q]['answers'][$a]['allparticipants'];
-                                        $sol = array();
                                         foreach($result->data[$i]['questiongroups'][$q]['answers'][$a]['votes'] as $id=>$vote)
                                         {
-                                            if(isset($sol[$id]))
                                                 $sol[$id] += $vote['absolut'];
-                                            else
-                                                $sol[$id] = $vote['absolut'];
-
                                         }
                                     }
                                 }
@@ -222,6 +217,7 @@ class CustomerSurveyResultController extends Controller
                             }
                             break;
                     }
+                    unset($sol);
                     unset($res);
                     unset($votes);
                     $q++;
