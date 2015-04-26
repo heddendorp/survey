@@ -230,6 +230,6 @@ class CustomerSurveyResultController extends Controller
         $result=$results[0];
         $result->group_name = $customer->name;
         $result->data = $data;
-        return view('result.standard')->withSurvey($survey)->withCustomer($customer)->withResult($result);
+        return view('result.copy')->withSurvey($survey)->withCustomer($customer)->withResult($result);
     }
 }
