@@ -77,9 +77,9 @@ class CustomerSurveyResultController extends Controller
         $results = Result::whereFacility($id)->whereSurveyId($survey->id)->get();
         $kiga = false;
         $kikr = false;
-        foreach($results as $result)
+        foreach($results as $id=>$result)
         {
-            $result->type = $survey->groups[$result->group]['type'];
+            $results[$id]->type = $survey->groups[$result->group]['type'];
             if($result->type == 1)
                 $kiga = true;
             else
@@ -150,17 +150,20 @@ class CustomerSurveyResultController extends Controller
 
                                 $part=0;
                                 $allparts=0;
-                                foreach ($results as $result) {
-                                    $part+= $result->data[$i]['questiongroups'][$q]['answers'][$a]['participants'];
-                                    $allparts += $result->data[$i]['questiongroups'][$q]['answers'][$a]['allparticipants'];
-                                    $sol = array();
-                                    foreach($result->data[$i]['questiongroups'][$q]['answers'][$a]['votes'] as $id=>$vote)
+                                foreach ($results as $id=>$result) {
+                                    if(($questiongroup['condition'] == 1) || ($questiongroup['condition'] == 2 && $result->type == 2) || ($questiongroup['condition'] == 3 && $result->type == 1))
                                     {
-                                        if(isset($sol[$id]))
-                                            $sol[$id] += $vote['absolut'];
-                                        else
-                                            $sol[$id] = $vote['absolut'];
+                                        $part+= $result->data[$i]['questiongroups'][$q]['answers'][$a]['participants'];
+                                        $allparts += $result->data[$i]['questiongroups'][$q]['answers'][$a]['allparticipants'];
+                                        $sol = array();
+                                        foreach($result->data[$i]['questiongroups'][$q]['answers'][$a]['votes'] as $id=>$vote)
+                                        {
+                                            if(isset($sol[$id]))
+                                                $sol[$id] += $vote['absolut'];
+                                            else
+                                                $sol[$id] = $vote['absolut'];
 
+                                        }
                                     }
                                 }
 
