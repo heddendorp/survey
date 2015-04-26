@@ -53,7 +53,7 @@ Route::get('customer/{customer}/survey/{survey}/result/excel/{result}', ['as' =>
 
 Route::get('customer/{customer}/survey/{survey}/result/copy/{result}', ['as' => 'customer.survey.result.copy', 'uses' => 'CustomerSurveyResultController@copy']);
 
-Route::get('customer/{customer}/survey/{survey}/result/facility/{id}', ['as' => 'customer.survey.result.facility', 'uses' => 'CustomerSurveyResultController@facility']);
+Route::get('customer/{customer}/survey/{survey}/result/facility/{id}/{view}', ['as' => 'customer.survey.result.facility', 'uses' => 'CustomerSurveyResultController@facility']);
 
 Route::resource('customer.questionnaire', 'CustomerQuestionnaireController', ['except' => 'show']);
 
