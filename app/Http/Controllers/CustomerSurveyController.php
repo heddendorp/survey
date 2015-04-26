@@ -395,8 +395,8 @@ class CustomerSurveyController extends Controller
                             }
                             break;
                     }
-                    $q++;
                 }
+                $q++;
             }
             $i++;
         }

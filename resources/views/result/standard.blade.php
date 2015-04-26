@@ -36,11 +36,13 @@
                                     <div class="uk-grid">
                                         @if($questiongroup['type'] == 1)
                                             @if(isset($questiongroup['answers']))
-                                                @foreach($questiongroup['answers'] as $answer)
-                                                    <div class="uk-width-1-1">
-                                                        <span>{{$answer}}</span>
+                                                <div class="uk-width-1-1">
+                                                    <div class="uk-clearfix">
+                                                        @foreach($questiongroup['answers'] as $answer)
+                                                            <p>{{$answer}}</p>
+                                                        @endforeach
                                                     </div>
-                                                @endforeach
+                                                </div>
                                             @else
                                                 <div class="uk-width-1-1">
                                                     <span>Es wurden keine Antworten abgegeben.</span>
