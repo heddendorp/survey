@@ -314,7 +314,7 @@ class CustomerSurveyController extends Controller
                                 if($part == 0)
                                     $res[$a]['percent'] = 0;
                                 else
-                                    $res[$a]['percent'] = round(($sol[$question['id']]/$part)*100, 1);
+                                    $res[$a]['percent'] = round(($sol[$question['id']]/$part)*100);
                                 $a++;
                             }
                             $data[$i]['questiongroups'][$q]['answers'] = $res;
@@ -342,7 +342,7 @@ class CustomerSurveyController extends Controller
                                 foreach ($sol as $key => $so) {
                                     $votes[$key]['absolut'] = $so;
                                     if($key == 0)
-                                        $votes[$key]['percent'] = round(($so / $allparts) * 100, 1);
+                                        $votes[$key]['percent'] = round(($so / $allparts) * 100);
                                     else
                                     {
                                         if($part == 0)
@@ -351,7 +351,7 @@ class CustomerSurveyController extends Controller
                                         }
                                         else
                                         {
-                                            $votes[$key]['percent'] = round(($so / $part) * 100, 1);
+                                            $votes[$key]['percent'] = round(($so / $part) * 100);
                                         }
                                     }
                                     $votes[$key]['vote'] = $key;
@@ -381,7 +381,7 @@ class CustomerSurveyController extends Controller
                                 //dd($sol);
                                 foreach ($sol as $key => $so) {
                                     $votes[$key]['absolut'] = $so;
-                                    $votes[$key]['percent'] = round(($so / $part) * 100, 1);
+                                    $votes[$key]['percent'] = round(($so / $part) * 100);
                                     $votes[$key]['vote'] = $key;
                                 }
                                 //dd($votes);

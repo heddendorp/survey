@@ -72,7 +72,7 @@ class CustomerSurveyResultController extends Controller
      * @return mixed
      *
      */
-    public function facility(Customer $customer, Survey $survey, $id)
+    public function facility(Customer $customer, Survey $survey, $id, $view)
     {
         $results = Result::whereFacility($id)->whereSurveyId($survey->id)->get();
         $kiga = false;
@@ -137,7 +137,7 @@ class CustomerSurveyResultController extends Controller
                             {
                                 $res[$id]['vote']= $results[0]->data[$i]['questiongroups'][$q]['answers'][$id]['vote'];
                                 $res[$id]['absolut'] = $so;
-                                $res[$id]['percent'] = round(($so/$part)*100, 1);
+                                $res[$id]['percent'] = round(($so/$part)*100);
                             }
                             $data[$i]['questiongroups'][$q]['answers'] = $res;
                             $data[$i]['questiongroups'][$q]['participants'] = $part;
@@ -166,7 +166,7 @@ class CustomerSurveyResultController extends Controller
                                 {
                                     $votes[$id]['absolut'] = $so;
                                     if($id == 0)
-                                        $votes[$id]['percent'] = round(($so / $allparts) * 100, 1);
+                                        $votes[$id]['percent'] = round(($so / $allparts) * 100);
                                     else
                                     {
                                         if($part == 0)
@@ -175,7 +175,7 @@ class CustomerSurveyResultController extends Controller
                                         }
                                         else
                                         {
-                                            $votes[$id]['percent'] = round(($so / $part) * 100, 1);
+                                            $votes[$id]['percent'] = round(($so / $part) * 100);
                                         }
                                     }
                                     $votes[$id]['vote'] = $id;
@@ -204,7 +204,7 @@ class CustomerSurveyResultController extends Controller
                                 foreach($sol as $id=>$so)
                                 {
                                     $votes[$id]['absolut'] = $so;
-                                    $votes[$id]['percent'] = round(($so / $part) * 100, 1);
+                                    $votes[$id]['percent'] = round(($so / $part) * 100);
                                     $votes[$id]['vote'] = $id;
                                 }
                                 $good = $votes[9]['percent'] + $votes[8]['percent'];
@@ -230,6 +230,8 @@ class CustomerSurveyResultController extends Controller
         $result=$results[0];
         $result->group_name = $customer->name;
         $result->data = $data;
-        return view('result.copy')->withSurvey($survey)->withCustomer($customer)->withResult($result);
+        if($view)
+            return view('result.copy')->withSurvey($survey)->withCustomer($customer)->withResult($result);
+        return view('result.standard')->withSurvey($survey)->withCustomer($customer)->withResult($result);
     }
 }
