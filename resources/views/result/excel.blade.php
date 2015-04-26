@@ -105,7 +105,7 @@
                                                         </tr>
                                                     @endforeach
                                                     <tr>
-                                                        <td colspan="20">MPS={{$questiongroup['mps']}}%</td>
+                                                        <td colspan="20">NPS={{$questiongroup['mps']}}%</td>
                                                     </tr>
                                                     </tbody>
                                                     </thead>
