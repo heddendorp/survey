@@ -214,13 +214,21 @@ class CustomerSurveyController extends Controller
      *
      * @internal param int $id
      */
-    public function sendWelcome(Customer $customer, Survey $survey)
+    public function sendMails(Customer $customer, Survey $survey, $type)
     {
-        if ($survey->welcome_mail == '') {
+        if($type == 1)
+        {
+            $tokens = $survey->tokens;
+            $mail = $survey->welcome_mail;
+        } elseif($type == 2) {
+            $tokens = $survey->tokens()->whereFinished(false)->get();
+            $mail = $survey->remember_mail;
+        }
+        if ($mail == '') {
             return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurde kein Text für die Email eingegeben!']);
         }
-        foreach ($survey->tokens as $token) {
-            $text = $survey->welcome_mail;
+        foreach ($tokens as $token) {
+            $text = $mail;
             $text = str_replace(':name', $token->name, $text);
             $key = $token->token;
             $link = route('survey.token.key', [$survey, $key]);
