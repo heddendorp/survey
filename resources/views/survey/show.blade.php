@@ -24,7 +24,8 @@
             <hr class="uk-grid-divider"/>
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <a class="uk-button @if($survey->welcomed) uk-button-danger @else uk-button-primary @endif uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey])}}">Mails senden @if($survey->welcomed) <strong>Achtung! Die Mails wurden bereits versandt.</strong> @endif </a>
+                    <a class="uk-button @if($survey->welcomed) uk-button-danger @else uk-button-primary @endif uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey, 1])}}">Start-Mails senden @if($survey->welcomed) <strong>Achtung! Die Mails wurden bereits versandt.</strong> @endif </a>
+                    <a class="uk-button  uk-button-primary uk-width-1-1" href="{{route('customer.survey.sendWelcome',[$customer, $survey, 2])}}">Erinnerungs-Mails senden</a>
                 </div>
             </div>
                 <hr class="uk-grid-divider"/>
@@ -34,7 +35,7 @@
                     <div class="uk-grid">
                         @foreach($results as $id=>$kids)
                             <div class="uk-width-1-2">
-                                <h3>{{$survey->facilities[$id]['name']}}&nbsp;<small><a target="_blank" href="{{route('customer.survey.result.facility', [$customer, $survey, $id, 1])}}">Excel-Ansicht</a>&nbsp;<a target="_blank" href="{{route('customer.survey.result.facility', [$customer, $survey, $id, 0])}}">Standartansicht</a></small></h3>
+                                <h3>{{$survey->facilities[$id]['name']}}&nbsp;<small><a target="_blank" href="{{route('customer.survey.result.facility', [$customer, $survey, $id, 1])}}">Excel-Ansicht</a>&nbsp;<a target="_blank" href="{{route('customer.survey.result.facility', [$customer, $survey, $id, 0])}}">Standardansicht</a></small></h3>
                                 <div class="uk-grid">
                                     <div class="uk-width-1-1">
                                         <div class="ui cards">
@@ -44,7 +45,7 @@
                                                         <div class="header">{{$survey->groups[$result->group]['name']}}</div>
                                                         <div class="meta">
                                                             @if($result->data != "")
-                                                                <span>{{$result->pretty_date()}} zuletst aktualisiert</span>
+                                                                <span>{{$result->pretty_date()}} zuletzt aktualisiert</span>
                                                             @else
                                                                 <span>Noch nicht analysiert</span>
                                                             @endif

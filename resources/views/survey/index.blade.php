@@ -36,6 +36,9 @@
                                         <dd>{{$survey->questionnaire}}</dd>
                                         <dt>Teilnehmer</dt>
                                         <dd>{{$survey->tokens->count()}}</dd>
+                                        <dt>Beteiligung</dt>
+                                        <dd>{{$survey->tokens()->whereFinished(true)->count()}}</dd>
+                                        <dd>{{round(($survey->tokens()->whereFinished(true)->count()/$survey->tokens->count())*100)}}%</dd>
                                     </dl>
                                 </div>
                                 <div class="uk-width-1-3">
