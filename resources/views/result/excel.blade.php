@@ -31,7 +31,7 @@
                                                     @foreach($questiongroup['answers'] as $answer)
                                                         @if($answer != "")
                                                             <p style="background-color: rgba(0,0,0,0.1);padding: 10px;">
-                                                                <span onclick="$(this).parent('div').remove();" class="uk-close"></span>
+                                                                <span onclick="$(this).parent('p').remove();" class="uk-close"></span>
                                                                 {{$answer}}
                                                             </p>
                                                         @endif
