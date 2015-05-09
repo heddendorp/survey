@@ -27,7 +27,7 @@
                                                     @foreach($questiongroup['answers'] as $answer)
                                                         @if($answer != "")
                                                             <p style="background-color: rgba(0,0,0,0.1);padding: 10px;">{{$answer}}</p>
-                                                        @endifK
+                                                        @endif
                                                     @endforeach
                                                 @endif
                                             @elseif($questiongroup['type'] == 2)
