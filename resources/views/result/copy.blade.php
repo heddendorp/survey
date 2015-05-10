@@ -88,7 +88,7 @@
                                                     <tbody>
                                                     @foreach($questiongroup['answers'] as $answer)
                                                         <tr>
-                                                            @foreach($answer['votes'] as $vote)
+                                                            @foreach($answer['votes'] as $thing=>$vote)
                                                                 <td>{{$vote['absolut']}}</td>
                                                                 <td>{{$vote['percent']}}%</td>
                                                             @endforeach

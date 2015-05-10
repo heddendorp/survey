@@ -71,10 +71,8 @@ class TokenController extends Controller
                 case 4:
                     if (array_key_exists('answer', $answer)) {
                         $input->answer = $answer['answer'];
-                    } else {
-                        $input->answer = 0;
+                        $input->save();
                     }
-                    $input->save();
                     break;
             }
             unset($input);
