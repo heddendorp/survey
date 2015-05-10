@@ -29,10 +29,12 @@
                                             @if($questiongroup['type'] == 1)
                                                 @if(isset($questiongroup['answers']))
                                                     @foreach($questiongroup['answers'] as $answer)
-                                                    <div style="border: rgba(0, 0, 0, 0.5); border-style: groove;">
-                                                        <span onclick="$(this).parent('div').remove();" class="uk-close"></span>
-                                                        {{$answer}}
-                                                    </div><br/>
+                                                        @if($answer != "")
+                                                            <p style="background-color: rgba(0,0,0,0.1);padding: 10px;">
+                                                                <span onclick="$(this).parent('p').remove();" class="uk-close"></span>
+                                                                {{$answer}}
+                                                            </p>
+                                                        @endif
                                                     @endforeach
                                                 @else
                                                     <div style="border: rgba(0, 0, 0, 0.5); border-style: groove;">

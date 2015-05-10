@@ -77,38 +77,12 @@ class TokenController extends Controller
                     $input->save();
                     break;
             }
-            //dd($input);
             unset($input);
-            /*if($answer['type'] == 1 && !$answer['answer'] == "" )
-            {
-                $result = new Answer;
-                $result->type = $answer['type'];
-                $result->question = $question;
-                $result->answer = $question;
-                $result->text = $answer['answer'];
-                $result->token_id = $token->id;
-                $result->survey_id = $survey->id;
-                $result->result_id = $token->result_id;
-                $result->save();
-            }
-            else
-            {
-                $result = new Answer;
-                $result->type = $answer['type'];
-                $result->question = $question;
-                $result->token_id = $token->id;
-                $result->survey_id = $survey->id;
-                if (array_key_exists('answer', $answer))
-                    $result->answer = $answer['answer'];
-                else
-                    $result->answer = 0;
-                $result->result_id = $token->result_id;
-                $result->save();
-            }*/
         }
         $token->progress ++;
         if ($token->progress >= count($survey->questions)) {
             $token->finished = true;
+            //return redirect()->route('customer.survey.analyze', [$survey->customer, $survey, $token->result]);
         }
         $token->save();
 

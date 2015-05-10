@@ -39,7 +39,9 @@
                                                 <div class="uk-width-1-1">
                                                     <div class="uk-clearfix">
                                                         @foreach($questiongroup['answers'] as $answer)
-                                                            <p>{{$answer}}</p>
+                                                            @if($answer != "")
+                                                                <p style="background-color: rgba(0,0,0,0.1);padding: 10px;">{{$answer}}</p>
+                                                            @endif
                                                         @endforeach
                                                     </div>
                                                 </div>
