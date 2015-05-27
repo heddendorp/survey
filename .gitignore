@@ -11,7 +11,6 @@
 /resources/assets/sass/uikit
 /public/css
 /public/js
-composer.lock
 _ide_helper.php
 .env
 *.tmp
