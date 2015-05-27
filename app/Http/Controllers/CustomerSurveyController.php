@@ -271,6 +271,7 @@ class CustomerSurveyController extends Controller
         if ($result->tokens()->where('finished', true)->count()<1) {
             return redirect()->route('customer.survey.show', [$customer, $survey])->withErrors(['page' => 'Es wurden noch keine Antworten abgegen.']);
         }
+        $result->touch();
         $questions = $result->survey->questions;
         $i = 0;
         $type = $survey->groups[$result->group]['type'];
