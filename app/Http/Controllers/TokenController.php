@@ -24,6 +24,7 @@ class TokenController extends Controller
         if ($token->finished) {
             return view('token.finished');
         }
+        return view('token.closed');
         $token->type = $survey->groups[$token->group]['type'];
 
         return view('token.show')->withToken($token)->withSurvey($survey)->withCustomer($customer)->withQuestions($survey->questions[$token->progress]);
