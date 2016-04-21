@@ -108,11 +108,13 @@ class CustomerIterationFacilityGroupChildController extends Controller
         unset($lines[0]);
         foreach ($lines as $line) {
             $data = str_getcsv($line, ';');
-            $child = new Child();
-            $child->group_id = $group->id;
-            $child->email = $data[1];
-            $child->name = $data[0];
-            $child->save();
+            if($data[0] != '') {
+                $child = new Child();
+                $child->group_id = $group->id;
+                $child->email = $data[1];
+                $child->name = $data[0];
+                $child->save();
+            }
         }
 
         return redirect()->route('customer.iteration.facility.group.child.index', [$customer, $iteration, $facility, $group]);
