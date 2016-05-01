@@ -113,7 +113,7 @@ class CustomerIterationFacilityGroupChildController extends Controller
                 $child->group_id = $group->id;
                 $child->email = $data[1];
                 $names = explode(' ', $data[0]);
-                unset($names[0]);
+                //unset($names[0]);
                 $child->name = join(' ', $names);;
                 $child->save();
             }
