@@ -47,7 +47,7 @@
                                             <a class="uk-button uk-button-primary uk-width-1-1" href="{{route('customer.survey.edit',[$customer, $survey])}}"><i class="fa fa-pencil"></i> Bearbeiten</a>
                                         </div>
                                         <div class="uk-width-1-1">
-                                            <a href="{{route('customer.survey.destroy', [$customer,$survey]).'?_token='.csrf_token()}}" class="rest uk-button uk-button-danger uk-width-1-1" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
+                                            <a class="rest uk-button uk-button-danger uk-width-1-1" data-method="DELETE">Löschen <i class="fa fa-trash-o"></i></a>
                                         </div>
                                     </div>
                                 </div>
